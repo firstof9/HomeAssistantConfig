@@ -1,0 +1,13 @@
+---
+alias: Switch - Turn off Lamp
+description: ""
+initial_state: true
+trigger:
+  - device_id: b08ad3d565af4d56b400814a5ec32438
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_release
+action:
+  - entity_id: light.zha_office_light
+    service: light.toggle

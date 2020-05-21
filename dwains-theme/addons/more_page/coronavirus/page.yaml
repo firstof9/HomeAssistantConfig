@@ -1,7 +1,7 @@
 # dwains_theme
 
 - type: custom:dwains-flexbox-card
-  items_classes: 'col-xs-12 col-md-6 col-lg-3 col-xl-3'
+  items_classes: "col-xs-12 col-md-6 col-lg-3 col-xl-3"
   cards:
     - type: custom:mini-graph-card
       style: |
@@ -17,7 +17,7 @@
           y_axis: secondary
       name: Worldwide
       icon: mdi:biohazard
-      line_color: 'var(--dwains-theme-accent)'
+      line_color: "var(--dwains-theme-accent)"
       hours_to_show: 168
       hour24: true
       points_per_hour: 0.25
@@ -40,7 +40,7 @@
           y_axis: secondary
       name: Australia
       icon: mdi:biohazard
-      line_color: 'var(--dwains-theme-accent)'
+      line_color: "var(--dwains-theme-accent)"
       hours_to_show: 168
       hour24: true
       points_per_hour: 0.25
@@ -60,7 +60,7 @@
           name: Cases
       name: New South Wales
       icon: mdi:biohazard
-      line_color: 'var(--dwains-theme-accent)'
+      line_color: "var(--dwains-theme-accent)"
       hours_to_show: 168
       hour24: true
       points_per_hour: 0.25
@@ -82,7 +82,7 @@
           y_axis: secondary
       name: Tamworth
       icon: mdi:biohazard
-      line_color: 'var(--dwains-theme-accent)'
+      line_color: "var(--dwains-theme-accent)"
       hours_to_show: 168
       hour24: true
       points_per_hour: 0.25
@@ -93,7 +93,7 @@
       #   extrema: false
 
 - type: custom:dwains-flexbox-card
-  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-xl-6'
+  items_classes: "col-xs-12 col-sm-6 col-sm-6 col-xl-6"
   # padding: true
   cards:
     - type: vertical-stack
@@ -133,16 +133,16 @@
               entities:
                 - entity: sensor.worldwide_confirmed
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.worldwide_current
                   name: Current
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.worldwide_recovered
                   name: Recovered
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.worldwide_deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
             - entity: sensor.new_zealand_coronavirus_confirmed
               name: New Zealand
               type: custom:multiple-entity-row
@@ -154,16 +154,16 @@
               entities:
                 - entity: sensor.new_zealand_coronavirus_confirmed
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.new_zealand_coronavirus_current
                   name: Current
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.new_zealand_coronavirus_recovered
                   name: Recovered
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.new_zealand_coronavirus_deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
             - entity: sensor.united_kingdom_coronavirus_confirmed
               name: United Kingdom
               type: custom:multiple-entity-row
@@ -175,16 +175,16 @@
               entities:
                 - entity: sensor.united_kingdom_coronavirus_confirmed
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.united_kingdom_coronavirus_current
                   name: Current
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.united_kingdom_coronavirus_recovered
                   name: Recovered
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.united_kingdom_coronavirus_deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
             - entity: sensor.us_coronavirus_confirmed
               name: United States of America
               type: custom:multiple-entity-row
@@ -196,16 +196,16 @@
               entities:
                 - entity: sensor.us_coronavirus_confirmed
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.us_coronavirus_current
                   name: Current
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.us_coronavirus_recovered
                   name: Recovered
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.us_coronavirus_deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
             - type: section
             - entity: sensor.australia_coronavirus_confirmed
               name: Australia
@@ -218,16 +218,16 @@
               entities:
                 - entity: sensor.australia_coronavirus_confirmed
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.australia_coronavirus_current
                   name: Current
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.australia_coronavirus_recovered
                   name: Recovered
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.australia_coronavirus_deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
             - entity: sensor.coronavirus_nsw
               name: New South Wales
               type: custom:multiple-entity-row
@@ -239,16 +239,16 @@
               entities:
                 - attribute: Confirmed
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - attribute: Active
                   name: Current
-                  unit: ' '
+                  unit: " "
                 - attribute: Recovered
                   name: Recovered
-                  unit: ' '
+                  unit: " "
                 - attribute: Deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
 
         - type: entities
           title: Data from NSW Health
@@ -286,15 +286,15 @@
               entities:
                 - attribute: hneh
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: hneh_percent
                   name: Cases/Pop
-                  units: ' '
+                  units: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: hneh_percent_cases
                   name: Cases/NSW
-                  units: ' '
+                  units: " "
             - entity: sensor.covid_19_nswh_local_tests
               name: Hunter New England Health Tests
               type: custom:multiple-entity-row
@@ -308,15 +308,15 @@
                 - entity: sensor.covid_19_nswh_local_tests
                   attribute: hneh
                   name: Tests
-                  units: ' '
+                  units: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: hneh_percent_casestotests
                   name: Cases/Tests
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: hneh_percent_tests
                   name: Tests/Pop
-                  unit: ' '
+                  unit: " "
             - entity: sensor.covid_19_nswh_local
               name: Tamworth Regional Council Cases
               type: custom:multiple-entity-row
@@ -329,15 +329,15 @@
               entities:
                 - attribute: trc
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: trc_percent
                   name: Cases/Pop
-                  units: ' '
+                  units: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: trc_percent_cases
                   name: Cases/NSW
-                  units: ' '
+                  units: " "
             - entity: sensor.covid_19_nswh_local_tests
               name: Tamworth Regional Council Tests
               type: custom:multiple-entity-row
@@ -351,15 +351,15 @@
                 - entity: sensor.covid_19_nswh_local_tests
                   attribute: trc
                   name: Tests
-                  units: ' '
+                  units: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: trc_percent_casestotests
                   name: Cases/Tests
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: trc_percent_tests
                   name: Tests/Pop
-                  unit: ' '
+                  unit: " "
             - entity: sensor.covid_19_nswh_local
               name: Tamworth (2340) Cases
               type: custom:multiple-entity-row
@@ -372,15 +372,15 @@
               entities:
                 - attribute: tamw
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: tamw_percent
                   name: Cases/Pop
-                  units: ' '
+                  units: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: tamw_percent_cases
                   name: Cases/NSW
-                  units: ' '
+                  units: " "
             - entity: sensor.covid_19_nswh_local_tests
               name: Tamworth (2340) Tests
               type: custom:multiple-entity-row
@@ -394,15 +394,15 @@
                 - entity: sensor.covid_19_nswh_local_tests
                   attribute: tamw
                   name: Tests
-                  units: ' '
+                  units: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: tamw_percent_casestotests
                   name: Cases/Tests
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_nswh_local_pct
                   attribute: tamw_percent_tests
                   name: Tests/Pop
-                  unit: ' '
+                  unit: " "
     - type: vertical-stack
       cards:
         - type: entities
@@ -440,13 +440,13 @@
               entities:
                 - entity: sensor.covid_19_esria_aus_cases
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_aus_deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_aus_tests
                   name: Tests
-                  unit: ' '
+                  unit: " "
             - entity: sensor.covid_19_esria_aus_pct
               name: Australia Percentages
               type: custom:multiple-entity-row
@@ -459,14 +459,14 @@
                 - entity: sensor.covid_19_esria_aus_pct
                   attribute: casestotests_percent
                   name: Cases/Tests
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_aus_pct
                   attribute: casestodeaths_percent
                   name: Deaths/Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_aus_pct
                   name: Cases/Pop
-                  unit: ' '
+                  unit: " "
             - entity: sensor.covid_19_esria_aus_pct
               name: Australia Per Million
               type: custom:multiple-entity-row
@@ -479,15 +479,15 @@
                 - entity: sensor.covid_19_esria_aus_pct
                   attribute: casespermillion
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_aus_pct
                   attribute: deathspermillion
                   name: Deaths
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_aus_pct
                   attribute: testspermillion
                   name: Tests
-                  unit: ' '
+                  unit: " "
             - type: section
             - entity: sensor.covid_19_esria_nsw
               name: New South Wales
@@ -500,13 +500,13 @@
               entities:
                 - attribute: Cases
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - attribute: Deaths
                   name: Deaths
-                  unit: ' '
+                  unit: " "
                 - attribute: Tests
                   name: Tests
-                  unit: ' '
+                  unit: " "
             - entity: sensor.covid_19_esria_nsw_pct
               name: New South Wales Percentages
               type: custom:multiple-entity-row
@@ -519,18 +519,18 @@
                 - entity: sensor.covid_19_esria_nsw_pct
                   attribute: casestotests_percent
                   name: Cases/Tests
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_nsw_pct
                   attribute: casestodeaths_percent
                   name: Deaths/Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_nsw_pct
                   name: Cases/Pop
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_nsw_pct
                   attribute: teststopopulation_percent
                   name: Tests/Pop
-                  unit: ' '
+                  unit: " "
             - entity: sensor.covid_19_esria_nsw_pct
               name: New South Wales Per Million
               type: custom:multiple-entity-row
@@ -543,15 +543,15 @@
                 - entity: sensor.covid_19_esria_nsw_pct
                   attribute: casespermillion
                   name: Cases
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_nsw_pct
                   attribute: deathspermillion
                   name: Deaths
-                  unit: ' '
+                  unit: " "
                 - entity: sensor.covid_19_esria_nsw_pct
                   attribute: testspermillion
                   name: Tests
-                  unit: ' '
+                  unit: " "
 
         - type: custom:flex-table-card
           title: State by State
@@ -570,7 +570,7 @@
           sort_by: NAME+
           clickable: true
           css:
-            table+: 'border: 0;  padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px;'
+            table+: "border: 0;  padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px;"
           entities:
             include: sensor.covid_19_esria_*
             exclude:
@@ -597,4 +597,4 @@
 
 - type: iframe
   aspect_ratio: 50%
-  url: https://nswdac-np-covid-19-postcode-heatmap.azurewebsites.net/
+  url: https://nswdac-covid-19-postcode-heatmap.azurewebsites.net/index.html

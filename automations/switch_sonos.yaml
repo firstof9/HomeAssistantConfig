@@ -1,0 +1,17 @@
+---
+alias: Switch - Turn off Sonos
+description: ""
+trigger:
+  - device_id: b08ad3d565af4d56b400814a5ec32438
+    domain: deconz
+    platform: device
+    subtype: turn_on
+    type: remote_button_short_release
+condition:
+  - condition: state
+    entity_id: media_player.bedroom_sonos
+    state: playing
+action:
+  - data: {}
+    entity_id: media_player.bedroom_sonos
+    service: media_player.media_stop

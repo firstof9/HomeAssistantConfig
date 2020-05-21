@@ -320,276 +320,204 @@ sensor:
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[1].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[1]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[1].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[1]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[1].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[1]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[1].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[1]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[1].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[1]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[1].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[1]['flag'] }}
       lovelace_plex_recent_02:
         friendly_name: Lovelace - Plex Recent 02
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[2].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[2]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[2].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[2]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[2].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[2]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[2].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[2]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[2].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[2]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[2].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[2]['flag'] }}
       lovelace_plex_recent_03:
         friendly_name: Lovelace - Plex Recent 03
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[3].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[3]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[3].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[3]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[3].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[3]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[3].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[3]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[3].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[3]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[3].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[3]['flag'] }}
       lovelace_plex_recent_04:
         friendly_name: Lovelace - Plex Recent 04
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[4].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[4]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[4].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[4]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[4].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[4]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[4].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[4]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[4].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[4]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[4].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[4]['flag'] }}
       lovelace_plex_recent_05:
         friendly_name: Lovelace - Plex Recent 05
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[5].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[5]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[5].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[5]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[5].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[5]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[5].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[5]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[5].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[5]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[5].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[5]['flag'] }}
       lovelace_plex_recent_06:
         friendly_name: Lovelace - Plex Recent 06
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[6].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[6]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[6].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[6]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[6].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[6]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[6].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[6]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[6].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[6]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[6].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[6]['flag'] }}
       lovelace_plex_recent_07:
         friendly_name: Lovelace - Plex Recent 07
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[7].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[7]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[7].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[7]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[7].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[7]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[7].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[7]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[7].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[7]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[7].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[7]['flag'] }}
       lovelace_plex_recent_08:
         friendly_name: Lovelace - Plex Recent 08
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[8].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[8]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[8].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[8]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[8].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[8]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[8].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[8]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[8].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[8]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[8].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[8]['flag'] }}
       lovelace_plex_recent_09:
         friendly_name: Lovelace - Plex Recent 09
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[9].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[9]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[9].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[9]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[9].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[9]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[9].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[9]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[9].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[9]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[9].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[9]['flag'] }}
       lovelace_plex_recent_10:
         friendly_name: Lovelace - Plex Recent 10
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[10].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[10]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[10].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[10]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[10].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[10]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[10].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[10]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[10].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[10]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[10].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[10]['flag'] }}
       lovelace_plex_recent_11:
         friendly_name: Lovelace - Plex Recent 11
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[11].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[11]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[11].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[11]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[11].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[11]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[11].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[11]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[11].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[11]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[11].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[11]['flag'] }}
       lovelace_plex_recent_12:
         friendly_name: Lovelace - Plex Recent 12
         entity_id: sensor.plex_recently_added
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[12].title}}
+            {{state_attr('sensor.plex_recently_added', 'data')[12]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[12].episode}}
+            {{state_attr('sensor.plex_recently_added', 'data')[12]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[12].number}}
+            {{state_attr('sensor.plex_recently_added', 'data')[12]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{as_timestamp(data[12].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added', 'data')[12]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[12].poster}}
+            {{ state_attr('sensor.plex_recently_added', 'data')[12]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added', 'data') | from_json %}
-            {{data[12].flag}}
+            {{state_attr('sensor.plex_recently_added', 'data')[12]['flag'] }}
       lovelace_radarr_upcoming_01:
         friendly_name: Lovelace - radarr Upcoming 01
         entity_id: sensor.radarr_upcoming_media
@@ -764,135 +692,99 @@ sensor:
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[1].title}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[1].episode}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[1].number}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{as_timestamp(data[1].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[1].poster}}
+            {{ state_attr('sensor.plex_recently_added_movies', 'data')[1]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[1].flag}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['flag'] }}
       lovelace_plex_recent_movies_02:
         friendly_name: Lovelace - Plex Recent Movies 02
         entity_id: sensor.plex_recently_added_movies
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[2].title}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[2].episode}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[2].number}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{as_timestamp(data[2].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[2].poster}}
+            {{ state_attr('sensor.plex_recently_added_movies', 'data')[2]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[2].flag}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['flag'] }}
       lovelace_plex_recent_movies_03:
         friendly_name: Lovelace - Plex Recent Movies 03
         entity_id: sensor.plex_recently_added_movies
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[3].title}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[3].episode}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[3].number}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{as_timestamp(data[3].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[3].poster}}
+            {{ state_attr('sensor.plex_recently_added_movies', 'data')[3]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[3].flag}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['flag'] }}
       lovelace_plex_recent_movies_04:
         friendly_name: Lovelace - Plex Recent Movies 04
         entity_id: sensor.plex_recently_added_movies
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[4].title}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[4].episode}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[4].number}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{as_timestamp(data[4].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[4].poster}}
+            {{ state_attr('sensor.plex_recently_added_movies', 'data')[4]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[4].flag}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['flag'] }}
       lovelace_plex_recent_movies_05:
         friendly_name: Lovelace - Plex Recent Movies 05
         entity_id: sensor.plex_recently_added_movies
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[5].title}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[5].episode}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[5].number}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{as_timestamp(data[5].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[5].poster}}
+            {{ state_attr('sensor.plex_recently_added_movies', 'data')[5]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[5].flag}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['flag'] }}
       lovelace_plex_recent_movies_06:
         friendly_name: Lovelace - Plex Recent Movies 06
         entity_id: sensor.plex_recently_added_movies
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[6].title}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['title'] }}
           episode: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[6].episode}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['episode'] }}
           number: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[6].number}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['number'] }}
           date: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{as_timestamp(data[6].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['airdate'] | timestamp_custom ('%A %-d %b')}}
           poster: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[6].poster}}
+            {{ state_attr('sensor.plex_recently_added_movies', 'data')[6]['poster'] }}
           watched: >
-            {% set data = state_attr('sensor.plex_recently_added_movies', 'data') | from_json %}
-            {{data[6].flag}}
+            {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['flag'] }}

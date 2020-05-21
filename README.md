@@ -65,32 +65,32 @@ I'm running a combination of Xiaomi Aqara and Samsung SmartThings sensors and a 
 
 ## Stats
 
-_Stats as at 04:59, Sunday, May 17th 2020_
+_Stats as at 04:59, Thursday, May 21st 2020_
 
 | HA Version                               | No. Integrations                                        | No. Entities | No. Sensors | No. Automations |
 | ---------------------------------------- | ------------------------------------------------------- | ------------ | ----------- | --------------- |
-| 0.109.6 | 249     | 1440         | 1089 | 19 |
+| 0.109.6 | 251     | 1455         | 1093 | 21 |
 
 Type | Qty
 -- | --
 Alarm Control Panel | 0
 Alert | 0
-Automation | 19
-Binary Sensor | 107
+Automation | 21
+Binary Sensor | 108
 Camera | 3
-Device Tracker | 140
+Device Tracker | 143
 Group | 7
 Input Boolean | 0
 Input Datetime | 0
 Input Text | 0
-Light | 6
-Media Player | 18
+Light | 9
+Media Player | 19
 Person | 1
 Scene | 0
 Script | 1
-Sensor | 1089
+Sensor | 1093
 Sun | 1
-Switch | 12
+Switch | 13
 Weather | 3
 Zone | 2
 
@@ -121,6 +121,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [binary_sensor.browser_mod](https://www.home-assistant.io/components/binary_sensor.browser_mod)
 - [binary_sensor.cloud](https://www.home-assistant.io/components/binary_sensor.cloud)
 - [binary_sensor.deconz](https://www.home-assistant.io/components/binary_sensor.deconz)
+- [binary_sensor.digital_ocean](https://www.home-assistant.io/components/binary_sensor.digital_ocean)
 - [binary_sensor.esphome](https://www.home-assistant.io/components/binary_sensor.esphome)
 - [binary_sensor.hadockermon](https://www.home-assistant.io/components/binary_sensor.hadockermon)
 - [binary_sensor.iss](https://www.home-assistant.io/components/binary_sensor.iss)
@@ -161,6 +162,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [device_tracker.icloud](https://www.home-assistant.io/components/device_tracker.icloud)
 - [device_tracker.mobile_app](https://www.home-assistant.io/components/device_tracker.mobile_app)
 - [device_tracker.unifi](https://www.home-assistant.io/components/device_tracker.unifi)
+- [digital_ocean](https://www.home-assistant.io/components/digital_ocean)
 - [discovery](https://www.home-assistant.io/components/discovery)
 - [docker_monitor](https://www.home-assistant.io/components/docker_monitor)
 - [dwains_theme](https://www.home-assistant.io/components/dwains_theme)
@@ -175,7 +177,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [geo_location](https://www.home-assistant.io/components/geo_location)
 - [geo_location.gdacs](https://www.home-assistant.io/components/geo_location.gdacs)
 - [geo_location.nsw_rural_fire_service_feed](https://www.home-assistant.io/components/geo_location.nsw_rural_fire_service_feed)
-- [geo_location.wwlln](https://www.home-assistant.io/components/geo_location.wwlln)
 - [glances](https://www.home-assistant.io/components/glances)
 - [google](https://www.home-assistant.io/components/google)
 - [group](https://www.home-assistant.io/components/group)
@@ -276,6 +277,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [sensor.launch_library](https://www.home-assistant.io/components/sensor.launch_library)
 - [sensor.mobile_app](https://www.home-assistant.io/components/sensor.mobile_app)
 - [sensor.moon](https://www.home-assistant.io/components/sensor.moon)
+- [sensor.myjdownloader](https://www.home-assistant.io/components/sensor.myjdownloader)
 - [sensor.netatmo](https://www.home-assistant.io/components/sensor.netatmo)
 - [sensor.netdata](https://www.home-assistant.io/components/sensor.netdata)
 - [sensor.nodered](https://www.home-assistant.io/components/sensor.nodered)
@@ -387,6 +389,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [HDHomeRun](https://github.com/burnnat/ha-hdhomerun)
 - [IAQ UK](https://github.com/Limych/ha-iaquk)
 - [Lovelace Gen]()
+- [MyJDownloader](https://www.home-assistant.io/integrations/myjdownloader)
 - [Node-RED](https://github.com/zachowj/node-red)
 - [NSW Air Quality]()
 - [NSW Rural Fire Service - Fire Danger]()
