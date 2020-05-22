@@ -49,3 +49,4 @@ airsonos.xml
 isort.cfg
 .prettierrc.js
 .prettierrc.yaml
+.homekit.state
