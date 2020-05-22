@@ -1,5 +1,3 @@
-# dwains_theme
-
 - type: custom:dwains-flexbox-card
   items_classes: "col-xs-12 col-md-12 col-lg-12 col-xl-12"
   cards:
@@ -14,6 +12,33 @@
                 ha-markdown { padding-bottom: 1px !important; }
               content: >
                 <img width="125" src="https://www.home-assistant.io/images/favicon-192x192-full.png"/><br/>
+            - type: entities
+              style: |
+                ha-card {
+                  background-color: var(--dwains-theme-primary)
+                }
+                .card-header {
+                  padding: 5px 16px;
+                  font-size: 18px;
+                  font-weight: 700 !important;
+                }
+                .card-content div {
+                    margin: 0 !important;
+                }
+                #states {
+                  padding-top: 0px !important;
+                  padding-bottom: 0px !important;
+                }
+                .secondary {
+                  color: darkgray !important;
+                  margin-left: 2px !important;
+                }
+              entities:
+                - entity: sensor.ha_uptime_hours
+                  name: HA Uptime
+                - entity: sensor.ha_restart_time
+                  name: Time taken to restart
+                  icon: mdi:home-assistant
         - type: entities
           style: |
             ha-card {
@@ -41,6 +66,16 @@
                 entity: sensor.ha_current_version
                 name: Home Assistant Version - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_ha_stable') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_ha_stable
                   name: Home Assistant Version - Stable
@@ -56,6 +91,16 @@
                 entity: sensor.hassos_installed_version
                 name: HassOS Version - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_hassos_stable') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_hassos_stable
                   name: HassOS Version - Stable
@@ -71,6 +116,16 @@
                 entity: sensor.current_supervisor_installed
                 name: Home Assistant Supervisor Version - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_supervisor_stable') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_supervisor_stable
                   name: Home Assistant Supervisor Version - Stable
@@ -86,6 +141,16 @@
                 entity: sensor.current_audio_installed
                 name: Audio - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_audio_stable') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_audio_stable
                   name: Audio - Stable
@@ -98,6 +163,16 @@
                 entity: sensor.current_cli_installed
                 name: CLI - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_cli_stable') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_cli_stable
                   name: CLI - Stable
@@ -110,6 +185,16 @@
                 entity: sensor.current_dns_installed
                 name: DNS - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_dns_stable') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_dns_stable
                   name: DNS - Stable
@@ -122,6 +207,16 @@
                 entity: sensor.current_multicast_installed
                 name: Multicast - Installed
                 icon: mdi:home-assistant
+                style: |
+                  :host {
+                  --paper-item-icon-color:
+                    {% if states(config.entity) != states('sensor.current_multicast_latest') %}
+                      rgb(255, 223, 0)
+                    {% else %}
+                      var(--disabled-text-color)
+                    {% endif %}
+                    ;
+                  }
               entities:
                 - entity: sensor.current_multicast_latest
                   name: Multicast - Latest
@@ -152,6 +247,16 @@
                 - entity: sensor.supervisor_installed
                   name: Supervisor Add-Ons to Update
                   icon: mdi:home-assistant
+                  style: |
+                    :host {
+                    --paper-item-icon-color:
+                      {% if states(config.entity)|int > 0 %}
+                        rgb(255, 223, 0)
+                      {% else %}
+                        var(--disabled-text-color)
+                      {% endif %}
+                      ;
+                    }
                   tap_action:
                     action: navigate
                     navigation_path: /hassio/dashboard
@@ -201,6 +306,16 @@
                     navigation_path: /hacs/installed
                   icon: hacs:hacs
                   name: HACS Updates Available?
+                  style: |
+                    :host {
+                    --paper-item-icon-color:
+                      {% if states(config.entity)|int > 0 %}
+                        rgb(255, 223, 0)
+                      {% else %}
+                        var(--disabled-text-color)
+                      {% endif %}
+                      ;
+                    }
             - type: custom:list-card
               feed_attribute: repositories
               entity: sensor.hacs
