@@ -326,7 +326,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[1]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[1]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[1]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[1]['poster'] }}
           watched: >
@@ -343,7 +343,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[2]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[2]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[2]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[2]['poster'] }}
           watched: >
@@ -360,7 +360,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[3]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[3]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[3]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[3]['poster'] }}
           watched: >
@@ -377,7 +377,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[4]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[4]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[4]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[4]['poster'] }}
           watched: >
@@ -394,7 +394,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[5]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[5]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[5]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[5]['poster'] }}
           watched: >
@@ -411,7 +411,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[6]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[6]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[6]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[6]['poster'] }}
           watched: >
@@ -428,7 +428,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[7]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[7]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[7]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[7]['poster'] }}
           watched: >
@@ -445,7 +445,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[8]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[8]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[8]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[8]['poster'] }}
           watched: >
@@ -462,7 +462,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[9]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[9]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[9]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[9]['poster'] }}
           watched: >
@@ -479,7 +479,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[10]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[10]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[10]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[10]['poster'] }}
           watched: >
@@ -496,7 +496,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[11]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[11]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[11]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[11]['poster'] }}
           watched: >
@@ -513,7 +513,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added', 'data')[12]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added', 'data')[12]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added', 'data')[12]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added', 'data')[12]['poster'] }}
           watched: >
@@ -698,7 +698,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added_movies', 'data')[1]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added_movies', 'data')[1]['poster'] }}
           watched: >
@@ -715,7 +715,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added_movies', 'data')[2]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added_movies', 'data')[2]['poster'] }}
           watched: >
@@ -732,7 +732,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added_movies', 'data')[3]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added_movies', 'data')[3]['poster'] }}
           watched: >
@@ -749,7 +749,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added_movies', 'data')[4]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added_movies', 'data')[4]['poster'] }}
           watched: >
@@ -766,7 +766,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added_movies', 'data')[5]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added_movies', 'data')[5]['poster'] }}
           watched: >
@@ -783,7 +783,7 @@ sensor:
           number: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['number'] }}
           date: >
-            {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['airdate'] | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.plex_recently_added_movies', 'data')[6]['airdate']) | timestamp_custom ('%A %-d %b')}}
           poster: >
             {{ state_attr('sensor.plex_recently_added_movies', 'data')[6]['poster'] }}
           watched: >
