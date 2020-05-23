@@ -129,8 +129,7 @@ binary_sensor:
         friendly_name: "HA Update Available"
         icon_template: mdi:home-assistant
         value_template: >-
-          {{ states('sensor.ha_latest_version') != 'unavailable' and
-             states('sensor.ha_latest_version') > states('sensor.ha_current_version') }}
+          {{ states('sensor.ha_latest_version') != 'unavailable' and states('sensor.ha_latest_version') > states('sensor.ha_current_version') }}
 
 # http://192.168.1.62:8123/api/supervisor/info
 # http://192.168.1.62:8123/api/hassio/snapshots

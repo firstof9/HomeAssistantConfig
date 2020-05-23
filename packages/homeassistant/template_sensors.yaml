@@ -2,7 +2,11 @@
 sensor:
   - platform: template
     sensors:
+      empty:
+        entity_id: sensor.date_time
+        friendly_name: "Empty"
+        value_template: " "
       zero:
         entity_id: sensor.date_time
-        friendly_name: 'Zero'
-        value_template: 0
+        friendly_name: "Zero"
+        value_template: "0"
