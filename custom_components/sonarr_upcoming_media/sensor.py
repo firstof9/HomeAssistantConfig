@@ -123,7 +123,7 @@ class SonarrUpcomingMediaSensor(Entity):
                     if img['coverType'] == 'poster':
                         card_item['poster'] = re.sub('.jpg', '_t.jpg', img['url'])
             except:
-                card_item["poster"] = ""
+                continue
             try:
                 card_item['fanart'] = ''
                 for img in show['series']['images']:
@@ -132,7 +132,7 @@ class SonarrUpcomingMediaSensor(Entity):
             except:
                 pass
             card_json.append(card_item)
-        attributes['data'] = json.dumps(card_json)
+        attributes['data'] = card_json
         return attributes
 
     def update(self):

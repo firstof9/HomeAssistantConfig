@@ -8,312 +8,264 @@ sensor:
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[1].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[1].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[1].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[1].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[1].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[1].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[1].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_02:
         friendly_name: Lovelace - Sonarr Upcoming 02
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[2].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[2].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[2].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[2].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[2].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[2].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[2].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_03:
         friendly_name: Lovelace - Sonarr Upcoming 03
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[3].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[3].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[3].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[3].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[3].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[3].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[3].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_04:
         friendly_name: Lovelace - Sonarr Upcoming 04
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[4].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[4].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[4].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[4].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[4].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[4].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[4].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_05:
         friendly_name: Lovelace - Sonarr Upcoming 05
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[5].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[5].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[5].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[5].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[5].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[5].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[5].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_06:
         friendly_name: Lovelace - Sonarr Upcoming 06
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[6].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[6].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[6].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[6].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[6].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[6].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[6].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_07:
         friendly_name: Lovelace - Sonarr Upcoming 07
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[7].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[7].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[7].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[7].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[7].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[7].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[7].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_08:
         friendly_name: Lovelace - Sonarr Upcoming 08
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[8].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[8].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[8].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[8].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[8].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[8].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[8].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_09:
         friendly_name: Lovelace - Sonarr Upcoming 09
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[9].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[9].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[9].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[9].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[9].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[9].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[9].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_10:
         friendly_name: Lovelace - Sonarr Upcoming 10
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[10].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[10].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[10].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[10].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[10].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[10].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[10].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_11:
         friendly_name: Lovelace - Sonarr Upcoming 11
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[11].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[11].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[11].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[11].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[11].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[11].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[11].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_sonarr_upcoming_12:
         friendly_name: Lovelace - Sonarr Upcoming 12
         entity_id: sensor.sonarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[12].title}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title']}}
           episode: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[12].episode}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['episode']}}
           number: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[12].number}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['number']}}
           date: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[12].airdate) | timestamp_custom ('%A %-d %b, %H:%M')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[12].poster}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['poster']}}
           downloaded: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{data[12].flag}}
+            {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['flag']}}
           onairtoday: >
-            {% set data = state_attr('sensor.sonarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[12].airdate)|timestamp_custom ('%Y/%m/%d') == as_timestamp(now())|timestamp_custom ('%Y/%m/%d')}}
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_plex_recent_01:
         friendly_name: Lovelace - Plex Recent 01
         entity_id: sensor.plex_recently_added
@@ -519,173 +471,217 @@ sensor:
           watched: >
             {{state_attr('sensor.plex_recently_added', 'data')[12]['flag'] }}
       lovelace_radarr_upcoming_01:
-        friendly_name: Lovelace - radarr Upcoming 01
+        friendly_name: Lovelace - Radarr Upcoming 01
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[1].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[1]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[1].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[1]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[1].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[1]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[1]['flag']}}
       lovelace_radarr_upcoming_02:
-        friendly_name: Lovelace - radarr Upcoming 02
+        friendly_name: Lovelace - Radarr Upcoming 02
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[2].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[2]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[2].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[2]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[2].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[2]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[2]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[2]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_03:
-        friendly_name: Lovelace - radarr Upcoming 03
+        friendly_name: Lovelace - Radarr Upcoming 03
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[3].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[3]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[3].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[3]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[3].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[3]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[3]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[3]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_04:
-        friendly_name: Lovelace - radarr Upcoming 04
+        friendly_name: Lovelace - Radarr Upcoming 04
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[4].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[4]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[4].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[4]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[4].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[4]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[4]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[4]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_05:
-        friendly_name: Lovelace - radarr Upcoming 05
+        friendly_name: Lovelace - Radarr Upcoming 05
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[5].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[5]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[5].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[5]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[5].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[5]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[5]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[5]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_06:
-        friendly_name: Lovelace - radarr Upcoming 06
+        friendly_name: Lovelace - Radarr Upcoming 06
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[6].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[6]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[6].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[6]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[6].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[6]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[6]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[6]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_07:
-        friendly_name: Lovelace - radarr Upcoming 07
+        friendly_name: Lovelace - Radarr Upcoming 07
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[7].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[7]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[7].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[7]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[7].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[7]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[7]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[7]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_08:
-        friendly_name: Lovelace - radarr Upcoming 08
+        friendly_name: Lovelace - Radarr Upcoming 08
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[8].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[8]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[8].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[8]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[8].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[8]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[8]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[8]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_09:
-        friendly_name: Lovelace - radarr Upcoming 09
+        friendly_name: Lovelace - Radarr Upcoming 09
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[9].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[9]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[9].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[9]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[9].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[9]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[9]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[9]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_10:
-        friendly_name: Lovelace - radarr Upcoming 10
+        friendly_name: Lovelace - Radarr Upcoming 10
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[10].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[10]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[10].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[10]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[10].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[10]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[10]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[10]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_11:
-        friendly_name: Lovelace - radarr Upcoming 11
+        friendly_name: Lovelace - Radarr Upcoming 11
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[11].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[11]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[11].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[11]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[11].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[11]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[11]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[11]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_radarr_upcoming_12:
-        friendly_name: Lovelace - radarr Upcoming 12
+        friendly_name: Lovelace - Radarr Upcoming 12
         entity_id: sensor.radarr_upcoming_media
         value_template: " "
         attribute_templates:
           name: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[12].title}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[12]['title']}}
           date: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{as_timestamp(data[12].airdate) | timestamp_custom ('%A %-d %b')}}
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[12]['airdate']) 
+            | timestamp_custom ('%A %-d %b, %H:%M')}}
           poster: >
-            {% set data = state_attr('sensor.radarr_upcoming_media', 'data') | from_json %}
-            {{data[12].poster}}
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[12]['poster']}}
+          downloaded: >
+            {{state_attr('sensor.radarr_upcoming_media', 'data')[12]['flag']}}
+          onairtoday: >
+            {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[12]['airdate']) 
+            | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+            | timestamp_custom ('%Y/%m/%d')}}
       lovelace_plex_recent_movies_01:
         friendly_name: Lovelace - Plex Recent Movies 01
         entity_id: sensor.plex_recently_added_movies
