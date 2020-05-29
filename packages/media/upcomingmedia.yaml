@@ -5,7 +5,7 @@ sensor:
       lovelace_sonarr_upcoming_01:
         friendly_name: Lovelace - Sonarr Upcoming 01
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title']}}
@@ -27,7 +27,7 @@ sensor:
       lovelace_sonarr_upcoming_02:
         friendly_name: Lovelace - Sonarr Upcoming 02
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title']}}
@@ -49,7 +49,7 @@ sensor:
       lovelace_sonarr_upcoming_03:
         friendly_name: Lovelace - Sonarr Upcoming 03
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title']}}
@@ -71,7 +71,7 @@ sensor:
       lovelace_sonarr_upcoming_04:
         friendly_name: Lovelace - Sonarr Upcoming 04
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title']}}
@@ -93,7 +93,7 @@ sensor:
       lovelace_sonarr_upcoming_05:
         friendly_name: Lovelace - Sonarr Upcoming 05
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title']}}
@@ -115,7 +115,7 @@ sensor:
       lovelace_sonarr_upcoming_06:
         friendly_name: Lovelace - Sonarr Upcoming 06
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title']}}
@@ -137,7 +137,7 @@ sensor:
       lovelace_sonarr_upcoming_07:
         friendly_name: Lovelace - Sonarr Upcoming 07
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title']}}
@@ -159,7 +159,7 @@ sensor:
       lovelace_sonarr_upcoming_08:
         friendly_name: Lovelace - Sonarr Upcoming 08
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title']}}
@@ -181,7 +181,7 @@ sensor:
       lovelace_sonarr_upcoming_09:
         friendly_name: Lovelace - Sonarr Upcoming 09
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title']}}
@@ -203,7 +203,7 @@ sensor:
       lovelace_sonarr_upcoming_10:
         friendly_name: Lovelace - Sonarr Upcoming 10
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title']}}
@@ -225,7 +225,7 @@ sensor:
       lovelace_sonarr_upcoming_11:
         friendly_name: Lovelace - Sonarr Upcoming 11
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title']}}
@@ -247,7 +247,7 @@ sensor:
       lovelace_sonarr_upcoming_12:
         friendly_name: Lovelace - Sonarr Upcoming 12
         entity_id: sensor.sonarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title']}}
@@ -269,7 +269,7 @@ sensor:
       lovelace_plex_recent_01:
         friendly_name: Lovelace - Plex Recent 01
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[1]['title'] }}
@@ -286,7 +286,7 @@ sensor:
       lovelace_plex_recent_02:
         friendly_name: Lovelace - Plex Recent 02
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[2]['title'] }}
@@ -303,7 +303,7 @@ sensor:
       lovelace_plex_recent_03:
         friendly_name: Lovelace - Plex Recent 03
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[3]['title'] }}
@@ -320,7 +320,7 @@ sensor:
       lovelace_plex_recent_04:
         friendly_name: Lovelace - Plex Recent 04
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[4]['title'] }}
@@ -337,7 +337,7 @@ sensor:
       lovelace_plex_recent_05:
         friendly_name: Lovelace - Plex Recent 05
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[5]['title'] }}
@@ -354,7 +354,7 @@ sensor:
       lovelace_plex_recent_06:
         friendly_name: Lovelace - Plex Recent 06
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[6]['title'] }}
@@ -371,7 +371,7 @@ sensor:
       lovelace_plex_recent_07:
         friendly_name: Lovelace - Plex Recent 07
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[7]['title'] }}
@@ -388,7 +388,7 @@ sensor:
       lovelace_plex_recent_08:
         friendly_name: Lovelace - Plex Recent 08
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[8]['title'] }}
@@ -405,7 +405,7 @@ sensor:
       lovelace_plex_recent_09:
         friendly_name: Lovelace - Plex Recent 09
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[9]['title'] }}
@@ -422,7 +422,7 @@ sensor:
       lovelace_plex_recent_10:
         friendly_name: Lovelace - Plex Recent 10
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[10]['title'] }}
@@ -439,7 +439,7 @@ sensor:
       lovelace_plex_recent_11:
         friendly_name: Lovelace - Plex Recent 11
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[11]['title'] }}
@@ -456,7 +456,7 @@ sensor:
       lovelace_plex_recent_12:
         friendly_name: Lovelace - Plex Recent 12
         entity_id: sensor.plex_recently_added
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added', 'data')[12]['title'] }}
@@ -473,7 +473,7 @@ sensor:
       lovelace_radarr_upcoming_01:
         friendly_name: Lovelace - Radarr Upcoming 01
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[1]['title']}}
@@ -487,7 +487,7 @@ sensor:
       lovelace_radarr_upcoming_02:
         friendly_name: Lovelace - Radarr Upcoming 02
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[2]['title']}}
@@ -505,7 +505,7 @@ sensor:
       lovelace_radarr_upcoming_03:
         friendly_name: Lovelace - Radarr Upcoming 03
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[3]['title']}}
@@ -523,7 +523,7 @@ sensor:
       lovelace_radarr_upcoming_04:
         friendly_name: Lovelace - Radarr Upcoming 04
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[4]['title']}}
@@ -541,7 +541,7 @@ sensor:
       lovelace_radarr_upcoming_05:
         friendly_name: Lovelace - Radarr Upcoming 05
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[5]['title']}}
@@ -559,7 +559,7 @@ sensor:
       lovelace_radarr_upcoming_06:
         friendly_name: Lovelace - Radarr Upcoming 06
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[6]['title']}}
@@ -577,7 +577,7 @@ sensor:
       lovelace_radarr_upcoming_07:
         friendly_name: Lovelace - Radarr Upcoming 07
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[7]['title']}}
@@ -595,7 +595,7 @@ sensor:
       lovelace_radarr_upcoming_08:
         friendly_name: Lovelace - Radarr Upcoming 08
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[8]['title']}}
@@ -613,7 +613,7 @@ sensor:
       lovelace_radarr_upcoming_09:
         friendly_name: Lovelace - Radarr Upcoming 09
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[9]['title']}}
@@ -631,7 +631,7 @@ sensor:
       lovelace_radarr_upcoming_10:
         friendly_name: Lovelace - Radarr Upcoming 10
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[10]['title']}}
@@ -649,7 +649,7 @@ sensor:
       lovelace_radarr_upcoming_11:
         friendly_name: Lovelace - Radarr Upcoming 11
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[11]['title']}}
@@ -667,7 +667,7 @@ sensor:
       lovelace_radarr_upcoming_12:
         friendly_name: Lovelace - Radarr Upcoming 12
         entity_id: sensor.radarr_upcoming_media
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.radarr_upcoming_media', 'data')[12]['title']}}
@@ -685,7 +685,7 @@ sensor:
       lovelace_plex_recent_movies_01:
         friendly_name: Lovelace - Plex Recent Movies 01
         entity_id: sensor.plex_recently_added_movies
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[1]['title'] }}
@@ -702,7 +702,7 @@ sensor:
       lovelace_plex_recent_movies_02:
         friendly_name: Lovelace - Plex Recent Movies 02
         entity_id: sensor.plex_recently_added_movies
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[2]['title'] }}
@@ -719,7 +719,7 @@ sensor:
       lovelace_plex_recent_movies_03:
         friendly_name: Lovelace - Plex Recent Movies 03
         entity_id: sensor.plex_recently_added_movies
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[3]['title'] }}
@@ -736,7 +736,7 @@ sensor:
       lovelace_plex_recent_movies_04:
         friendly_name: Lovelace - Plex Recent Movies 04
         entity_id: sensor.plex_recently_added_movies
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[4]['title'] }}
@@ -753,7 +753,7 @@ sensor:
       lovelace_plex_recent_movies_05:
         friendly_name: Lovelace - Plex Recent Movies 05
         entity_id: sensor.plex_recently_added_movies
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[5]['title'] }}
@@ -770,7 +770,7 @@ sensor:
       lovelace_plex_recent_movies_06:
         friendly_name: Lovelace - Plex Recent Movies 06
         entity_id: sensor.plex_recently_added_movies
-        value_template: " "
+        value_template: ' '
         attribute_templates:
           name: >
             {{state_attr('sensor.plex_recently_added_movies', 'data')[6]['title'] }}

@@ -41,12 +41,12 @@ automation:
       platform: homeassistant
       event: start
     action:
-    - service: counter.reset
-      entity_id: counter.logs_warning_counter
-    - service: counter.reset
-      entity_id: counter.logs_critical_counter
-    - service: counter.reset
-      entity_id: counter.logs_error_counter
+      - service: counter.reset
+        entity_id: counter.logs_warning_counter
+      - service: counter.reset
+        entity_id: counter.logs_critical_counter
+      - service: counter.reset
+        entity_id: counter.logs_error_counter
 
 counter:
   logs_warning_counter:

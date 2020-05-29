@@ -48,11 +48,11 @@ sensor:
       {% elif update == 3 %}
       Connecting
       {% elif update == 4 %}
-      Disconnected       
+      Disconnected
       {% elif update == 5 %}
       Others
       {% else %}
-      --- 
+      ---
       {% endif %}
 
   - platform: snmp
