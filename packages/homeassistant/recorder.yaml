@@ -28,7 +28,6 @@ recorder:
       - call_service
       - component_loaded
       - logbook_entry
-      - system_log_event
       - automation_triggered
       - script_started
       - timer_out_of_sync

@@ -1,0 +1,66 @@
+---
+###
+### Allow reporting of Log in UI
+### Based on https://github.com/whatdaybob/Home-assistant-config/blob/master/config/packages/hass_system.yaml
+###
+
+automation:
+  - id: logs_warning_counter
+    alias: Logs - Warning Counter
+    trigger:
+      platform: event
+      event_type: system_log_event
+      event_data:
+        level: WARNING
+    action:
+      service: counter.increment
+      entity_id: counter.logs_warning_counter
+  - id: logs_error_counter
+    alias: Logs - Error Counter
+    trigger:
+      platform: event
+      event_type: system_log_event
+      event_data:
+        level: ERROR
+    action:
+      service: counter.increment
+      entity_id: counter.logs_error_counter
+  - id: logs_critical_counter
+    alias: Logs - Critical Counter
+    trigger:
+      platform: event
+      event_type: system_log_event
+      event_data:
+        level: CRITICAL
+    action:
+      service: counter.increment
+      entity_id: counter.logs_critical_counter
+  - id: logs_counter_reset
+    alias: Logs - Counters reset on start
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+    - service: counter.reset
+      entity_id: counter.logs_warning_counter
+    - service: counter.reset
+      entity_id: counter.logs_critical_counter
+    - service: counter.reset
+      entity_id: counter.logs_error_counter
+
+counter:
+  logs_warning_counter:
+    name: Warnings
+    initial: 0
+    icon: mdi:alert
+    step: 1
+  logs_critical_counter:
+    name: Critical
+    initial: 0
+    icon: mdi:alert
+    step: 1
+  logs_error_counter:
+    name: Error
+    initial: 0
+    icon: mdi:alert
+    step: 1

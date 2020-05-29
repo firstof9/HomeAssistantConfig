@@ -65,32 +65,32 @@ I'm running a combination of Xiaomi Aqara and Samsung SmartThings sensors and a 
 
 ## Stats
 
-_Stats as at 04:59, Saturday, May 23rd 2020_
+_Stats as at 04:59, Friday, May 29th 2020_
 
 | HA Version                               | No. Integrations                                        | No. Entities | No. Sensors | No. Automations |
 | ---------------------------------------- | ------------------------------------------------------- | ------------ | ----------- | --------------- |
-| 0.109.5 | 258     | 1469         | 1103 | 21 |
+| 0.109.5 | 259     | 1529         | 1114 | 26 |
 
 Type | Qty
 -- | --
 Alarm Control Panel | 0
 Alert | 0
-Automation | 21
-Binary Sensor | 109
+Automation | 26
+Binary Sensor | 110
 Camera | 3
-Device Tracker | 143
+Device Tracker | 144
 Group | 7
 Input Boolean | 0
 Input Datetime | 0
 Input Text | 0
-Light | 9
-Media Player | 19
+Light | 7
+Media Player | 18
 Person | 1
 Scene | 0
 Script | 1
-Sensor | 1103
+Sensor | 1114
 Sun | 1
-Switch | 13
+Switch | 60
 Weather | 3
 Zone | 2
 
@@ -136,6 +136,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [binary_sensor.tod](https://www.home-assistant.io/components/binary_sensor.tod)
 - [binary_sensor.updater](https://www.home-assistant.io/components/binary_sensor.updater)
 - [braviatv](https://www.home-assistant.io/components/braviatv)
+- [breaking_changes](https://www.home-assistant.io/components/breaking_changes)
 - [browser_mod](https://www.home-assistant.io/components/browser_mod)
 - [calendar](https://www.home-assistant.io/components/calendar)
 - [calendar.google](https://www.home-assistant.io/components/calendar.google)
@@ -156,6 +157,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [configurator](https://www.home-assistant.io/components/configurator)
 - [conversation](https://www.home-assistant.io/components/conversation)
 - [coronavirus](https://www.home-assistant.io/components/coronavirus)
+- [counter](https://www.home-assistant.io/components/counter)
 - [cover](https://www.home-assistant.io/components/cover)
 - [cover.deconz](https://www.home-assistant.io/components/cover.deconz)
 - [deconz](https://www.home-assistant.io/components/deconz)
@@ -199,7 +201,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [ios](https://www.home-assistant.io/components/ios)
 - [lifx](https://www.home-assistant.io/components/lifx)
 - [light](https://www.home-assistant.io/components/light)
-- [light.browser_mod](https://www.home-assistant.io/components/light.browser_mod)
 - [light.deconz](https://www.home-assistant.io/components/light.deconz)
 - [light.lifx](https://www.home-assistant.io/components/light.lifx)
 - [logger](https://www.home-assistant.io/components/logger)
@@ -207,10 +208,8 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [map](https://www.home-assistant.io/components/map)
 - [media_player](https://www.home-assistant.io/components/media_player)
 - [media_player.alexa_media](https://www.home-assistant.io/components/media_player.alexa_media)
-- [media_player.androidtv](https://www.home-assistant.io/components/media_player.androidtv)
 - [media_player.apple_tv](https://www.home-assistant.io/components/media_player.apple_tv)
 - [media_player.braviatv](https://www.home-assistant.io/components/media_player.braviatv)
-- [media_player.browser_mod](https://www.home-assistant.io/components/media_player.browser_mod)
 - [media_player.cast](https://www.home-assistant.io/components/media_player.cast)
 - [media_player.plex](https://www.home-assistant.io/components/media_player.plex)
 - [media_player.samsungtv](https://www.home-assistant.io/components/media_player.samsungtv)
@@ -256,6 +255,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [sensor.auto_backup](https://www.home-assistant.io/components/sensor.auto_backup)
 - [sensor.bom](https://www.home-assistant.io/components/sensor.bom)
 - [sensor.bom_forecast](https://www.home-assistant.io/components/sensor.bom_forecast)
+- [sensor.breaking_changes](https://www.home-assistant.io/components/sensor.breaking_changes)
 - [sensor.browser_mod](https://www.home-assistant.io/components/sensor.browser_mod)
 - [sensor.cert_expiry](https://www.home-assistant.io/components/sensor.cert_expiry)
 - [sensor.climacell](https://www.home-assistant.io/components/sensor.climacell)
@@ -342,6 +342,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [switch.deconz](https://www.home-assistant.io/components/switch.deconz)
 - [switch.docker_monitor](https://www.home-assistant.io/components/switch.docker_monitor)
 - [switch.esphome](https://www.home-assistant.io/components/switch.esphome)
+- [switch.hadockermon](https://www.home-assistant.io/components/switch.hadockermon)
 - [switch.template](https://www.home-assistant.io/components/switch.template)
 - [switch.transmission](https://www.home-assistant.io/components/switch.transmission)
 - [switch.unifi](https://www.home-assistant.io/components/switch.unifi)

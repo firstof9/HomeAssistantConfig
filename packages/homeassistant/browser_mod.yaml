@@ -1,11 +1,6 @@
 ---
 browser_mod:
   prefix: "browser_"
-  disable:
-    - media_player
-    - light
-    - camera
-    - binary_sensor
   devices:
     19c86401_40afb7ce:
       name: TB - iPhone11
