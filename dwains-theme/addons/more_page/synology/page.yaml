@@ -1,22 +1,5 @@
 # dwains_theme
 
-# - entity: binary_sensor.networkstatus_nas_thecube2
-#   type: custom:secondaryinfo-entity-row
-#   secondary_info: 'Up [[ sensor.uptime.state ]]'
-# - type: section
-# - entity: sensor.synology_status_sda
-#   type: custom:secondaryinfo-entity-row
-#   name: Disk 1
-#   secondary_info: '/dev/sda1'
-# - entity: sensor.synology_status_sdb
-#   type: custom:secondaryinfo-entity-row
-#   name: Disk 2
-#   secondary_info: '/dev/sda2'
-# - entity: sensor.synology_status_volume_1
-#   type: custom:secondaryinfo-entity-row
-#   name: Volume 1
-#   secondary_info: 'Total: [[ sensor.synology_total_size_volume_1.state ]], Used: [[ sensor.synology_used_space_volume_1.state	]]'
-
 # - type: picture
 #   image: 'https://wallpaperscave.com/images/original/17/12-14/earth-bougainvillea-3407.jpg'
 #   style: |
@@ -32,11 +15,11 @@
       border-radius: 2.5px;
     }
   cards:
-    - type: custom:dwains-flexbox-card
-      items_classes: "col-xs-12 col-md-12 col-lg-6 col-xl-6"
-      cards:
-        # - type: horizontal-stack
-        #   cards:
+    # - type: custom:dwains-flexbox-card
+    #   items_classes: "col-xs-12 col-md-12 col-lg-6 col-xl-6"
+    #   cards:
+      - type: horizontal-stack
+        cards:
         - type: vertical-stack
           cards:
             - type: markdown
@@ -84,6 +67,32 @@
               tap_action:
                 action: url
                 url_path: "http://192.168.1.100:5000"
+            - type: entities
+              style: |
+                ha-card {
+                  background-color: var(--dwains-theme-primary)
+                }
+                .card-header {
+                  padding: 5px 16px;
+                  font-size: 18px;
+                  font-weight: 700 !important;
+                }
+                .card-content div {
+                    margin: 0 !important;
+                }
+                #states {
+                  padding-top: 0px !important;
+                  padding-bottom: 0px !important;
+                }
+                .secondary {
+                  color: darkgray !important;
+                  margin-left: 2px !important;
+                }
+              entities:
+                - entity: sensor.synology_dsm_update
+                  name: DSM Status
+                - entity: sensor.synology_dsm_version
+                  name: DSM Version
 
         - type: vertical-stack
           cards:
