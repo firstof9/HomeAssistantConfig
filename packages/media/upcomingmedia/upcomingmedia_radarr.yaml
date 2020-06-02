@@ -10,14 +10,14 @@ sensor:
   #       name: >
   #         {% raw %}{{state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] if {%endraw%}{{u}}{%raw%} <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else 'None'}}{% endraw %}
   #       date: >
-  #         {% raw %}{{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate']) 
+  #         {% raw %}{{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate'])
   #         | timestamp_custom ('%A %-d %b, %H:%M') if {%endraw%}{{u}}{%raw%} <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}{% endraw %}
   #       poster: >
   #         {% raw %}{{state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['poster'] if {%endraw%}{{u}}{%raw%} <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}{% endraw %}
   #       downloaded: >
   #         {% raw %}{{state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['flag'] if {%endraw%}{{u}}{%raw%} <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}{% endraw %}
   #       onairtoday: >
-  #         {% raw %}{{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate']) 
+  #         {% raw %}{{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate'])
   #         | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
   #         | timestamp_custom ('%Y/%m/%d') if {%endraw%}{{u}}{%raw%} <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}{% endraw %}
   #   {% endfor %}
@@ -42,7 +42,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[1]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 1 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_02:
         friendly_name: Lovelace - Radarr Upcoming 02
         entity_id: sensor.radarr_upcoming_media
@@ -62,7 +62,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[2]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 2 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_03:
         friendly_name: Lovelace - Radarr Upcoming 03
         entity_id: sensor.radarr_upcoming_media
@@ -82,7 +82,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[3]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 3 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_04:
         friendly_name: Lovelace - Radarr Upcoming 04
         entity_id: sensor.radarr_upcoming_media
@@ -102,7 +102,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[4]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 4 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_05:
         friendly_name: Lovelace - Radarr Upcoming 05
         entity_id: sensor.radarr_upcoming_media
@@ -122,7 +122,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[5]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 5 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_06:
         friendly_name: Lovelace - Radarr Upcoming 06
         entity_id: sensor.radarr_upcoming_media
@@ -142,7 +142,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[6]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 6 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_07:
         friendly_name: Lovelace - Radarr Upcoming 07
         entity_id: sensor.radarr_upcoming_media
@@ -162,7 +162,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[7]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 7 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_08:
         friendly_name: Lovelace - Radarr Upcoming 08
         entity_id: sensor.radarr_upcoming_media
@@ -182,7 +182,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[8]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 8 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_09:
         friendly_name: Lovelace - Radarr Upcoming 09
         entity_id: sensor.radarr_upcoming_media
@@ -202,7 +202,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[9]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 9 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_10:
         friendly_name: Lovelace - Radarr Upcoming 10
         entity_id: sensor.radarr_upcoming_media
@@ -222,7 +222,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[10]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 10 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_11:
         friendly_name: Lovelace - Radarr Upcoming 11
         entity_id: sensor.radarr_upcoming_media
@@ -242,7 +242,7 @@ sensor:
             {{as_timestamp(state_attr('sensor.radarr_upcoming_media', 'data')[11]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if 11 <= state_attr('sensor.radarr_upcoming_media', 'data')| count -1 else "None"}}
-      
+
       lovelace_radarr_upcoming_12:
         friendly_name: Lovelace - Radarr Upcoming 12
         entity_id: sensor.radarr_upcoming_media

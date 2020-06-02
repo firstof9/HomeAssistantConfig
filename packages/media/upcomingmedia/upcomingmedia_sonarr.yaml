@@ -1,36 +1,36 @@
 ---
 sensor:
-    # {% for n in range(12) %}{% set u = n + 1 %}
-    #   lovelace_sonarr_upcoming_{{'%02d' % (u)}}:
-    #     friendly_name: Lovelace - Sonarr Upcoming {{'%02d' % (u)}}
-    #     entity_id: sensor.sonarr_upcoming_media
-    #     value_template: {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] is defined else 'None'}}{% endraw %}
-    #     attribute_templates:
-    #       name: >
-    #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] is defined else 'None'}}{% endraw %}
-    #       episode: >
-    #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['episode'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['episode'] is defined else 'None'}}{% endraw %}
-    #       number: >
-    #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['number'] is defined else 'None'}}{% endraw %}
-    #       date: >
-    #         {% raw %}{{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate']) 
-    #         | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate']) is defined else "None"}}{% endraw %}
-    #       poster: >
-    #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['poster'] is defined else "None"}}{% endraw %}
-    #       downloaded: >
-    #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['flag'] is defined else "None"}}{% endraw %}
-    #       onairtoday: >
-    #         {% raw %}{{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate']) 
-    #         | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
-    #         | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate'])  is defined else "None"}}{% endraw %}
-    #   {% endfor %}
+  # {% for n in range(12) %}{% set u = n + 1 %}
+  #   lovelace_sonarr_upcoming_{{'%02d' % (u)}}:
+  #     friendly_name: Lovelace - Sonarr Upcoming {{'%02d' % (u)}}
+  #     entity_id: sensor.sonarr_upcoming_media
+  #     value_template: {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] is defined else 'None'}}{% endraw %}
+  #     attribute_templates:
+  #       name: >
+  #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['title'] is defined else 'None'}}{% endraw %}
+  #       episode: >
+  #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['episode'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['episode'] is defined else 'None'}}{% endraw %}
+  #       number: >
+  #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['number'] is defined else 'None'}}{% endraw %}
+  #       date: >
+  #         {% raw %}{{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate'])
+  #         | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate']) is defined else "None"}}{% endraw %}
+  #       poster: >
+  #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['poster'] is defined else "None"}}{% endraw %}
+  #       downloaded: >
+  #         {% raw %}{{state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['flag'] is defined else "None"}}{% endraw %}
+  #       onairtoday: >
+  #         {% raw %}{{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate'])
+  #         | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
+  #         | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[{%endraw%}{{u}}{%raw%}]['airdate'])  is defined else "None"}}{% endraw %}
+  #   {% endfor %}
   - platform: template
     sensors:
       lovelace_sonarr_upcoming_01:
         friendly_name: Lovelace - Sonarr Upcoming 01
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[1]['title'] is defined else 'None'}}
@@ -49,12 +49,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_02:
         friendly_name: Lovelace - Sonarr Upcoming 02
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[2]['title'] is defined else 'None'}}
@@ -73,12 +73,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_03:
         friendly_name: Lovelace - Sonarr Upcoming 03
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[3]['title'] is defined else 'None'}}
@@ -97,12 +97,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_04:
         friendly_name: Lovelace - Sonarr Upcoming 04
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[4]['title'] is defined else 'None'}}
@@ -121,12 +121,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_05:
         friendly_name: Lovelace - Sonarr Upcoming 05
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[5]['title'] is defined else 'None'}}
@@ -145,12 +145,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_06:
         friendly_name: Lovelace - Sonarr Upcoming 06
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[6]['title'] is defined else 'None'}}
@@ -169,12 +169,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_07:
         friendly_name: Lovelace - Sonarr Upcoming 07
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[7]['title'] is defined else 'None'}}
@@ -193,12 +193,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_08:
         friendly_name: Lovelace - Sonarr Upcoming 08
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[8]['title'] is defined else 'None'}}
@@ -217,12 +217,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_09:
         friendly_name: Lovelace - Sonarr Upcoming 09
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[9]['title'] is defined else 'None'}}
@@ -241,12 +241,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_10:
         friendly_name: Lovelace - Sonarr Upcoming 10
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[10]['title'] is defined else 'None'}}
@@ -265,12 +265,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_11:
         friendly_name: Lovelace - Sonarr Upcoming 11
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[11]['title'] is defined else 'None'}}
@@ -289,12 +289,12 @@ sensor:
             {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate']) 
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate'])  is defined else "None"}}
-      
+
       lovelace_sonarr_upcoming_12:
         friendly_name: Lovelace - Sonarr Upcoming 12
         entity_id: sensor.sonarr_upcoming_media
         value_template: >
-           {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title'] is defined else 'None'}}
+          {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title'] is defined else 'None'}}
         attribute_templates:
           name: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title'] if state_attr('sensor.sonarr_upcoming_media', 'data')[12]['title'] is defined else 'None'}}
