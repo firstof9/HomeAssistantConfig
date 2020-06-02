@@ -1,0 +1,159 @@
+# dwains_theme
+
+- type: custom:stack-in-card
+  cards:
+    - type: custom:dwains-flexbox-card
+      cards:
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-1'
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    <img width="150" src="https://brands.home-assistant.io/influxdb/logo.png">
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-12 col-md-10 col-lg-11'
+          cards:
+            - type: sensor
+              name: Home Assistant DB Size
+              icon: mdi:database
+              entity: sensor.influxdb_size
+              graph: line
+              detail: 2
+              hours_to_show: 78
+              style: >
+                ha-card {
+                  box-shadow: none;
+                  padding-right: 5px;
+                }
+            - type: sensor
+              name: Varken DB Size
+              icon: mdi:database
+              entity: sensor.influxdb_varken_size
+              graph: line
+              detail: 2
+              hours_to_show: 78
+              style: >
+                ha-card {
+                  box-shadow: none;
+                  padding-right: 5px;
+                }
+            - type: sensor
+              name: Unifi Poller DB Size
+              icon: mdi:database
+              entity: sensor.influxdb_unifipoller_size
+              graph: line
+              detail: 2
+              hours_to_show: 78
+              style: >
+                ha-card {
+                  box-shadow: none;
+                  padding-right: 5px;
+                }
+            - type: sensor
+              name: Unifi Poller DB Size
+              icon: mdi:database
+              entity: sensor.influxdb_unifipoller_size
+              graph: line
+              detail: 2
+              hours_to_show: 78
+              style: >
+                ha-card {
+                  box-shadow: none;
+                  padding-right: 5px;
+                }
+
+- type: custom:stack-in-card
+  cards:
+    - type: custom:dwains-flexbox-card
+      cards:
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-1'
+          cards:
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    <img width="150" src="https://cdn.worldvectorlogo.com/logos/docker.svg">
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-11'
+          cards:
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Portainer"
+                image: "https://developer.asustor.com/uploadIcons/0020_999_1583488696_Portainer_new_256.png"
+                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
+                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"

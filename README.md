@@ -65,32 +65,32 @@ I'm running a combination of Xiaomi Aqara and Samsung SmartThings sensors and a 
 
 ## Stats
 
-_Stats as at 04:59, Friday, May 29th 2020_
+_Stats as at 04:59, Monday, June 1st 2020_
 
 | HA Version                               | No. Integrations                                        | No. Entities | No. Sensors | No. Automations |
 | ---------------------------------------- | ------------------------------------------------------- | ------------ | ----------- | --------------- |
-| 0.109.5 | 259     | 1529         | 1114 | 26 |
+| 0.109.5 | 249     | 1549         | 1138 | 26 |
 
 Type | Qty
 -- | --
 Alarm Control Panel | 0
 Alert | 0
 Automation | 26
-Binary Sensor | 110
+Binary Sensor | 111
 Camera | 3
-Device Tracker | 144
+Device Tracker | 143
 Group | 7
 Input Boolean | 0
 Input Datetime | 0
 Input Text | 0
 Light | 7
-Media Player | 18
+Media Player | 20
 Person | 1
 Scene | 0
 Script | 1
-Sensor | 1114
+Sensor | 1138
 Sun | 1
-Switch | 60
+Switch | 61
 Weather | 3
 Zone | 2
 
@@ -106,8 +106,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 <summary>Expand Integrations List</summary>
 
 
-- [air_quality](https://www.home-assistant.io/components/air_quality)
-- [air_quality.dyson](https://www.home-assistant.io/components/air_quality.dyson)
 - [alarm_control_panel](https://www.home-assistant.io/components/alarm_control_panel)
 - [alarm_control_panel.alexa_media](https://www.home-assistant.io/components/alarm_control_panel.alexa_media)
 - [alexa](https://www.home-assistant.io/components/alexa)
@@ -150,7 +148,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [climacell](https://www.home-assistant.io/components/climacell)
 - [climate](https://www.home-assistant.io/components/climate)
 - [climate.deconz](https://www.home-assistant.io/components/climate.deconz)
-- [climate.dyson](https://www.home-assistant.io/components/climate.dyson)
 - [climate.netatmo](https://www.home-assistant.io/components/climate.netatmo)
 - [cloud](https://www.home-assistant.io/components/cloud)
 - [config](https://www.home-assistant.io/components/config)
@@ -172,8 +169,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [dwains_theme](https://www.home-assistant.io/components/dwains_theme)
 - [dyson](https://www.home-assistant.io/components/dyson)
 - [esphome](https://www.home-assistant.io/components/esphome)
-- [fan](https://www.home-assistant.io/components/fan)
-- [fan.dyson](https://www.home-assistant.io/components/fan.dyson)
 - [favicon](https://www.home-assistant.io/components/favicon)
 - [foldingathomecontrol](https://www.home-assistant.io/components/foldingathomecontrol)
 - [fontawesome](https://www.home-assistant.io/components/fontawesome)
@@ -266,7 +261,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [sensor.deconz](https://www.home-assistant.io/components/sensor.deconz)
 - [sensor.docker_monitor](https://www.home-assistant.io/components/sensor.docker_monitor)
 - [sensor.doomsday_clock](https://www.home-assistant.io/components/sensor.doomsday_clock)
-- [sensor.dyson](https://www.home-assistant.io/components/sensor.dyson)
 - [sensor.esphome](https://www.home-assistant.io/components/sensor.esphome)
 - [sensor.feedparser](https://www.home-assistant.io/components/sensor.feedparser)
 - [sensor.filter](https://www.home-assistant.io/components/sensor.filter)
@@ -296,7 +290,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [sensor.pi_hole](https://www.home-assistant.io/components/sensor.pi_hole)
 - [sensor.plex](https://www.home-assistant.io/components/sensor.plex)
 - [sensor.plex_recently_added](https://www.home-assistant.io/components/sensor.plex_recently_added)
-- [sensor.radarr](https://www.home-assistant.io/components/sensor.radarr)
 - [sensor.radarr_upcoming_media](https://www.home-assistant.io/components/sensor.radarr_upcoming_media)
 - [sensor.rest](https://www.home-assistant.io/components/sensor.rest)
 - [sensor.sabnzbd](https://www.home-assistant.io/components/sensor.sabnzbd)
@@ -304,7 +297,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [sensor.season](https://www.home-assistant.io/components/sensor.season)
 - [sensor.smartthinq_sensors](https://www.home-assistant.io/components/sensor.smartthinq_sensors)
 - [sensor.snmp](https://www.home-assistant.io/components/sensor.snmp)
-- [sensor.sonarr](https://www.home-assistant.io/components/sensor.sonarr)
 - [sensor.sonarr_upcoming_media](https://www.home-assistant.io/components/sensor.sonarr_upcoming_media)
 - [sensor.speedtestdotnet](https://www.home-assistant.io/components/sensor.speedtestdotnet)
 - [sensor.sql](https://www.home-assistant.io/components/sensor.sql)
@@ -355,8 +347,6 @@ Here is a list of all the integrations I use, including any Custom Components (w
 - [unifi](https://www.home-assistant.io/components/unifi)
 - [updater](https://www.home-assistant.io/components/updater)
 - [upnp](https://www.home-assistant.io/components/upnp)
-- [vacuum](https://www.home-assistant.io/components/vacuum)
-- [vacuum.dyson](https://www.home-assistant.io/components/vacuum.dyson)
 - [weather](https://www.home-assistant.io/components/weather)
 - [weather.bom](https://www.home-assistant.io/components/weather.bom)
 - [weather.darksky](https://www.home-assistant.io/components/weather.darksky)
@@ -374,6 +364,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 <summary>Expand Custom Components List</summary>
 
 - [Alexa Media Player](https://github.com/custom-components/alexa_media_player/wiki)
+- [Amber Electricity](https://www.home-assistant.io/integrations/bom)
 - [Anniversaries](https://github.com/pinkywafer/Anniversaries)
 - [Apple TV](https://www.home-assistant.io/integrations/apple_tv)
 - [Auto Backup](https://github.com/jcwillox/hass-auto-backup)

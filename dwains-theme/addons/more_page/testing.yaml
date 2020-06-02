@@ -1,124 +1,12 @@
 # dwains_theme
 
-- type: custom:dwains-flexbox-card
-  items_classes: 'col-xs-12'
+- type: custom:stack-in-card
   cards:
-
-    # - type: custom:stack-in-card
-    #   style: |
-    #     ha-card {
-    #       color: teal;
-    #       border-radius: 2.5px;
-    #     }
-    #   cards:
     - type: custom:dwains-flexbox-card
-      items_classes: 'col-xs-12 col-md-12 col-lg-6 col-xl-6'
-      cards:
-        # - type: horizontal-stack
-        #   cards:
-        - type: vertical-stack
-          cards:
-            - type: markdown
-              style: |
-                ha-card { box-shadow: none; }
-                ha-markdown { padding-bottom: 1px !important; }
-              content: >
-                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
-        - type: entities
-          style: |
-            ha-card {
-              padding-bottom: 10px;
-              background-color: var(--dwains-theme-primary)
-            }
-            .card-header {
-              padding: 5px 16px;
-              font-size: 18px;
-              font-weight: 700 !important;
-            }
-            .card-content div {
-                margin: 0 !important;
-            }
-            #states {
-              padding-top: 0px !important;
-              padding-bottom: 0px !important;
-            }
-            .secondary {
-              color: darkgray !important;
-              margin-left: 2px !important;
-            }
-          entities:
-            - entity: sensor.sonarr_status
-              name: Version
-            - entity: sensor.sonarr_series
-              name: Tracked Shows
-            - entity: sensor.sonarr_queue
-              name: Queued Episodes
-            - entity: sensor.sonarr_upcoming
-              name: Upcoming Episodes
-            - entity: sensor.sonarr_wanted
-              name: Wanted Episodes
-
-    - type: custom:auto-entities
-      filter:
-        include:
-          - entity_id: sensor.lovelace_sonarr_upcoming_*
-            options:
-              type: custom:button-card
-              show_state: true
-              show_label: true
-              show_name: true
-              show_icon: true
-              name: '[[[ return entity.attributes.name ]]]'
-              entity_picture: '[[[ return entity.attributes.poster ]]]'
-              show_entity_picture: true
-              # entity: this.entity_id
-              layout: vertical
-              custom_fields:
-                date: >
-                  [[[ return entity.attributes.date ]]]
-                episode: >
-                  [[[ return entity.attributes.episode + ' (' + entity.attributes.number + ')' ]]]
-              styles:
-                grid:
-                  - grid-template-areas: '"i" "n" "date" "episode"'
-                  - grid-template-columns: 100%
-                  - grid-template-rows: 1fr min-content min-content min-content
-                card:
-                  - background-color: var(--dwains-theme-primary)
-                  - border-radius: 0
-                  - box-shadow: none
-                name:
-                  - font-size: 15px
-                  - font-weight: bold
-                  - color: var(--dwains-theme-names)
-                custom_fields:
-                  episode:
-                    - font-size: 13px
-                    - color: var(--dwains-theme-names)
-                  date:
-                    - font-size: 13px
-                    - color: var(--dwains-theme-names)
-                icon:
-                  - color: var(--dwains-theme-accent)
-      sort:
-        method: name
-        ignore_case: true
-      card:
-        type: custom:dwains-flexbox-card
-        items_classes: 'col-xs-12 col-sm-6 col-md-3 col-lg-2'
-
-    - type: custom:stack-in-card
-      style: |
-        ha-card {
-          color: teal;
-          border-radius: 2.5px;
-        }
       cards:
         - type: custom:dwains-flexbox-card
-          items_classes: 'col-xs-12 col-md-12 col-lg-6 col-xl-6'
+          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-1'
           cards:
-            # - type: horizontal-stack
-            #   cards:
             - type: vertical-stack
               cards:
                 - type: markdown
@@ -126,53 +14,156 @@
                     ha-card { box-shadow: none; }
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
-                    <img width="125" src="https://brands.home-assistant.io/plex/logo.png"/><br/>
-
-    - type: custom:auto-entities
-      filter:
-        include:
-          - entity_id: sensor.lovelace_plex_recent_*
-            options:
-              type: custom:button-card
-              show_state: true
-              show_label: true
-              show_name: true
-              show_icon: true
-              name: '[[[ return entity.attributes.name ]]]'
-              entity_picture: '[[[ return entity.attributes.poster ]]]'
-              show_entity_picture: true
-              # entity: this.entity_id
-              layout: vertical
-              custom_fields:
-                date: >
-                  [[[ return entity.attributes.date ]]]
-                episode: >
-                  [[[ return entity.attributes.episode + ' (' + entity.attributes.number + ')' ]]]
-              styles:
-                grid:
-                  - grid-template-areas: '"i" "n" "date" "episode"'
-                  - grid-template-columns: 100%
-                  - grid-template-rows: 1fr min-content min-content min-content
-                card:
-                  - background-color: var(--dwains-theme-primary)
-                  - border-radius: 0
-                  - box-shadow: none
-                name:
-                  - font-size: 15px
-                  - font-weight: bold
-                  - color: var(--dwains-theme-names)
-                custom_fields:
-                  episode:
-                    - font-size: 13px
-                    - color: var(--dwains-theme-names)
-                  date:
-                    - font-size: 13px
-                    - color: var(--dwains-theme-names)
-                icon:
-                  - color: var(--dwains-theme-accent)
-      sort:
-        method: name
-        ignore_case: true
-      card:
-        type: custom:dwains-flexbox-card
-        items_classes: 'col-xs-12 col-sm-6 col-md-3 col-lg-2'
+                    <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-11'
+          cards:
+            - type: entities
+              style: |
+                ha-card {
+                  background-color: var(--dwains-theme-primary)
+                }
+                .card-header {
+                  padding: 5px 16px;
+                  font-size: 18px;
+                  font-weight: 700 !important;
+                }
+                .card-content div {
+                    margin: 0 !important;
+                }
+                #states {
+                  padding-top: 0px !important;
+                  padding-bottom: 0px !important;
+                }
+                .secondary {
+                  color: darkgray !important;
+                  margin-left: 2px !important;
+                }
+              entities:
+                - entity: binary_sensor.vmtbsh01_ha_dockermon_transmission
+                  type: custom:multiple-entity-row
+                  secondary_info:
+                    attribute: status
+                  name: Transmission (vmTBSH01, Docker)
+                  icon: mdi:transfer-down
+                - type: section
+                - entity: sensor.transmission_status
+                  name: Status
+                - type: section
+                - entity: sensor.transmission_total_torrents
+                  name: Total Torrents
+                - entity: sensor.transmission_active_torrents
+                  name: Active Torents
+                - entity: sensor.transmission_completed_torrents
+                  name: Completed Torrents
+                - entity: sensor.transmission_paused_torrents
+                  name: Paused Torrents
+                - entity: sensor.transmission_started_torrents
+                  name: Started Torrents
+                - type: section
+                - entity: sensor.transmission_down_speed
+                  name: Download Speed
+                - entity: sensor.transmission_up_speed
+                  name: Upload Speed
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>
+            - type: markdown
+              style: |
+                ha-card { box-shadow: none; }
+                ha-markdown { padding-bottom: 1px !important; }
+              content: >
+                <img width="125" src="https://brands.home-assistant.io/sonarr/logo.png"/><br/>

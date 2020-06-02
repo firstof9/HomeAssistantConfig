@@ -54,6 +54,26 @@
                     - entity: counter.logs_warning_counter
                       unit: false
                       name: Warning
+            - type: custom:mini-graph-card
+              name: Log Counter
+              height: 100
+              line_width: 2
+              hours_to_show: 24
+              points_per_hour: 10
+              show:
+                extrema: false
+                fill: true
+                state: false
+                legend: false
+              entities:
+                - entity: counter.logs_critical_counter
+                  name: Critical
+                  color: rgba(50,203,253,0.33)
+                - entity: counter.logs_error_counter
+                  name: Error
+                  color: rgb(26,204,147,0.33)
+                - entity: counter.logs_warning_counter
+                  name: Warning
         - type: entities
           title: Versions
           style: |

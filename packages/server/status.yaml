@@ -1,0 +1,13 @@
+---
+sensor:
+  - platform: template
+    sensors:
+      status_vmtbsh02_docker_portainer:
+        friendly_name: Status - vmTBSH02 Docker Portainer
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_portainer
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_portainer', 'on') %}
+            100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_portainer', 'off') %}
+            0
+          {% endif %}

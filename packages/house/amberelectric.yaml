@@ -1,0 +1,118 @@
+---
+sensor:
+  - platform: amberelectric
+    postcode: '2340'
+
+  - platform: template
+    sensors:
+      amber_general_usage_price_previous_24hr:
+        friendly_name: Amber General Usage Price (Previous 24hrs)
+        entity_id: sensor.amber_general_usage_price
+        unit_of_measurement: 'c/kWh'
+        icon_template: mdi:transmission-tower
+        value_template: >
+          {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] %}
+          {{((price_forecast | sum(attribute='price')) / (price_forecast | length())) | round(2)}}
+        attribute_templates:
+          period_start: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] %}
+            {{as_timestamp((price_forecast | first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          period_end: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] %}
+            {{as_timestamp((price_forecast | last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          max_in_period: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|last)['price']}}
+          max_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          min_in_period: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|first)['price']}}
+          min_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+
+      amber_general_usage_price_next_24hr:
+        friendly_name: Amber General Usage Price (Next 24hrs)
+        entity_id: sensor.amber_general_usage_price
+        unit_of_measurement: 'c/kWh'
+        icon_template: mdi:transmission-tower
+        value_template: >
+          {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] %}
+          {{((price_forecast | sum(attribute='price')) / (price_forecast | length())) | round(2)}}
+        attribute_templates:
+          period_start: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] %}
+            {{as_timestamp((price_forecast | first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          period_end: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] %}
+            {{as_timestamp((price_forecast | last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          max_in_period: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|last)['price']}}
+          max_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          min_in_period: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|first)['price']}}
+          min_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_general_usage_price.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+
+      amber_solar_feed_in_tariff_previous_24hr:
+        friendly_name: Amber Amber Solar Feed-In Tariff (Previous 24hrs)
+        entity_id: sensor.amber_solar_feed_in_tariff
+        unit_of_measurement: 'c/kWh'
+        icon_template: mdi:solar-power
+        value_template: >
+          {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] %}
+          {{((price_forecast | sum(attribute='price')) / (price_forecast | length())) | round(2)}}
+        attribute_templates:
+          period_start: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] %}
+            {{as_timestamp((price_forecast | first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          period_end: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] %}
+            {{as_timestamp((price_forecast | last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          max_in_period: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|last)['price']}}
+          max_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          min_in_period: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|first)['price']}}
+          min_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[0:48] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+
+      amber_solar_feed_in_tariff_next_24hr:
+        friendly_name: Amber Solar Feed-In Tariff (Next 24hrs)
+        entity_id: sensor.amber_solar_feed_in_tariff
+        unit_of_measurement: 'c/kWh'
+        icon_template: mdi:solar-power
+        value_template: >
+          {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] %}
+          {{((price_forecast | sum(attribute='price')) / (price_forecast | length())) | round(2)}}
+        attribute_templates:
+          period_start: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] %}
+            {{as_timestamp((price_forecast | first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          period_end: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] %}
+            {{as_timestamp((price_forecast | last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          max_in_period: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|last)['price']}}
+          max_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|last)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}
+          min_in_period: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}
+            {{((price_forecast | sort(attribute='price'))|first)['price']}}
+          min_in_period_time: >-
+            {% set price_forecast = (states.sensor.amber_solar_feed_in_tariff.attributes["price_forcecast"] | sort(attribute='pricing_period'))[48:96] | sort(attribute='price_forecast') %}          
+            {{as_timestamp(((price_forecast | sort(attribute='price'))|first)['pricing_period']) | timestamp_custom ("%A %-d %b, %H:%M")}}

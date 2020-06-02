@@ -13,6 +13,13 @@ sensor:
       - alerts
       - firmware
 
+  - platform: my_unifi
+    name: unifi
+    region: default
+    url: https://192.168.1.20:8443
+    username: !secret unifi_username
+    password: !secret unifi_password
+
   - platform: template
     sensors:
       unifi_gateway_wan_cpu:

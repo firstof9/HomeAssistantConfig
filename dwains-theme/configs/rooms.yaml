@@ -49,7 +49,7 @@ rooms:
           entity: binary_sensor.networkstatus_sonos
   - name: Spare Room
     icon: mdi:bed-empty
-    light: light.zha_spare_light
+    # light: light.zha_spare_light
   - name: Laundry
     icon: mdi:washing-machine
     temperature: sensor.zha_laundry_temperature
@@ -82,7 +82,7 @@ rooms:
 
   - name: Server Rack
     icon: mdi:server-network
-    device: group.serverrack_device
+    # device: group.serverrack_device
     page_entities:
       entities:
         - entity: sensor.pvetbsh_uptime
@@ -95,6 +95,24 @@ rooms:
         - entity: sensor.piserv_uptime
         - entity: sensor.hateful8_uptime
     addons:
+      - name: vmTBSH02
+        icon: mdi:server
+        path: 'dwains-theme/addons/rooms/server-rack/vmtbsh02.yaml'
+        button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
+        data:
+          entity: binary_sensor.pvetbsh_vmtbsh02_running
+          uptime: '{{states.sensor.vmtbsh02_uptime.state}}'
+          docker_portainer_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_portainer.attributes.memory}}'
+          docker_portainer_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_portainer.attributes.network_rx_total}}'
+          docker_portainer_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_portainer.attributes.network_tx_total}}'
+      - name: vmTBSH03
+        icon: mdi:server
+        path: 'dwains-theme/addons/rooms/server-rack/vmtbsh03.yaml'
+        button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
+        data:
+          entity: binary_sensor.pvetbsh_vmtbsh03_running
+          os: '{{states.sensor.hassos_installed_version.state}}'
+          uptime: '{{states.sensor.vmtbsh03_uptime.state}}'
       - name: Synology NAS
         icon: mdi:nas
         path: 'dwains-theme/addons/more_page/synology/page.yaml'

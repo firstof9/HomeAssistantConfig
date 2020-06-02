@@ -17,17 +17,17 @@ homeassistant:
 docker_monitor:
   hosts:
     - url: tcp://192.168.1.61:2375
-      name: vmTBSH01
+      name: docker_vmTBSH01
       event: false
-      # containers:
+      containers:
       # duplicati:
       #   <<: *settings
       # glances:
       #   <<: *settings
       # grafana:
       #   <<: *settings
-      # jackett:
-      #   <<: *settings
+        jackett:
+          <<: *settings
       # netdata:
       #   <<: *settings
       # nzbhydra2:
@@ -36,20 +36,20 @@ docker_monitor:
       #   <<: *settings
       # portainer:
       #   <<: *settings
-      # radarr:
-      #   <<: *settings
+        radarr:
+          <<: *settings
       # sabnzbd:
       #   <<: *settings
-      # sonarr:
-      #   <<: *settings
+        sonarr:
+          <<: *settings
       # tautulli:
       #   <<: *settings
-      # transmission:
-      #   <<: *settings
+        transmission:
+          <<: *settings
       # tvheadend:
       #   <<: *settings
     - url: tcp://192.168.1.62:2375
-      name: vmTBSH02
+      name: docker_vmTBSH02
       event: false
       # containers:
       #   cronograf:
@@ -75,7 +75,7 @@ docker_monitor:
       #   telegraf:
       #     <<: *settings
     - url: tcp://192.168.1.20:2375
-      name: TBSH01
+      name: docker_TBSH01
       event: false
       # containers:
       #   db:
@@ -96,3 +96,6 @@ docker_monitor:
       #     <<: *settings
       #   unifi:
       #     <<: *settings
+    - url: unix://var/run/docker.sock
+      name: docker_vmTBSH03
+      event: false

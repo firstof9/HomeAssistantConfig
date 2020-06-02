@@ -50,3 +50,4 @@ isort.cfg
 .prettierrc.js
 .prettierrc.yaml
 .homekit.state
+.Google Fit_google_fit.token

@@ -17,8 +17,6 @@ homeassistant:
         - ::1
         - 192.168.1.0/24
     - type: homeassistant
-  # internal_url: !secret internal_url
-  # external_url: !secret external_url
 
 automation: !include_dir_list automations
 

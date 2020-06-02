@@ -10,6 +10,8 @@
   type: module
 - url: /hacsfiles/config-template-card/config-template-card.js
   type: module
+- url: /hacsfiles/flex-horseshoe-card/flex-horseshoe-card.js
+  type: module
 - url: /hacsfiles/flex-table-card/flex-table-card.js
   type: module
 - url: /hacsfiles/lovelace-card-tools/card-tools.js

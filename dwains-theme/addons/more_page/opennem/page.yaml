@@ -1,7 +1,7 @@
 #dwains_theme
 
 - type: custom:dwains-flexbox-card
-  items_classes: "col-xs-12 col-md-6 col-lg-4 col-xl-4"
+  items_classes: 'col-xs-12 col-md-6 col-lg-4 col-xl-4'
   cards:
     - type: custom:mini-graph-card
       style: |
@@ -11,7 +11,7 @@
       entities:
         - sensor.opennem_nsw1_current_price
       name: Current Price
-      line_color: "var(--dwains-theme-accent)"
+      line_color: 'var(--dwains-theme-accent)'
       hours_to_show: 24
       hour24: true
       points_per_hour: 6
@@ -36,7 +36,7 @@
         - entity: sensor.opennem_nsw1_gen_from_renewables
           name: Renewables
       name: Generation Type
-      line_color: "var(--dwains-theme-accent)"
+      line_color: 'var(--dwains-theme-accent)'
       hours_to_show: 24
       hour24: true
       points_per_hour: 6
@@ -61,7 +61,7 @@
         - entity: sensor.opennem_nsw1_electricity_generation
           name: Generation
       name: Generation vs Demand
-      line_color: "var(--dwains-theme-accent)"
+      line_color: 'var(--dwains-theme-accent)'
       hours_to_show: 24
       hour24: true
       points_per_hour: 6
@@ -75,18 +75,30 @@
         fill: fade
 
 - type: custom:dwains-flexbox-card
-  items_classes: "col-xs-12 col-sm-6 col-sm-6 col-xl-6"
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-xl-6'
   cards:
     - type: entities
       title: Current State
       style: |
         ha-card {
+          padding-bottom: 10px;
           background-color: var(--dwains-theme-primary)
         }
         .card-header {
           padding: 5px 16px;
           font-size: 18px;
           font-weight: 700 !important;
+        }
+        .card-content div {
+            margin: 0 !important;
+        }
+        #states {
+          padding-top: 0px !important;
+          padding-bottom: 0px !important;
+        }
+        .secondary {
+          color: darkgray !important;
+          margin-left: 2px !important;
         }
       entities:
         - entity: sensor.opennem_nsw1_current_price
@@ -119,12 +131,24 @@
           title: Current Generation
           style: |
             ha-card {
+              padding-bottom: 10px;
               background-color: var(--dwains-theme-primary)
             }
             .card-header {
-              padding: 5px 16px 10px;
+              padding: 5px 16px;
               font-size: 18px;
               font-weight: 700 !important;
+            }
+            .card-content div {
+                margin: 0 !important;
+            }
+            #states {
+              padding-top: 0px !important;
+              padding-bottom: 0px !important;
+            }
+            .secondary {
+              color: darkgray !important;
+              margin-left: 2px !important;
             }
         sort:
           method: state
@@ -153,19 +177,19 @@
                   }
                   bar-card-backgroundbar	 {
                     margin-top: -3.5px;
-                    border-radius: 2.5px;
+                    # border-radius: 2.5px;
                   }
                   bar-card-currentbar	 {
                     margin-top: -3.5px;
-                    border-radius: 2.5px;
+                    # border-radius: 2.5px;
                   }
                   bar-card-targetbar	 {
                     margin-top: -3.5px;
-                    border-radius: 2.5px;
+                    # border-radius: 2.5px;
                   }
                   bar-card-targetmarker	 {
                     margin-top: -3.5px;
-                    border-radius: 2.5px;
+                    # border-radius: 2.5px;
                   }
                   bar-card-value	 {
                     margin-top: -4.5px;
@@ -176,5 +200,128 @@
                   value: inside
                 entity_row: true
                 min: 0
-                max: "${vars[0]}"
+                max: '${vars[0]}'
                 color: rgb(26,204,147,0.33)
+
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-md-6 col-lg-6 col-xl-6'
+  cards:
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.amber_general_usage_price
+          name: Spot Price
+        - entity: sensor.amber_general_usage_price_next_24hr
+          name: Next 24hrs
+        - entity: sensor.amber_general_usage_price_previous_24hr
+          name: Prev 24hrs
+      name: Amber Current Price
+      line_color: 'var(--dwains-theme-accent)'
+      hours_to_show: 24
+      hour24: true
+      points_per_hour: 4
+      # smoothing: true
+      animate: true
+      decimals: 2
+      line_width: 2
+      lower_bound: 0
+      align_state: center
+      show:
+        extrema: true
+        average: true
+        fill: fade
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.amber_solar_feed_in_tariff
+          name: Spot Price
+        - entity: sensor.amber_solar_feed_in_tariff_next_24hr
+          name: Next 24hrs
+        - entity: sensor.amber_solar_feed_in_tariff_previous_24hr
+          name: Prev 24hrs
+      name: Amber Solar Feed-In Tariff
+      line_color: 'var(--dwains-theme-accent)'
+      hours_to_show: 24
+      hour24: true
+      points_per_hour: 4
+      # smoothing: true
+      animate: true
+      decimals: 2
+      line_width: 2
+      lower_bound: 0
+      align_state: center
+      show:
+        extrema: true
+        average: true
+        fill: fade
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-xl-6'
+  cards:
+    - type: entities
+      title: Amber General Usage
+      style: |
+        ha-card {
+          padding-bottom: 10px;
+          background-color: var(--dwains-theme-primary)
+        }
+        .card-header {
+          padding: 5px 16px;
+          font-size: 18px;
+          font-weight: 700 !important;
+        }
+        .card-content div {
+            margin: 0 !important;
+        }
+        #states {
+          padding-top: 0px !important;
+          padding-bottom: 0px !important;
+        }
+        .secondary {
+          color: darkgray !important;
+          margin-left: 2px !important;
+        }
+      entities:
+        - entity: sensor.amber_general_usage_price
+          name: Current Spot Price
+        - type: divider
+        - entity: sensor.amber_general_usage_price_next_24hr
+          name: Average - Next 24hrs (Actual)
+        - entity: sensor.amber_general_usage_price_previous_24hr
+          name: Average - Previous 24hrs (Forecast)
+    - type: entities
+      title: Amber Solar Feed-In Tariff
+      style: |
+        ha-card {
+          padding-bottom: 10px;
+          background-color: var(--dwains-theme-primary)
+        }
+        .card-header {
+          padding: 5px 16px;
+          font-size: 18px;
+          font-weight: 700 !important;
+        }
+        .card-content div {
+            margin: 0 !important;
+        }
+        #states {
+          padding-top: 0px !important;
+          padding-bottom: 0px !important;
+        }
+        .secondary {
+          color: darkgray !important;
+          margin-left: 2px !important;
+        }
+      entities:
+        - entity: sensor.amber_solar_feed_in_tariff
+          name: Current Spot Price
+        - type: divider
+        - entity: sensor.amber_solar_feed_in_tariff_next_24hr
+          name: Average - Next 24hrs (Actual)
+        - entity: sensor.amber_solar_feed_in_tariff_previous_24hr
+          name: Average - Previous 24hrs (Forecast)
