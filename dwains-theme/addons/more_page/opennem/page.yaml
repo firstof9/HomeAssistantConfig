@@ -227,7 +227,6 @@
       animate: true
       decimals: 2
       line_width: 2
-      lower_bound: 0
       align_state: center
       show:
         extrema: true
@@ -254,7 +253,6 @@
       animate: true
       decimals: 2
       line_width: 2
-      lower_bound: 0
       align_state: center
       show:
         extrema: true

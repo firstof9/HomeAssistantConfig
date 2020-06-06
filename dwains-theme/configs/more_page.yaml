@@ -50,6 +50,32 @@ more_page:
     - name: Ubiquiti UniFi
       icon: mdi:router-wireless
       path: "dwains-theme/addons/more_page/ubiquiti/unifi.yaml"
+      data:
+        usw_name: "{{ states.sensor.unifipoller_usw.state }}"
+        usw_model: "{{ states.sensor.unifipoller_usw.attributes.model }}"
+        usw_version: "{{ states.sensor.unifipoller_usw.attributes.version }}"
+        usw_serial: "{{ states.sensor.unifipoller_usw.attributes.serial }}"
+        usw_lastseen: "{{ states.sensor.unifipoller_usw.attributes.lastseen }}"
+        usw_uptime: "{{ states.sensor.unifipoller_usw.attributes.uptime }}"
+        usw_rxdata: "{{ states.sensor.unifipoller_usw.attributes.rx_data }}"
+        usw_txdata: "{{ states.sensor.unifipoller_usw.attributes.tx_data }}"
+        usg_name: "{{ states.sensor.unifipoller_usg.state }}"
+        usg_model: "{{ states.sensor.unifipoller_usg.attributes.model }}"
+        usg_version: "{{ states.sensor.unifipoller_usg.attributes.version }}"
+        usg_serial: "{{ states.sensor.unifipoller_usg.attributes.serial }}"
+        usg_data: "{{ states.sensor.unifipoller_usg.attributes.data }}"
+        usg_uptime: "{{ states.sensor.unifipoller_usg.attributes.uptime }}"
+        usg_lastseen: "{{ states.sensor.unifipoller_usg.attributes.lastseen }}"
+        usg_externalip: "{{ states.sensor.unifipoller_usg.attributes.external_ip_address }}"
+        uap_name: "{{ states.sensor.unifipoller_uap.state }}"
+        uap_model: "{{ states.sensor.unifipoller_uap.attributes.model }}"
+        uap_version: "{{ states.sensor.unifipoller_uap.attributes.version }}"
+        uap_serial: "{{ states.sensor.unifipoller_uap.attributes.serial }}"
+        uap_uptime: "{{ states.sensor.unifipoller_uap.attributes.uptime }}"
+        uap_lastseen: "{{ states.sensor.unifipoller_uap.attributes.lastseen }}"
+        uap_ipaddress: "{{ states.sensor.unifipoller_uap.attributes.ip_address }}"
+        uap_rxdata: "{{ states.sensor.unifipoller_uap.attributes.rx_data }}"
+        uap_txdata: "{{ states.sensor.unifipoller_uap.attributes.tx_data }}"
     - name: Upcoming Sport
       icon: mdi:football-australian
       path: "dwains-theme/addons/more_page/sports/page.yaml"

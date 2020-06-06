@@ -4,6 +4,7 @@
 ### SONARR ###
 ##############
 - type: custom:stack-in-card
+  mode: vertical
   cards:
     - type: custom:dwains-flexbox-card
       cards:
@@ -55,6 +56,7 @@
                   name: Wanted Episodes
 
     - type: custom:auto-entities
+      item_classes: 'col-xs-12 col-sm-12 col-md-10 col-lg-11'
       filter:
         include:
           - entity_id: sensor.lovelace_sonarr_upcoming_*
@@ -124,6 +126,7 @@
 ### RADARR ###
 ##############
 - type: custom:stack-in-card
+  mode: vertical
   cards:
     - type: custom:dwains-flexbox-card
       cards:
@@ -226,6 +229,7 @@
 ### PLEX ###
 ############
 - type: custom:stack-in-card
+  mode: vertical
   style: |
     ha-card {
       color: teal;

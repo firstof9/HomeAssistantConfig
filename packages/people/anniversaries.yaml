@@ -1,23 +1,23 @@
 ---
 homeassistant:
   customize:
-    anniversaries.anniversary_datetracking_mybirthday:
+    sensor.anniversary_datetracking_mybirthday:
       friendly_name: My Birthday
-    anniversaries.anniversary_datetracking_henrybirthday:
+    sensor.anniversary_datetracking_henrybirthday:
       friendly_name: Henry's Birthday
-    anniversaries.anniversary_datetracking_patrickbirthday:
+    sensor.anniversary_datetracking_patrickbirthday:
       friendly_name: Patrick's Birthday
-    anniversaries.anniversary_datetracking_mumbirthday:
+    sensor.anniversary_datetracking_mumbirthday:
       friendly_name: Mum's Birthday
-    anniversaries.anniversary_datetracking_dadbirthday:
+    sensor.anniversary_datetracking_dadbirthday:
       friendly_name: Dad's Birthday
-    anniversaries.anniversary_datetracking_marleybirthday:
+    sensor.anniversary_datetracking_marleybirthday:
       friendly_name: Marley's Birthday
-    anniversaries.anniversary_datetracking_myworkbirthday:
+    sensor.anniversary_datetracking_myworkbirthday:
       friendly_name: My Work Birthday
-    anniversaries.anniversary_datetracking_katebirthday:
+    sensor.anniversary_datetracking_katebirthday:
       friendly_name: Kate's Birthday
-    anniversaries.anniversary_datetracking_leahbirthday:
+    sensor.anniversary_datetracking_leahbirthday:
       friendly_name: Leah's Birthday
 
 anniversaries:
