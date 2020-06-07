@@ -60,28 +60,28 @@
           item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
           cards:
             - type: custom:dwains-flexbox-card
-              items_classes: "col-xs-12 col-sm-6 col-md-3 col-lg-3"
+              items_classes: 'col-xs-12 col-sm-6 col-md-3 col-lg-3'
               cards:
                 - !include
                   - ../../1_Templates/button_state.yaml
-                  - name: "WAN Status"
-                    sensor: "sensor.unifi_gateway_wan"
+                  - name: 'WAN Status'
+                    sensor: 'sensor.unifi_gateway_wan'
                 - !include
                   - ../../1_Templates/button_state.yaml
-                  - name: "WWW Status"
-                    sensor: "sensor.unifi_gateway_www"
+                  - name: 'WWW Status'
+                    sensor: 'sensor.unifi_gateway_www'
                 - !include
                   - ../../1_Templates/button_state.yaml
-                  - name: "LAN Status"
-                    sensor: "sensor.unifi_gateway_lan"
+                  - name: 'LAN Status'
+                    sensor: 'sensor.unifi_gateway_lan'
                 - !include
                   - ../../1_Templates/button_state.yaml
-                  - name: "WLAN Status"
-                    sensor: "sensor.unifi_gateway_wlan"
+                  - name: 'WLAN Status'
+                    sensor: 'sensor.unifi_gateway_wlan'
                 - !include
                   - ../../1_Templates/button_state.yaml
-                  - name: "Firmware Upgradable"
-                    sensor: "sensor.unifi_gateway_firmware_upgradable"
+                  - name: 'Firmware Upgradable'
+                    sensor: 'sensor.unifi_gateway_firmware_upgradable'
 
 - type: custom:stack-in-card
   mode: vertical

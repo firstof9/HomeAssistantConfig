@@ -378,7 +378,7 @@
     },
     "9c628d57_1704c": {
       "lastPayload": {
-        "state": 2486.66,
+        "state": 2477.94,
         "attributes": {}
       }
     },
@@ -405,14 +405,14 @@
           "serial": "802AA8D38F48",
           "sitename": "TBSmartHome (default)",
           "type": "uap",
-          "cpu": 13,
-          "users": 25,
+          "cpu": 7.3,
+          "users": 24,
           "controller": "https://192.168.1.20:8443",
           "guests": 0,
-          "uptime": "8d 1hr 46min",
+          "uptime": "8d 2hr 52min",
           "lastseen": "a few seconds ago",
-          "tx_data": "249.8 GB",
-          "rx_data": "32.9 GB"
+          "tx_data": "252.9 GB",
+          "rx_data": "33.3 GB"
         }
       }
     },
@@ -422,13 +422,13 @@
         "attributes": {
           "model": "UGW3",
           "version": "4.4.50.5272448",
-          "data": "381.3 GB",
+          "data": "385.2 GB",
           "serial": "F09FC212B4F7",
           "sitename": "TBSmartHome (default)",
           "type": "ugw",
           "controller": "https://192.168.1.20:8443",
           "external_ip_address": "110.143.197.190",
-          "uptime": "8d 1hr 47min",
+          "uptime": "8d 2hr 52min",
           "lastseen": "a few seconds ago"
         }
       }
@@ -443,16 +443,16 @@
           "sitename": "TBSmartHome (default)",
           "type": "usw",
           "controller": "https://192.168.1.20:8443",
-          "uptime": "8d 1hr 46min",
-          "rx_data": "108.0 GB",
-          "tx_data": "284.5 GB",
+          "uptime": "8d 2hr 53min",
+          "rx_data": "108.9 GB",
+          "tx_data": "287.6 GB",
           "lastseen": "a few seconds ago"
         }
       }
     },
     "5cc0456e_7000bc": {
       "lastPayload": {
-        "state": "108.0",
+        "state": "108.9",
         "attributes": {
           "units": "GB"
         }
@@ -460,7 +460,7 @@
     },
     "bef3ffcb_1da08": {
       "lastPayload": {
-        "state": "284.5",
+        "state": "287.6",
         "attributes": {
           "units": "GB"
         }
@@ -468,7 +468,7 @@
     },
     "a7efd775_e1ecc8": {
       "lastPayload": {
-        "state": "249.8",
+        "state": "252.9",
         "attributes": {
           "units": "GB"
         }
@@ -476,7 +476,7 @@
     },
     "5a3372d9_4316ac": {
       "lastPayload": {
-        "state": "32.9",
+        "state": "33.3",
         "attributes": {
           "units": "GB"
         }
@@ -484,10 +484,10 @@
     },
     "c413b33a_de29b": {
       "lastPayload": {
-        "state": 227,
+        "state": 228,
         "attributes": {
-          "uptime": "",
-          "drops": 227
+          "uptime": "0d 0hr 55min",
+          "drops": 228
         }
       }
     }

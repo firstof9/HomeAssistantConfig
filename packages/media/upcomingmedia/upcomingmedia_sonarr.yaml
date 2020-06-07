@@ -39,14 +39,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[1]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[1]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[1]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[1]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[1]['airdate'])  is defined else "None"}}
 
@@ -63,14 +63,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[2]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[2]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[2]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[2]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[2]['airdate'])  is defined else "None"}}
 
@@ -87,14 +87,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[3]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[3]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[3]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[3]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[3]['airdate'])  is defined else "None"}}
 
@@ -111,14 +111,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[4]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[4]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[4]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[4]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[4]['airdate'])  is defined else "None"}}
 
@@ -135,14 +135,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[5]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[5]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[5]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[5]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[5]['airdate'])  is defined else "None"}}
 
@@ -159,14 +159,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[6]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[6]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[6]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[6]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[6]['airdate'])  is defined else "None"}}
 
@@ -183,14 +183,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[7]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[7]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[7]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[7]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[7]['airdate'])  is defined else "None"}}
 
@@ -207,14 +207,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[8]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[8]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[8]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[8]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[8]['airdate'])  is defined else "None"}}
 
@@ -231,14 +231,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[9]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[9]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[9]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[9]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[9]['airdate'])  is defined else "None"}}
 
@@ -255,14 +255,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[10]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[10]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[10]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[10]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[10]['airdate'])  is defined else "None"}}
 
@@ -279,14 +279,14 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[11]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[11]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[11]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[11]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[11]['airdate'])  is defined else "None"}}
 
@@ -303,13 +303,13 @@ sensor:
           number: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['number'] if state_attr('sensor.sonarr_upcoming_media', 'data')[12]['number'] is defined else 'None'}}
           date: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate'])
             | timestamp_custom ('%A %-d %b, %H:%M') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate']) is defined else "None"}}
           poster: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['poster'] if state_attr('sensor.sonarr_upcoming_media', 'data')[12]['poster'] is defined else "None"}}
           downloaded: >
             {{state_attr('sensor.sonarr_upcoming_media', 'data')[12]['flag'] if state_attr('sensor.sonarr_upcoming_media', 'data')[12]['flag'] is defined else "None"}}
           onairtoday: >
-            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate']) 
+            {{as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate'])
             | timestamp_custom ('%Y/%m/%d') == as_timestamp(now())
             | timestamp_custom ('%Y/%m/%d') if as_timestamp(state_attr('sensor.sonarr_upcoming_media', 'data')[12]['airdate'])  is defined else "None"}}

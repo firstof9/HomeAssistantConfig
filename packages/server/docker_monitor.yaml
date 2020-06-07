@@ -46,8 +46,8 @@ docker_monitor:
         #   <<: *settings
         transmission:
           <<: *settings
-      # tvheadend:
-      #   <<: *settings
+        # tvheadend:
+        #   <<: *settings
     - url: tcp://192.168.1.62:2375
       name: docker_vmTBSH02
       event: false

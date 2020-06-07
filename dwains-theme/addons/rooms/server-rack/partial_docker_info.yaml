@@ -24,12 +24,12 @@ cards:
       icon: 'off'
     width: 100%
     height: 10px
-    entity: {{ status_sensor }}
+    entity: { { status_sensor } }
     tap_action:
       action: call-service
       service: switch.toggle
       service_data:
-        entity_id: {{ switch }}
+        entity_id: { { switch } }
     severity:
       - color: red
         from: 0
