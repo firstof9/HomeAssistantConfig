@@ -1,13 +1,646 @@
 ---
+# {% for state in states.binary_sensor if 'ha_dockermon' in state.entity_id %}
+#   {% set string = state.entity_id.split('.')[1] %}
+#   {% set server = string.split('_')[0] %}
+#   {% set container = string.replace(server + "_ha_dockermon_","") %}
+#   status_{{server}}_docker_{{container}}:
+#     friendly_name: Status - {{server}} Docker {{container}}
+#     entity_id: binary_sensor.{{server}}_ha_dockermon_{{container}}
+#     value_template: >-
+#       {%raw%}{% if is_state('binary_sensor.{%endraw%}{{server}}{%raw%}_ha_dockermon_{%endraw%}{{container}}{%raw%}', 'on') %}
+#        100
+#       {% elif is_state('binary_sensor.{%endraw%}{{server}}{%raw%}_ha_dockermon_{%endraw%}{{container}}{%raw%}', 'off') %}
+#        0
+#       {% endif %}{%endraw%}{% endfor %}
 sensor:
   - platform: template
     sensors:
+      status_tbsh01_docker_db:
+        friendly_name: Status - tbsh01 Docker db
+        entity_id: binary_sensor.tbsh01_ha_dockermon_db
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_db', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_db', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_deconz:
+        friendly_name: Status - tbsh01 Docker deconz
+        entity_id: binary_sensor.tbsh01_ha_dockermon_deconz
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_deconz', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_deconz', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_duplicati:
+        friendly_name: Status - tbsh01 Docker duplicati
+        entity_id: binary_sensor.tbsh01_ha_dockermon_duplicati
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_duplicati', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_duplicati', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_glances:
+        friendly_name: Status - tbsh01 Docker glances
+        entity_id: binary_sensor.tbsh01_ha_dockermon_glances
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_glances', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_glances', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_guacamole:
+        friendly_name: Status - tbsh01 Docker guacamole
+        entity_id: binary_sensor.tbsh01_ha_dockermon_guacamole
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_guacamole', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_guacamole', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_ha_dockermon:
+        friendly_name: Status - tbsh01 Docker ha_dockermon
+        entity_id: binary_sensor.tbsh01_ha_dockermon_ha_dockermon
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_ha_dockermon', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_ha_dockermon', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_homer:
+        friendly_name: Status - tbsh01 Docker homer
+        entity_id: binary_sensor.tbsh01_ha_dockermon_homer
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_homer', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_homer', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_netdata:
+        friendly_name: Status - tbsh01 Docker netdata
+        entity_id: binary_sensor.tbsh01_ha_dockermon_netdata
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_netdata', 'on') %}
+            100
+            {% elif is_state('binary_sensor.tbsh01_ha_dockermon_netdata', 'off') %}
+            0
+            {% endif %}
+
+      status_tbsh01_docker_nginxproxymanager:
+        friendly_name: Status - tbsh01 Docker nginxproxymanager
+        entity_id: binary_sensor.tbsh01_ha_dockermon_nginxproxymanager
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_nginxproxymanager', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_nginxproxymanager', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_ouroboros:
+        friendly_name: Status - tbsh01 Docker ouroboros
+        entity_id: binary_sensor.tbsh01_ha_dockermon_ouroboros
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_ouroboros', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_ouroboros', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_portainer:
+        friendly_name: Status - tbsh01 Docker portainer
+        entity_id: binary_sensor.tbsh01_ha_dockermon_portainer
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_portainer', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_portainer', 'off') %}
+          0
+          {% endif %}
+
+      status_tbsh01_docker_unifi:
+        friendly_name: Status - tbsh01 Docker unifi
+        entity_id: binary_sensor.tbsh01_ha_dockermon_unifi
+        value_template: >-
+          {% if is_state('binary_sensor.tbsh01_ha_dockermon_unifi', 'on') %}
+          100
+          {% elif is_state('binary_sensor.tbsh01_ha_dockermon_unifi', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_duplicati:
+        friendly_name: Status - vmtbsh01 Docker duplicati
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_duplicati
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_duplicati', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_duplicati', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_glances:
+        friendly_name: Status - vmtbsh01 Docker glances
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_glances
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_glances', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_glances', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_grafana:
+        friendly_name: Status - vmtbsh01 Docker grafana
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_grafana
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_grafana', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_grafana', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_ha_dockermon:
+        friendly_name: Status - vmtbsh01 Docker ha_dockermon
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_ha_dockermon
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_ha_dockermon', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_ha_dockermon', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_jackett:
+        friendly_name: Status - vmtbsh01 Docker jackett
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_jackett
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_jackett', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_jackett', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_jdownloader:
+        friendly_name: Status - vmtbsh01 Docker jdownloader
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_jdownloader
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_jdownloader', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_jdownloader', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_netdata:
+        friendly_name: Status - vmtbsh01 Docker netdata
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_netdata
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_netdata', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_netdata', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_nzbhydra2:
+        friendly_name: Status - vmtbsh01 Docker nzbhydra2
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_nzbhydra2
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_nzbhydra2', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_nzbhydra2', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_ouroboros:
+        friendly_name: Status - vmtbsh01 Docker ouroboros
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_ouroboros
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_ouroboros', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_ouroboros', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_portainer:
+        friendly_name: Status - vmtbsh01 Docker portainer
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_portainer
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_portainer', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_portainer', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_radarr:
+        friendly_name: Status - vmtbsh01 Docker radarr
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_radarr
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_radarr', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_radarr', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_sabnzbd:
+        friendly_name: Status - vmtbsh01 Docker sabnzbd
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_sabnzbd
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_sabnzbd', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_sabnzbd', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_sonarr:
+        friendly_name: Status - vmtbsh01 Docker sonarr
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_sonarr
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_sonarr', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_sonarr', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_tautulli:
+        friendly_name: Status - vmtbsh01 Docker tautulli
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_tautulli
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_tautulli', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_tautulli', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_transmission:
+        friendly_name: Status - vmtbsh01 Docker transmission
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_transmission
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_transmission', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_transmission', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_tvheadend:
+        friendly_name: Status - vmtbsh01 Docker tvheadend
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_tvheadend
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_tvheadend', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_tvheadend', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh01_docker_varken:
+        friendly_name: Status - vmtbsh01 Docker varken
+        entity_id: binary_sensor.vmtbsh01_ha_dockermon_varken
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh01_ha_dockermon_varken', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh01_ha_dockermon_varken', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_chronograf:
+        friendly_name: Status - vmtbsh02 Docker chronograf
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_chronograf
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_chronograf', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_chronograf', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_duplicati:
+        friendly_name: Status - vmtbsh02 Docker duplicati
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_duplicati
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_duplicati', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_duplicati', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_glances:
+        friendly_name: Status - vmtbsh02 Docker glances
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_glances
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_glances', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_glances', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_ha_dockermon:
+        friendly_name: Status - vmtbsh02 Docker ha_dockermon
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_ha_dockermon
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_ha_dockermon', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_ha_dockermon', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_influxdb:
+        friendly_name: Status - vmtbsh02 Docker influxdb
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_influxdb
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_influxdb', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_influxdb', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_kapacitor:
+        friendly_name: Status - vmtbsh02 Docker kapacitor
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_kapacitor
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_kapacitor', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_kapacitor', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_netdata:
+        friendly_name: Status - vmtbsh02 Docker netdata
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_netdata
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_netdata', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_netdata', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_ouroboros:
+        friendly_name: Status - vmtbsh02 Docker ouroboros
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_ouroboros
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_ouroboros', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_ouroboros', 'off') %}
+          0
+          {% endif %}
+
       status_vmtbsh02_docker_portainer:
-        friendly_name: Status - vmTBSH02 Docker Portainer
+        friendly_name: Status - vmtbsh02 Docker portainer
         entity_id: binary_sensor.vmtbsh02_ha_dockermon_portainer
         value_template: >-
           {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_portainer', 'on') %}
-            100
+          100
           {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_portainer', 'off') %}
-            0
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_telegraf:
+        friendly_name: Status - vmtbsh02 Docker telegraf
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_telegraf
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_telegraf', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_telegraf', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh02_docker_unifipoller:
+        friendly_name: Status - vmtbsh02 Docker unifipoller
+        entity_id: binary_sensor.vmtbsh02_ha_dockermon_unifipoller
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh02_ha_dockermon_unifipoller', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh02_ha_dockermon_unifipoller', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_15ef4d2f_esphome:
+        friendly_name: Status - vmtbsh03 Docker addon_15ef4d2f_esphome
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_41cba666_xboxone:
+        friendly_name: Status - vmtbsh03 Docker addon_41cba666_xboxone
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_41cba666_xboxone
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_41cba666_xboxone', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_41cba666_xboxone', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_adb:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_adb
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_adb
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_adb', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_adb', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_airsonos:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_airsonos
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_appdaemon:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_appdaemon
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_glances:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_glances
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_glances
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_glances', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_glances', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_jupyterlablite:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_jupyterlablite
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_nodered:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_nodered
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_portainer:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_portainer
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_ssh:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_ssh
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_a0d7b954_vscode:
+        friendly_name: Status - vmtbsh03 Docker addon_a0d7b954_vscode
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_cebe7a76_hassio_google_drive_backup:
+        friendly_name: Status - vmtbsh03 Docker addon_cebe7a76_hassio_google_drive_backup
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_core_mariadb:
+        friendly_name: Status - vmtbsh03 Docker addon_core_mariadb
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_core_mariadb
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_core_mariadb', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_core_mariadb', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_core_mosquitto:
+        friendly_name: Status - vmtbsh03 Docker addon_core_mosquitto
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_core_mosquitto
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_core_mosquitto', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_core_mosquitto', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_addon_core_samba:
+        friendly_name: Status - vmtbsh03 Docker addon_core_samba
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_addon_core_samba
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_core_samba', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_addon_core_samba', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_ha_dockermon:
+        friendly_name: Status - vmtbsh03 Docker ha_dockermon
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_ha_dockermon
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_ha_dockermon', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_ha_dockermon', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_hassio_audio:
+        friendly_name: Status - vmtbsh03 Docker hassio_audio
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_hassio_audio
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_audio', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_audio', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_hassio_cli:
+        friendly_name: Status - vmtbsh03 Docker hassio_cli
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_hassio_cli
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_cli', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_cli', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_hassio_dns:
+        friendly_name: Status - vmtbsh03 Docker hassio_dns
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_hassio_dns
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_dns', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_dns', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_hassio_multicast:
+        friendly_name: Status - vmtbsh03 Docker hassio_multicast
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_hassio_multicast
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_multicast', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_multicast', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_hassio_supervisor:
+        friendly_name: Status - vmtbsh03 Docker hassio_supervisor
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_hassio_supervisor
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_supervisor', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_hassio_supervisor', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_hassos_supervisor:
+        friendly_name: Status - vmtbsh03 Docker hassos_supervisor
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_hassos_supervisor
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_hassos_supervisor', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_hassos_supervisor', 'off') %}
+          0
+          {% endif %}
+
+      status_vmtbsh03_docker_homeassistant:
+        friendly_name: Status - vmtbsh03 Docker homeassistant
+        entity_id: binary_sensor.vmtbsh03_ha_dockermon_homeassistant
+        value_template: >-
+          {% if is_state('binary_sensor.vmtbsh03_ha_dockermon_homeassistant', 'on') %}
+          100
+          {% elif is_state('binary_sensor.vmtbsh03_ha_dockermon_homeassistant', 'off') %}
+          0
           {% endif %}

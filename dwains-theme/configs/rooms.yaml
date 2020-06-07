@@ -88,13 +88,66 @@ rooms:
         - entity: sensor.pvetbsh_uptime
         - entity: sensor.tbsh01_uptime
         - entity: sensor.thecube2_uptime
-        - entity: sensor.vmtbsh01_uptime
-        - entity: sensor.vmtbsh02_uptime
-        - entity: sensor.ufo_uptime
-        - entity: sensor.usg_uptime
         - entity: sensor.piserv_uptime
-        - entity: sensor.hateful8_uptime
     addons:
+      - name: vmTBSH01
+        icon: mdi:server
+        path: 'dwains-theme/addons/rooms/server-rack/vmtbsh01.yaml'
+        button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
+        data:
+          entity: binary_sensor.pvetbsh_vmtbsh01_running
+          uptime: '{{states.sensor.vmtbsh01_uptime.state}}'
+          docker_duplicati_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_duplicati.attributes.memory}}'
+          docker_duplicati_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_duplicati.attributes.network_rx_total}}'
+          docker_duplicati_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_duplicati.attributes.network_tx_total}}'
+          docker_glances_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_glances.attributes.memory}}'
+          docker_glances_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_glances.attributes.network_rx_total}}'
+          docker_glances_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_glances.attributes.network_tx_total}}'
+          docker_grafana_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_grafana.attributes.memory}}'
+          docker_grafana_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_grafana.attributes.network_rx_total}}'
+          docker_grafana_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_grafana.attributes.network_tx_total}}'
+          docker_ha_dockermon_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_ha_dockermon.attributes.memory}}'
+          docker_ha_dockermon_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_ha_dockermon.attributes.network_rx_total}}'
+          docker_ha_dockermon_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_ha_dockermon.attributes.network_tx_total}}'
+          docker_jackett_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_jackett.attributes.memory}}'
+          docker_jackett_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_jackett.attributes.network_rx_total}}'
+          docker_jackett_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_jackett.attributes.network_tx_total}}'
+          docker_jdownloader_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_jdownloader.attributes.memory}}'
+          docker_jdownloader_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_jdownloader.attributes.network_rx_total}}'
+          docker_jdownloader_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_jdownloader.attributes.network_tx_total}}'
+          docker_netdata_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_netdata.attributes.memory}}'
+          docker_netdata_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_netdata.attributes.network_rx_total}}'
+          docker_netdata_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_netdata.attributes.network_tx_total}}'
+          docker_nzbhydra2_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_nzbhydra2.attributes.memory}}'
+          docker_nzbhydra2_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_nzbhydra2.attributes.network_rx_total}}'
+          docker_nzbhydra2_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_nzbhydra2.attributes.network_tx_total}}'
+          docker_ouroboros_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_ouroboros.attributes.memory}}'
+          docker_ouroboros_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_ouroboros.attributes.network_rx_total}}'
+          docker_ouroboros_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_ouroboros.attributes.network_tx_total}}'
+          docker_portainer_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_portainer.attributes.memory}}'
+          docker_portainer_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_portainer.attributes.network_rx_total}}'
+          docker_portainer_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_portainer.attributes.network_tx_total}}'
+          docker_radarr_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_radarr.attributes.memory}}'
+          docker_radarr_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_radarr.attributes.network_rx_total}}'
+          docker_radarr_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_radarr.attributes.network_tx_total}}'
+          docker_sabnzbd_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_sabnzbd.attributes.memory}}'
+          docker_sabnzbd_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_sabnzbd.attributes.network_rx_total}}'
+          docker_sabnzbd_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_sabnzbd.attributes.network_tx_total}}'
+          docker_sonarr_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_sonarr.attributes.memory}}'
+          docker_sonarr_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_sonarr.attributes.network_rx_total}}'
+          docker_sonarr_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_sonarr.attributes.network_tx_total}}'
+          docker_tautulli_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_tautulli.attributes.memory}}'
+          docker_tautulli_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_tautulli.attributes.network_rx_total}}'
+          docker_tautulli_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_tautulli.attributes.network_tx_total}}'
+          docker_transmission_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_transmission.attributes.memory}}'
+          docker_transmission_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_transmission.attributes.network_rx_total}}'
+          docker_transmission_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_transmission.attributes.network_tx_total}}'
+          docker_tvheadend_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_tvheadend.attributes.memory}}'
+          docker_tvheadend_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_tvheadend.attributes.network_rx_total}}'
+          docker_tvheadend_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_tvheadend.attributes.network_tx_total}}'
+          docker_varken_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_varken.attributes.memory}}'
+          docker_varken_netrx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_varken.attributes.network_rx_total}}'
+          docker_varken_nettx: '{{states.binary_sensor.vmtbsh01_ha_dockermon_varken.attributes.network_tx_total}}'
       - name: vmTBSH02
         icon: mdi:server
         path: 'dwains-theme/addons/rooms/server-rack/vmtbsh02.yaml'
@@ -102,9 +155,39 @@ rooms:
         data:
           entity: binary_sensor.pvetbsh_vmtbsh02_running
           uptime: '{{states.sensor.vmtbsh02_uptime.state}}'
+          docker_chronograf_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_chronograf.attributes.memory}}'
+          docker_chronograf_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_chronograf.attributes.network_rx_total}}'
+          docker_chronograf_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_chronograf.attributes.network_tx_total}}'
+          docker_duplicati_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_duplicati.attributes.memory}}'
+          docker_duplicati_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_duplicati.attributes.network_rx_total}}'
+          docker_duplicati_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_duplicati.attributes.network_tx_total}}'
+          docker_glances_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_glances.attributes.memory}}'
+          docker_glances_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_glances.attributes.network_rx_total}}'
+          docker_glances_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_glances.attributes.network_tx_total}}'
+          docker_ha_dockermon_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_ha_dockermon.attributes.memory}}'
+          docker_ha_dockermon_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_ha_dockermon.attributes.network_rx_total}}'
+          docker_ha_dockermon_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_ha_dockermon.attributes.network_tx_total}}'
+          docker_influxdb_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_influxdb.attributes.memory}}'
+          docker_influxdb_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_influxdb.attributes.network_rx_total}}'
+          docker_influxdb_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_influxdb.attributes.network_tx_total}}'
+          docker_kapacitor_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_kapacitor.attributes.memory}}'
+          docker_kapacitor_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_kapacitor.attributes.network_rx_total}}'
+          docker_kapacitor_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_kapacitor.attributes.network_tx_total}}'
+          docker_netdata_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_netdata.attributes.memory}}'
+          docker_netdata_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_netdata.attributes.network_rx_total}}'
+          docker_netdata_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_netdata.attributes.network_tx_total}}'
+          docker_ouroboros_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_ouroboros.attributes.memory}}'
+          docker_ouroboros_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_ouroboros.attributes.network_rx_total}}'
+          docker_ouroboros_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_ouroboros.attributes.network_tx_total}}'
           docker_portainer_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_portainer.attributes.memory}}'
           docker_portainer_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_portainer.attributes.network_rx_total}}'
           docker_portainer_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_portainer.attributes.network_tx_total}}'
+          docker_telegraf_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_telegraf.attributes.memory}}'
+          docker_telegraf_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_telegraf.attributes.network_rx_total}}'
+          docker_telegraf_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_telegraf.attributes.network_tx_total}}'
+          docker_unifipoller_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_unifipoller.attributes.memory}}'
+          docker_unifipoller_netrx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_unifipoller.attributes.network_rx_total}}'
+          docker_unifipoller_nettx: '{{states.binary_sensor.vmtbsh02_ha_dockermon_unifipoller.attributes.network_tx_total}}'
       - name: vmTBSH03
         icon: mdi:server
         path: 'dwains-theme/addons/rooms/server-rack/vmtbsh03.yaml'
@@ -113,6 +196,75 @@ rooms:
           entity: binary_sensor.pvetbsh_vmtbsh03_running
           os: '{{states.sensor.hassos_installed_version.state}}'
           uptime: '{{states.sensor.vmtbsh03_uptime.state}}'
+          docker_addon_15ef4d2f_esphome_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome.attributes.memory}}'
+          docker_addon_15ef4d2f_esphome_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome.attributes.network_rx_total}}'
+          docker_addon_15ef4d2f_esphome_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome.attributes.network_tx_total}}'
+          docker_addon_41cba666_xboxone_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_41cba666_xboxone.attributes.memory}}'
+          docker_addon_41cba666_xboxone_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_41cba666_xboxone.attributes.network_rx_total}}'
+          docker_addon_41cba666_xboxone_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_41cba666_xboxone.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_adb_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_adb.attributes.memory}}'
+          docker_addon_a0d7b954_adb_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_adb.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_adb_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_adb.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_airsonos_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos.attributes.memory}}'
+          docker_addon_a0d7b954_airsonos_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_airsonos_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_appdaemon_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon.attributes.memory}}'
+          docker_addon_a0d7b954_appdaemon_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_appdaemon_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_glances_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_glances.attributes.memory}}'
+          docker_addon_a0d7b954_glances_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_glances.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_glances_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_glances.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_jupyterlablite_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite.attributes.memory}}'
+          docker_addon_a0d7b954_jupyterlablite_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_jupyterlablite_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_nodered_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered.attributes.memory}}'
+          docker_addon_a0d7b954_nodered_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_nodered_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_portainer_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer.attributes.memory}}'
+          docker_addon_a0d7b954_portainer_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_portainer_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_ssh_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh.attributes.memory}}'
+          docker_addon_a0d7b954_ssh_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_ssh_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh.attributes.network_tx_total}}'
+          docker_addon_a0d7b954_vscode_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode.attributes.memory}}'
+          docker_addon_a0d7b954_vscode_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode.attributes.network_rx_total}}'
+          docker_addon_a0d7b954_vscode_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode.attributes.network_tx_total}}'
+          docker_addon_cebe7a76_hassio_google_drive_backup_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup.attributes.memory}}'
+          docker_addon_cebe7a76_hassio_google_drive_backup_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup.attributes.network_rx_total}}'
+          docker_addon_cebe7a76_hassio_google_drive_backup_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup.attributes.network_tx_total}}'
+          docker_addon_core_mariadb_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_mariadb.attributes.memory}}'
+          docker_addon_core_mariadb_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_mariadb.attributes.network_rx_total}}'
+          docker_addon_core_mariadb_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_mariadb.attributes.network_tx_total}}'
+          docker_addon_core_mosquitto_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_mosquitto.attributes.memory}}'
+          docker_addon_core_mosquitto_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_mosquitto.attributes.network_rx_total}}'
+          docker_addon_core_mosquitto_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_mosquitto.attributes.network_tx_total}}'
+          docker_addon_core_samba_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_samba.attributes.memory}}'
+          docker_addon_core_samba_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_samba.attributes.network_rx_total}}'
+          docker_addon_core_samba_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_core_samba.attributes.network_tx_total}}'
+          docker_ha_dockermon_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_ha_dockermon.attributes.memory}}'
+          docker_ha_dockermon_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_ha_dockermon.attributes.network_rx_total}}'
+          docker_ha_dockermon_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_ha_dockermon.attributes.network_tx_total}}'
+          docker_hassio_audio_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_audio.attributes.memory}}'
+          docker_hassio_audio_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_audio.attributes.network_rx_total}}'
+          docker_hassio_audio_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_audio.attributes.network_tx_total}}'
+          docker_hassio_cli_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_cli.attributes.memory}}'
+          docker_hassio_cli_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_cli.attributes.network_rx_total}}'
+          docker_hassio_cli_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_cli.attributes.network_tx_total}}'
+          docker_hassio_dns_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_dns.attributes.memory}}'
+          docker_hassio_dns_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_dns.attributes.network_rx_total}}'
+          docker_hassio_dns_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_dns.attributes.network_tx_total}}'
+          docker_hassio_multicast_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_multicast.attributes.memory}}'
+          docker_hassio_multicast_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_multicast.attributes.network_rx_total}}'
+          docker_hassio_multicast_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_multicast.attributes.network_tx_total}}'
+          docker_hassio_supervisor_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_supervisor.attributes.memory}}'
+          docker_hassio_supervisor_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_supervisor.attributes.network_rx_total}}'
+          docker_hassio_supervisor_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassio_supervisor.attributes.network_tx_total}}'
+          docker_hassos_supervisor_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassos_supervisor.attributes.memory}}'
+          docker_hassos_supervisor_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassos_supervisor.attributes.network_rx_total}}'
+          docker_hassos_supervisor_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_hassos_supervisor.attributes.network_tx_total}}'
+          docker_homeassistant_memory: '{{states.binary_sensor.vmtbsh03_ha_dockermon_homeassistant.attributes.memory}}'
+          docker_homeassistant_netrx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_homeassistant.attributes.network_rx_total}}'
+          docker_homeassistant_nettx: '{{states.binary_sensor.vmtbsh03_ha_dockermon_homeassistant.attributes.network_tx_total}}'
       - name: Synology NAS
         icon: mdi:nas
         path: 'dwains-theme/addons/more_page/synology/page.yaml'
@@ -125,6 +277,33 @@ rooms:
         button_path: 'dwains-theme/addons/rooms/hello-room/button.yaml'
         data:
           entity: binary_sensor.tbsh01_ha_dockermon_unifi
+          usw_name: "{{ states.sensor.unifipoller_usw.state }}"
+          usw_model: "{{ states.sensor.unifipoller_usw.attributes.model }}"
+          usw_version: "{{ states.sensor.unifipoller_usw.attributes.version }}"
+          usw_serial: "{{ states.sensor.unifipoller_usw.attributes.serial }}"
+          usw_lastseen: "{{ states.sensor.unifipoller_usw.attributes.lastseen }}"
+          usw_uptime: "{{ states.sensor.unifipoller_usw.attributes.uptime }}"
+          usw_rxdata: "{{ states.sensor.unifipoller_usw.attributes.rx_data }}"
+          usw_txdata: "{{ states.sensor.unifipoller_usw.attributes.tx_data }}"
+          usg_name: "{{ states.sensor.unifipoller_usg.state }}"
+          usg_model: "{{ states.sensor.unifipoller_usg.attributes.model }}"
+          usg_version: "{{ states.sensor.unifipoller_usg.attributes.version }}"
+          usg_serial: "{{ states.sensor.unifipoller_usg.attributes.serial }}"
+          usg_data: "{{ states.sensor.unifipoller_usg.attributes.data }}"
+          usg_uptime: "{{ states.sensor.unifipoller_usg.attributes.uptime }}"
+          usg_lastseen: "{{ states.sensor.unifipoller_usg.attributes.lastseen }}"
+          usg_externalip: "{{ states.sensor.unifipoller_usg.attributes.external_ip_address }}"
+          usg_www_uptime: "{{ states.sensor.unifipoller_usg_www.attributes.uptime }}"
+          usg_www_drops: "{{ states.sensor.unifipoller_usg_www.attributes.drops }}"
+          uap_name: "{{ states.sensor.unifipoller_uap.state }}"
+          uap_model: "{{ states.sensor.unifipoller_uap.attributes.model }}"
+          uap_version: "{{ states.sensor.unifipoller_uap.attributes.version }}"
+          uap_serial: "{{ states.sensor.unifipoller_uap.attributes.serial }}"
+          uap_uptime: "{{ states.sensor.unifipoller_uap.attributes.uptime }}"
+          uap_lastseen: "{{ states.sensor.unifipoller_uap.attributes.lastseen }}"
+          uap_ipaddress: "{{ states.sensor.unifipoller_uap.attributes.ip_address }}"
+          uap_rxdata: "{{ states.sensor.unifipoller_uap.attributes.rx_data }}"
+          uap_txdata: "{{ states.sensor.unifipoller_uap.attributes.tx_data }}"
 
   - name: Tamworth
     icon: mdi:road-variant

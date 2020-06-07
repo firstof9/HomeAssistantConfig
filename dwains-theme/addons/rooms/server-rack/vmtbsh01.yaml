@@ -15,7 +15,7 @@
                     ha-card { box-shadow: none; }
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
-                    **vmTBSH02**<br/>
+                    **vmTBSH01**<br/>
                     **Uptime:** {{ (data | fromjson)['uptime']}}
         - type: custom:dwains-flexbox-card
           item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
@@ -31,7 +31,7 @@
                   width: 75%
                   decimal: 1
                   entities:
-                    - entity:  sensor.vmtbsh02_cpu_used
+                    - entity:  sensor.vmtbsh01_cpu_used
                       name: CPU Load
                       icon: mdi:speedometer
                       severity:
@@ -44,7 +44,7 @@
                         - color: rgb(163,0,0,0.60)
                           from: 26
                           to: 150
-                    - entity: sensor.vmtbsh02_ram_used_percent
+                    - entity: sensor.vmtbsh01_ram_used_percent
                       name: Memory
                       icon: mdi:memory
                       severity:
@@ -57,7 +57,7 @@
                         - color: rgb(163,0,0,0.60)
                           from: 85
                           to: 150
-                    - entity: sensor.vmtbsh02_swap_used_percent
+                    - entity: sensor.vmtbsh01_swap_used_percent
                       name: Swap
                       icon: mdi:harddisk
                       severity:
@@ -70,7 +70,7 @@
                         - color: rgb(163,0,0,0.60)
                           from: 85
                           to: 150
-                    - entity: sensor.vmtbsh02_etc_hostname_used_percent
+                    - entity: sensor.vmtbsh01_etc_hostname_used_percent
                       name: HDD
                       icon: mdi:harddisk
                       severity:
@@ -129,9 +129,9 @@
               cards:
                 - type: custom:config-template-card
                   variables:
-                    - states['sensor.docker_vmtbsh02_containers_total'].state
+                    - states['sensor.docker_vmtbsh01_containers_total'].state
                   entities:
-                    - sensor.docker_vmtbsh02_containers_total
+                    - sensor.docker_vmtbsh01_containers_total
                   card:
                     type: custom:bar-card
                     positions:
@@ -143,13 +143,13 @@
                     max: '${vars[0]}'
                     color: rgb(26,204,147,0.33)
                     entities:
-                      - entity:  sensor.docker_vmtbsh02_containers_running
+                      - entity:  sensor.docker_vmtbsh01_containers_running
                         name: Running
                         icon: mdi:docker
-                      - entity: sensor.docker_vmtbsh02_containers_paused
+                      - entity: sensor.docker_vmtbsh01_containers_paused
                         name: Paused
                         icon: mdi:docker
-                      - entity: sensor.docker_vmtbsh02_containers_stopped
+                      - entity: sensor.docker_vmtbsh01_containers_stopped
                         name: Stopped
                         icon: mdi:docker
                     style: |
@@ -219,19 +219,10 @@
           cards:
             - !include
               - partial_docker_info.yaml
-              - name: "Chronograf"
-                image: "/local/systemicons/influxdb.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_chronograf"
-                switch: "switch.vmtbsh02_ha_dockermon_chronograf"
-                memory: "{{ (data | fromjson)['docker_chronograf_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_chronograf_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_chronograf_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
               - name: "Duplicati"
                 image: "/local/systemicons/duplicati.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_duplicati"
-                switch: "switch.vmtbsh02_ha_dockermon_duplicati"
+                status_sensor: "sensor.status_vmtbsh01_docker_duplicati"
+                switch: "switch.vmtbsh01_ha_dockermon_duplicati"
                 memory: "{{ (data | fromjson)['docker_duplicati_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_duplicati_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_duplicati_nettx']}}"
@@ -239,53 +230,71 @@
               - partial_docker_info.yaml
               - name: "Glances"
                 image: "/local/systemicons/glances.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_glances"
-                switch: "switch.vmtbsh02_ha_dockermon_glances"
+                status_sensor: "sensor.status_vmtbsh01_docker_glances"
+                switch: "switch.vmtbsh01_ha_dockermon_glances"
                 memory: "{{ (data | fromjson)['docker_glances_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_glances_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_glances_nettx']}}"
             - !include
               - partial_docker_info.yaml
+              - name: "Grafana"
+                image: "/local/systemicons/grafana.svg"
+                status_sensor: "sensor.status_vmtbsh01_docker_grafana"
+                switch: "switch.vmtbsh01_ha_dockermon_grafana"
+                memory: "{{ (data | fromjson)['docker_grafana_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_grafana_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_grafana_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
               - name: "HA Dockermon"
                 image: "/local/systemicons/docker.svg"
-                status_sensor: "sensor.status_vmtbsh02_docker_ha_dockermon"
-                switch: "switch.vmtbsh02_ha_dockermon_ha_dockermon"
+                status_sensor: "sensor.status_vmtbsh01_docker_ha_dockermon"
+                switch: "switch.vmtbsh01_ha_dockermon_ha_dockermon"
                 memory: "{{ (data | fromjson)['docker_ha_dockermon_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ha_dockermon_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_ha_dockermon_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: "InfluxDB"
-                image: "/local/systemicons/influxdb.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_influxdb"
-                switch: "switch.vmtbsh02_ha_dockermon_influxdb"
-                memory: "{{ (data | fromjson)['docker_influxdb_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_influxdb_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_influxdb_nettx']}}"
+              - name: "Jackett"
+                image: "/local/systemicons/jackett.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_jackett"
+                switch: "switch.vmtbsh01_ha_dockermon_jackett"
+                memory: "{{ (data | fromjson)['docker_jackett_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_jackett_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_jackett_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: "Kapacitor"
-                image: "/local/systemicons/influxdb.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_kapacitor"
-                switch: "switch.vmtbsh02_ha_dockermon_kapacitor"
-                memory: "{{ (data | fromjson)['docker_kapacitor_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_kapacitor_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_kapacitor_nettx']}}"
+              - name: "jDownloader"
+                image: "/local/systemicons/jdownloader.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_jdownloader"
+                switch: "switch.vmtbsh01_ha_dockermon_jdownloader"
+                memory: "{{ (data | fromjson)['docker_jdownloader_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_jdownloader_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_jdownloader_nettx']}}"
             - !include
               - partial_docker_info.yaml
               - name: "Netdata"
                 image: "/local/systemicons/netdata.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_netdata"
-                switch: "switch.vmtbsh02_ha_dockermon_netdata"
+                status_sensor: "sensor.status_vmtbsh01_docker_netdata"
+                switch: "switch.vmtbsh01_ha_dockermon_netdata"
                 memory: "{{ (data | fromjson)['docker_netdata_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_netdata_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_netdata_nettx']}}"
             - !include
               - partial_docker_info.yaml
+              - name: "NZB Hydra 2"
+                image: "/local/systemicons/nzbhydra.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_nzbhydra2"
+                switch: "switch.vmtbsh01_ha_dockermon_nzbhydra2"
+                memory: "{{ (data | fromjson)['docker_nzbhydra2_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_nzbhydra2_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_nzbhydra2_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
               - name: "Ouroboros"
                 image: "/local/systemicons/docker.svg"
-                status_sensor: "sensor.status_vmtbsh02_docker_ouroboros"
-                switch: "switch.vmtbsh02_ha_dockermon_ouroboros"
+                status_sensor: "sensor.status_vmtbsh01_docker_ouroboros"
+                switch: "switch.vmtbsh01_ha_dockermon_ouroboros"
                 memory: "{{ (data | fromjson)['docker_ouroboros_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ouroboros_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_ouroboros_nettx']}}"
@@ -293,90 +302,62 @@
               - partial_docker_info.yaml
               - name: "Portainer"
                 image: "/local/systemicons/portainer.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_portainer"
-                switch: "switch.vmtbsh02_ha_dockermon_portainer"
+                status_sensor: "sensor.status_vmtbsh01_docker_portainer"
+                switch: "switch.vmtbsh01_ha_dockermon_portainer"
                 memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: "Telegraf"
-                image: "/local/systemicons/influxdb.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_telegraf"
-                switch: "switch.vmtbsh02_ha_dockermon_telegraf"
-                memory: "{{ (data | fromjson)['docker_telegraf_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_telegraf_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_telegraf_nettx']}}"
+              - name: "Radarr"
+                image: "/local/systemicons/radarr.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_radarr"
+                switch: "switch.vmtbsh01_ha_dockermon_radarr"
+                memory: "{{ (data | fromjson)['docker_radarr_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_radarr_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_radarr_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: "UniFi Poller"
-                image: "/local/systemicons/ubnt.png"
-                status_sensor: "sensor.status_vmtbsh02_docker_unifipoller"
-                switch: "switch.vmtbsh02_ha_dockermon_unifipoller"
-                memory: "{{ (data | fromjson)['docker_unifipoller_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_unifipoller_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_unifipoller_nettx']}}"
-
-- type: custom:stack-in-card
-  mode: vertical
-  cards:
-    - type: custom:dwains-flexbox-card
-      cards:
-        - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-2'
-          cards:
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  style: |
-                    ha-card { box-shadow: none; }
-                    ha-markdown { padding-bottom: 1px !important; }
-                  content: >
-                    <img width="150" src="/local/systemicons/influxdb.png">
-                - !include
-                  - ../../1_Templates/button_link.yaml
-                  - name: "Chronograf"
-                    icon: "mdi:database"
-                    # url: !secret influxdb_chronograf_url
-        - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-12 col-md-10 col-lg-10'
-          cards:
-            - type: custom:dwains-flexbox-card
-              items_classes: "col-xs-12 col-sm-6 col-md-4 col-lg-4"
-              cards:
-                - type: sensor
-                  name: Home Assistant DB Size
-                  icon: mdi:database
-                  entity: sensor.influxdb_size
-                  graph: line
-                  detail: 2
-                  hours_to_show: 78
-                  style: >
-                    ha-card {
-                      box-shadow: none;
-                      padding-right: 5px;
-                    }
-                - type: sensor
-                  name: Varken DB Size
-                  icon: mdi:database
-                  entity: sensor.influxdb_varken_size
-                  graph: line
-                  detail: 2
-                  hours_to_show: 78
-                  style: >
-                    ha-card {
-                      box-shadow: none;
-                      padding-right: 5px;
-                    }
-                - type: sensor
-                  name: Unifi Poller DB Size
-                  icon: mdi:database
-                  entity: sensor.influxdb_unifipoller_size
-                  graph: line
-                  detail: 2
-                  hours_to_show: 78
-                  style: >
-                    ha-card {
-                      box-shadow: none;
-                      padding-right: 5px;
-                    }
+              - name: "Sonarr"
+                image: "/local/systemicons/sonarr.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_sonarr"
+                switch: "switch.vmtbsh01_ha_dockermon_sonarr"
+                memory: "{{ (data | fromjson)['docker_sonarr_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_sonarr_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_sonarr_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Tautulli"
+                image: "/local/systemicons/tautulli.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_tautulli"
+                switch: "switch.vmtbsh01_ha_dockermon_tautulli"
+                memory: "{{ (data | fromjson)['docker_tautulli_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_tautulli_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_tautulli_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Transmission"
+                image: "/local/systemicons/transmission.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_transmission"
+                switch: "switch.vmtbsh01_ha_dockermon_transmission"
+                memory: "{{ (data | fromjson)['docker_transmission_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_transmission_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_transmission_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Tvheadend"
+                image: "/local/systemicons/tvheadend.jpg"
+                status_sensor: "sensor.status_vmtbsh01_docker_tvheadend"
+                switch: "switch.vmtbsh01_ha_dockermon_tvheadend"
+                memory: "{{ (data | fromjson)['docker_tvheadend_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_tvheadend_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_tvheadend_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
+              - name: "Varken"
+                image: "/local/systemicons/plex.png"
+                status_sensor: "sensor.status_vmtbsh01_docker_varken"
+                switch: "switch.vmtbsh01_ha_dockermon_varken"
+                memory: "{{ (data | fromjson)['docker_varken_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_varken_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_varken_nettx']}}"
