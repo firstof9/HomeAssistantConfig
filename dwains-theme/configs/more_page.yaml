@@ -67,6 +67,8 @@ more_page:
         usg_uptime: "{{ states.sensor.unifipoller_usg.attributes.uptime }}"
         usg_lastseen: "{{ states.sensor.unifipoller_usg.attributes.lastseen }}"
         usg_externalip: "{{ states.sensor.unifipoller_usg.attributes.external_ip_address }}"
+        usg_www_uptime: "{{ states.sensor.unifipoller_usg_www.attributes.uptime }}"
+        usg_www_drops: "{{ states.sensor.unifipoller_usg_www.attributes.drops }}"
         uap_name: "{{ states.sensor.unifipoller_uap.state }}"
         uap_model: "{{ states.sensor.unifipoller_uap.attributes.model }}"
         uap_version: "{{ states.sensor.unifipoller_uap.attributes.version }}"

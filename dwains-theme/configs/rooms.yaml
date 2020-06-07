@@ -46,7 +46,7 @@ rooms:
         path: 'dwains-theme/addons/rooms/office/sonos/page.yaml'
         button_path: 'dwains-theme/addons/rooms/office/sonos/button.yaml'
         data:
-          entity: binary_sensor.networkstatus_sonos
+          entity: media_player.bedroom_sonos
   - name: Spare Room
     icon: mdi:bed-empty
     # light: light.zha_spare_light

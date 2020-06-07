@@ -59,161 +59,29 @@
         - type: custom:dwains-flexbox-card
           item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
           cards:
-            - type: entities
-              item_classes: 'col-xs-12 col-sm-6 col-md-4 col-lg-4'
-              title: WAN
-              style: |
-                :host {
-                  box-shadow: none;
-                }
-                ha-card {
-                  padding-bottom: 10px;
-                  background-color: var(--dwains-theme-primary)
-                  box-shadow: none !important;
-                }
-                .card-header {
-                  padding: 5px 16px;
-                  font-size: 18px;
-                  font-weight: 700 !important;
-                }
-                .card-content div {
-                    margin: 0 !important;
-                }
-                #states {
-                  padding-top: 0px !important;
-                  padding-bottom: 0px !important;
-                }
-                .secondary {
-                  color: darkgray !important;
-                  margin-left: 2px !important;
-                }
-              entities:
-                - entity: sensor.unifi_gateway_wan
-                  name: Status
-                - entity: sensor.unifi_gateway_wan_ip
-                  name: IP Address
-                - entity: sensor.unifi_gateway_wan
-                  name: Gateways
-                  type: custom:multiple-entity-row
-                  show_state: false
-                  secondary_info: last-changed
-                  entities:
-                    - attribute: num_gw
-                      name: Devices
-                      unit: ' '
-                    - attribute: num_adopted
-                      name: Adopted
-                      unit: ' '
-                    - attribute: num_disconnected
-                      name: Disconnected
-                      unit: ' '
-                    - attribute: num_pending
-                      name: Pending
-                      unit: ' '
-            - type: entities
-              item_classes: 'col-xs-12 col-sm-6 col-md-4 col-lg-4'
-              title: LAN
-              style: |
-                :host {
-                  box-shadow: none;
-                }
-                ha-card {
-                  padding-bottom: 10px;
-                  background-color: var(--dwains-theme-primary)
-                  box-shadow: none !important;
-                }
-                .card-header {
-                  padding: 5px 16px;
-                  font-size: 18px;
-                  font-weight: 700 !important;
-                }
-                .card-content div {
-                    margin: 0 !important;
-                }
-                #states {
-                  padding-top: 0px !important;
-                  padding-bottom: 0px !important;
-                }
-                .secondary {
-                  color: darkgray !important;
-                  margin-left: 2px !important;
-                }
-              entities:
-                - entity: sensor.unifi_gateway_lan
-                  name: Status
-                - entity: sensor.unifi_gateway_lan_num_user
-                  name: Devices Connected
-                  icon: mdi:lan
-                - entity: sensor.unifi_gateway_lan
-                  name: Switches
-                  type: custom:multiple-entity-row
-                  show_state: false
-                  secondary_info: last-changed
-                  entities:
-                    - attribute: num_sw
-                      name: Devices
-                      unit: ' '
-                    - attribute: num_adopted
-                      name: Adopted
-                      unit: ' '
-                    - attribute: num_disconnected
-                      name: Disconnected
-                      unit: ' '
-                    - attribute: num_pending
-                      name: Pending
-                      unit: ' '
-            - type: entities
-              item_classes: 'col-xs-12 col-sm-6 col-md-4 col-lg-4'
-              title: WLAN
-              style: |
-                :host {
-                  box-shadow: none;
-                }
-                ha-card {
-                  padding-bottom: 10px;
-                  background-color: var(--dwains-theme-primary)
-                  box-shadow: none !important;
-                }
-                .card-header {
-                  padding: 5px 16px;
-                  font-size: 18px;
-                  font-weight: 700 !important;
-                }
-                .card-content div {
-                    margin: 0 !important;
-                }
-                #states {
-                  padding-top: 0px !important;
-                  padding-bottom: 0px !important;
-                }
-                .secondary {
-                  color: darkgray !important;
-                  margin-left: 2px !important;
-                }
-              entities:
-                - entity: sensor.unifi_gateway_wlan
-                  name: Status
-                - entity: sensor.unifi_gateway_wlan_num_user
-                  name: Devices Connected
-                  icon: mdi:wifi
-                - entity: sensor.unifi_gateway_wlan
-                  name: Access Points
-                  type: custom:multiple-entity-row
-                  show_state: false
-                  secondary_info: last-changed
-                  entities:
-                    - attribute: num_ap
-                      name: Devices
-                      unit: ' '
-                    - attribute: num_adopted
-                      name: Adopted
-                      unit: ' '
-                    - attribute: num_disconnected
-                      name: Disconnected
-                      unit: ' '
-                    - attribute: num_pending
-                      name: Pending
-                      unit: ' '
+            - type: custom:dwains-flexbox-card
+              items_classes: "col-xs-12 col-sm-6 col-md-3 col-lg-3"
+              cards:
+                - !include
+                  - ../../1_Templates/button_state.yaml
+                  - name: "WAN Status"
+                    sensor: "sensor.unifi_gateway_wan"
+                - !include
+                  - ../../1_Templates/button_state.yaml
+                  - name: "WWW Status"
+                    sensor: "sensor.unifi_gateway_www"
+                - !include
+                  - ../../1_Templates/button_state.yaml
+                  - name: "LAN Status"
+                    sensor: "sensor.unifi_gateway_lan"
+                - !include
+                  - ../../1_Templates/button_state.yaml
+                  - name: "WLAN Status"
+                    sensor: "sensor.unifi_gateway_wlan"
+                - !include
+                  - ../../1_Templates/button_state.yaml
+                  - name: "Firmware Upgradable"
+                    sensor: "sensor.unifi_gateway_firmware_upgradable"
 
 - type: custom:stack-in-card
   mode: vertical
@@ -238,6 +106,10 @@
                     **Uptime** {{ (data | fromjson)['usg_uptime']}}<br/>
                     **Last Seen** {{ (data | fromjson)['usg_lastseen']}}<br/>
                     **WAN Data** {{ (data | fromjson)['usg_data']}}<br/>
+                    <hr>
+                    **WWW IP** {{ (data | fromjson)['usg_externalip']}}<br/>
+                    **WWW Uptime** {{ (data | fromjson)['usg_www_uptime']}}<br/>
+                    **WWW Dropouts** {{ (data | fromjson)['usg_www_drops']}}<br/>
         - type: custom:dwains-flexbox-card
           item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
           cards:

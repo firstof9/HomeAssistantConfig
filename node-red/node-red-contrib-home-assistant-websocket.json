@@ -2,11 +2,11 @@
   "nodes": {
     "bb0c36dc_4f7d88": {
       "lastPayload": {
-        "state": 14.166,
+        "state": 14.092,
         "attributes": {
           "max": 28.1,
           "min": 1.9,
-          "avg": 14.166,
+          "avg": 14.092,
           "mindate": "04 Jun 2020",
           "maxdate": "02 Feb 2020",
           "datestring": "Min: 04 Jun 2020 - Max: 02 Feb 2020"
@@ -39,11 +39,11 @@
     },
     "1777533_24f10ad": {
       "lastPayload": {
-        "state": 31.019,
+        "state": 30.969,
         "attributes": {
           "max": 46.9,
           "min": 8.4,
-          "avg": 31.019,
+          "avg": 30.969,
           "mindate": "23 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 May 2020 - Max: 05 Jan 2020"
@@ -52,11 +52,11 @@
     },
     "5f38fb64_d46bf4": {
       "lastPayload": {
-        "state": 13.23,
+        "state": 13.146,
         "attributes": {
           "max": 28.6,
           "min": -0.6,
-          "avg": 13.23,
+          "avg": 13.146,
           "mindate": "06 Jun 2020",
           "maxdate": "02 Feb 2020",
           "datestring": "Min: 06 Jun 2020 - Max: 02 Feb 2020"
@@ -73,11 +73,11 @@
     },
     "e663f7e9_a5b388": {
       "lastPayload": {
-        "state": 26.006,
+        "state": 25.952,
         "attributes": {
           "max": 41.3,
           "min": 9.5,
-          "avg": 26.006,
+          "avg": 25.952,
           "mindate": "23 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 May 2020 - Max: 05 Jan 2020"
@@ -94,11 +94,11 @@
     },
     "e133678a_067db8": {
       "lastPayload": {
-        "state": 141.72,
+        "state": 141.61,
         "attributes": {
           "max": 163.9,
           "min": 112.9,
-          "avg": 141.72,
+          "avg": 141.61,
           "mindate": "05 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 05 May 2020 - Max: 05 Jan 2020"
@@ -107,11 +107,11 @@
     },
     "1423d97d_559027": {
       "lastPayload": {
-        "state": 140.62,
+        "state": 140.53,
         "attributes": {
           "max": 162.9,
           "min": 112.9,
-          "avg": 140.62,
+          "avg": 140.53,
           "mindate": "23 Apr 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 Apr 2020 - Max: 05 Jan 2020"
@@ -344,11 +344,11 @@
     },
     "f569d297_e68f4": {
       "lastPayload": {
-        "state": 4,
+        "state": 3.4,
         "attributes": {
-          "count": 3,
-          "countstring": "3 Days",
-          "average": 1.33,
+          "count": 2,
+          "countstring": "2 Days",
+          "average": 1.7,
           "highest": 2.4,
           "sort": 2
         }
@@ -378,7 +378,7 @@
     },
     "9c628d57_1704c": {
       "lastPayload": {
-        "state": 2135.16,
+        "state": 2396.37,
         "attributes": {}
       }
     },
@@ -390,7 +390,7 @@
     },
     "5e66dc37_9de1f4": {
       "lastPayload": {
-        "state": 1,
+        "state": 4,
         "attributes": {}
       }
     },
@@ -405,12 +405,14 @@
           "serial": "802AA8D38F48",
           "sitename": "TBSmartHome (default)",
           "type": "uap",
-          "cpu": 8.3,
-          "users": 25,
+          "cpu": 7.5,
+          "users": 24,
           "controller": "https://192.168.1.20:8443",
           "guests": 0,
-          "uptime": "7d 3hr 34min",
-          "lastseen": "a few seconds ago"
+          "uptime": "7d 21hr 49min",
+          "lastseen": "a few seconds ago",
+          "tx_data": "239.9 GB",
+          "rx_data": "31.0 GB"
         }
       }
     },
@@ -420,13 +422,13 @@
         "attributes": {
           "model": "UGW3",
           "version": "4.4.50.5272448",
-          "data": "342.4 GB",
+          "data": "368.9 GB",
           "serial": "F09FC212B4F7",
           "sitename": "TBSmartHome (default)",
           "type": "ugw",
           "controller": "https://192.168.1.20:8443",
           "external_ip_address": "110.143.197.190",
-          "uptime": "7d 3hr 34min",
+          "uptime": "7d 21hr 49min",
           "lastseen": "a few seconds ago"
         }
       }
@@ -441,16 +443,16 @@
           "sitename": "TBSmartHome (default)",
           "type": "usw",
           "controller": "https://192.168.1.20:8443",
-          "uptime": "7d 3hr 34min",
-          "rx_data": "95.1 GB",
-          "tx_data": "257.6 GB",
+          "uptime": "7d 21hr 50min",
+          "rx_data": "104.5 GB",
+          "tx_data": "275.4 GB",
           "lastseen": "a few seconds ago"
         }
       }
     },
     "5cc0456e_7000bc": {
       "lastPayload": {
-        "state": "95.1",
+        "state": "104.5",
         "attributes": {
           "units": "GB"
         }
@@ -458,7 +460,7 @@
     },
     "bef3ffcb_1da08": {
       "lastPayload": {
-        "state": "257.6",
+        "state": "275.4",
         "attributes": {
           "units": "GB"
         }
@@ -466,7 +468,7 @@
     },
     "a7efd775_e1ecc8": {
       "lastPayload": {
-        "state": "221.8",
+        "state": "239.9",
         "attributes": {
           "units": "GB"
         }
@@ -474,9 +476,18 @@
     },
     "5a3372d9_4316ac": {
       "lastPayload": {
-        "state": "28.5",
+        "state": "31.0",
         "attributes": {
           "units": "GB"
+        }
+      }
+    },
+    "c413b33a_de29b": {
+      "lastPayload": {
+        "state": 216,
+        "attributes": {
+          "uptime": "0d 1hr 55min",
+          "drops": 216
         }
       }
     }
