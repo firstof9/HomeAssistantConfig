@@ -6,11 +6,12 @@ cards:
   - type: markdown
     content: >
       <center>
-        <img height="60" src="{{ image }}">
-        <h4>{{ name }}<br/>
+        <img height="60" src="{{ image }}"><br/>
+        <b>{{ name }}</b><br/>
+        <i>{{ status }}</i><br/>
         Mem: {{ memory }}<br/>
         Net RX: {{ netrx }}<br/>
-        Net TX: {{ nettx }}</h4>
+        Net TX: {{ nettx }}
       </center>
     style: |
       ha-card {
@@ -24,12 +25,12 @@ cards:
       icon: 'off'
     width: 100%
     height: 10px
-    entity: { { status_sensor } }
+    entity: {{ status_sensor }}
     tap_action:
       action: call-service
       service: switch.toggle
       service_data:
-        entity_id: { { switch } }
+        entity_id: {{ switch }}
     severity:
       - color: red
         from: 0
@@ -44,10 +45,10 @@ cards:
         height: 10px;
       }
       bar-card-backgroundbar  {
-        margin-top: -47px;
+        margin-top: -40px;
         border-radius: 2.5px;
       }
       bar-card-currentbar  {
-        margin-top: -47px;
+        margin-top: -40px;
         border-radius: 2.5px;
       }

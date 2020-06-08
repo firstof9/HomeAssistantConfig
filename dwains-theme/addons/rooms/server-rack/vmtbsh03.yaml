@@ -16,6 +16,7 @@
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
                     **vmTBSH03**<br/>
+                    **HassOS {{ (data | fromjson)['os'] }}**<br/>
                     **Uptime:** {{ (data | fromjson)['uptime']}}
         - type: custom:dwains-flexbox-card
           item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
@@ -23,6 +24,12 @@
             - type: vertical-stack
               item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
               cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Server Performance**
                 - type: custom:bar-card
                   positions:
                     name: outside
@@ -89,6 +96,9 @@
                       border-radius: 2.5px;
                       box-shadow: none;
                     }
+                    #states {
+                      padding-top: 0 !important;
+                    }
                     ha-icon	 {
                       #margin-left: -100px;
                       margin-top: -5px;
@@ -127,6 +137,12 @@
             - type: vertical-stack
               item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
               cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Docker Containers**
                 - type: custom:config-template-card
                   variables:
                     - states['sensor.docker_vmtbsh03_containers_total'].state
@@ -157,6 +173,9 @@
                         --paper-item-icon-color: rgb(47,186,229);
                         border-radius: 2.5px;
                         box-shadow: none;
+                      }
+                      #states {
+                        padding-top: 0 !important;
                       }
                       ha-icon	 {
                         #margin-left: -100px;
@@ -223,6 +242,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_adb/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_adb'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_adb'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_adb_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_adb_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_adb_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_adb_nettx']}}"
@@ -232,6 +252,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_airsonos/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_airsonos'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_airsonos'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_airsonos_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_airsonos_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_airsonos_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_airsonos_nettx']}}"
@@ -241,6 +262,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_appdaemon/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_appdaemon'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_appdaemon'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_appdaemon_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_appdaemon_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_appdaemon_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_appdaemon_nettx']}}"
@@ -250,6 +272,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/15ef4d2f_esphome/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_15ef4d2f_esphome'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome'
+                status: "{{ (data | fromjson)['docker_addon_15ef4d2f_esphome_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_15ef4d2f_esphome_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_15ef4d2f_esphome_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_15ef4d2f_esphome_nettx']}}"
@@ -259,6 +282,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_glances/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_glances'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_glances'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_glances_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_glances_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_glances_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_glances_nettx']}}"
@@ -268,6 +292,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/cebe7a76_hassio_google_drive_backup/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_cebe7a76_hassio_google_drive_backup'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_cebe7a76_hassio_google_drive_backup'
+                status: "{{ (data | fromjson)['docker_addon_cebe7a76_hassio_google_drive_backup_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_cebe7a76_hassio_google_drive_backup_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_cebe7a76_hassio_google_drive_backup_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_cebe7a76_hassio_google_drive_backup_nettx']}}"
@@ -277,6 +302,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_jupyterlablite/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_jupyterlablite'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_jupyterlablite'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_jupyterlablite_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_jupyterlablite_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_jupyterlablite_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_jupyterlablite_nettx']}}"
@@ -286,6 +312,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/core_mariadb/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_core_mariadb'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_core_mariadb'
+                status: "{{ (data | fromjson)['docker_addon_core_mariadb_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_core_mariadb_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_core_mariadb_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_core_mariadb_nettx']}}"
@@ -295,6 +322,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/core_mosquitto/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_core_mosquitto'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_core_mosquitto'
+                status: "{{ (data | fromjson)['docker_addon_core_mosquitto_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_core_mosquitto_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_core_mosquitto_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_core_mosquitto_nettx']}}"
@@ -304,6 +332,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_nodered/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_nodered'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_nodered'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_nodered_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_nodered_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_nodered_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_nodered_nettx']}}"
@@ -313,6 +342,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_portainer/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_portainer'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_portainer'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_portainer_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_portainer_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_portainer_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_portainer_nettx']}}"
@@ -322,6 +352,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/core_samba/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_core_samba'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_core_samba'
+                status: "{{ (data | fromjson)['docker_addon_core_samba_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_core_samba_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_core_samba_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_core_samba_nettx']}}"
@@ -330,6 +361,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_ssh/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_ssh'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_ssh'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_ssh_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_ssh_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_ssh_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_ssh_nettx']}}"
@@ -339,6 +371,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/a0d7b954_vscode/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_a0d7b954_vscode'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_a0d7b954_vscode'
+                status: "{{ (data | fromjson)['docker_addon_a0d7b954_vscode_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_a0d7b954_vscode_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_a0d7b954_vscode_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_a0d7b954_vscode_nettx']}}"
@@ -348,6 +381,7 @@
                 image: 'http://192.168.1.63:8123/api/hassio/addons/41cba666_xboxone/icon'
                 status_sensor: 'sensor.status_vmtbsh03_docker_addon_41cba666_xboxone'
                 switch: 'switch.vmtbsh03_ha_dockermon_addon_41cba666_xboxone'
+                status: "{{ (data | fromjson)['docker_addon_41cba666_xboxone_status']}}"
                 memory: "{{ (data | fromjson)['docker_addon_41cba666_xboxone_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_addon_41cba666_xboxone_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_addon_41cba666_xboxone_nettx']}}"
@@ -357,6 +391,7 @@
                 image: '/local/systemicons/docker.svg'
                 status_sensor: 'sensor.status_vmtbsh02_docker_ha_dockermon'
                 switch: 'switch.vmtbsh02_ha_dockermon_ha_dockermon'
+                status: "{{ (data | fromjson)['docker_ha_dockermon_status']}}"
                 memory: "{{ (data | fromjson)['docker_ha_dockermon_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ha_dockermon_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_ha_dockermon_nettx']}}"
@@ -366,6 +401,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_hassio_audio'
                 switch: 'switch.vmtbsh03_ha_dockermon_hassio_audio'
+                status: "{{ (data | fromjson)['docker_hassio_audio_status']}}"
                 memory: "{{ (data | fromjson)['docker_hassio_audio_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_hassio_audio_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_hassio_audio_nettx']}}"
@@ -375,6 +411,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_hassio_cli'
                 switch: 'switch.vmtbsh03_ha_dockermon_hassio_cli'
+                status: "{{ (data | fromjson)['docker_hassio_cli_status']}}"
                 memory: "{{ (data | fromjson)['docker_hassio_cli_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_hassio_cli_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_hassio_cli_nettx']}}"
@@ -384,6 +421,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_hassio_dns'
                 switch: 'switch.vmtbsh03_ha_dockermon_hassio_dns'
+                status: "{{ (data | fromjson)['docker_hassio_dns_status']}}"
                 memory: "{{ (data | fromjson)['docker_hassio_dns_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_hassio_dns_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_hassio_dns_nettx']}}"
@@ -393,6 +431,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_hassio_multicast'
                 switch: 'switch.vmtbsh03_ha_dockermon_hassio_multicast'
+                status: "{{ (data | fromjson)['docker_hassio_multicast_status']}}"
                 memory: "{{ (data | fromjson)['docker_hassio_multicast_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_hassio_multicast_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_hassio_multicast_nettx']}}"
@@ -402,6 +441,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_hassio_supervisor'
                 switch: 'switch.vmtbsh03_ha_dockermon_hassio_supervisor'
+                status: "{{ (data | fromjson)['docker_hassio_supervisor_status']}}"
                 memory: "{{ (data | fromjson)['docker_hassio_supervisor_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_hassio_supervisor_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_hassio_supervisor_nettx']}}"
@@ -411,6 +451,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_hassos_supervisor'
                 switch: 'switch.vmtbsh03_ha_dockermon_hassos_supervisor'
+                status: "{{ (data | fromjson)['docker_hassos_supervisor_status']}}"
                 memory: "{{ (data | fromjson)['docker_hassos_supervisor_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_hassos_supervisor_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_hassos_supervisor_nettx']}}"
@@ -420,6 +461,7 @@
                 image: '/local/systemicons/homeassistant.png'
                 status_sensor: 'sensor.status_vmtbsh03_docker_homeassistant'
                 switch: 'switch.vmtbsh03_ha_dockermon_homeassistant'
+                status: "{{ (data | fromjson)['docker_homeassistant_status']}}"
                 memory: "{{ (data | fromjson)['docker_homeassistant_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_homeassistant_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_homeassistant_nettx']}}"

@@ -1,180 +1,230 @@
 # dwains_theme
 
-# - type: picture
-#   image: 'https://wallpaperscave.com/images/original/17/12-14/earth-bougainvillea-3407.jpg'
-#   style: |
-#     ha-card {
-#       height: 125px;
-#       border-radius: 2.5px;
-#     }
-
 - type: custom:stack-in-card
-  style: |
-    ha-card {
-      color: teal;
-      border-radius: 2.5px;
-    }
+  mode: vertical
   cards:
-    # - type: custom:dwains-flexbox-card
-    #   items_classes: "col-xs-12 col-md-12 col-lg-6 col-xl-6"
-    #   cards:
-      - type: horizontal-stack
-        cards:
-        - type: vertical-stack
+    - type: custom:dwains-flexbox-card
+      cards:
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-2'
           cards:
-            - type: markdown
-              style: |
-                ha-card { box-shadow: none; }
-                ha-markdown { padding-bottom: 1px !important; }
-              content: >
-                <img width="125" src="https://brands.home-assistant.io/synology_dsm/logo.png"/><br/>
-            - type: custom:button-card
-              show_state: false
-              styles:
-                grid:
-                  - grid-template-areas: '"i n" "i n" "i n"'
-                  - grid-template-columns: 25% 75%
-                  - grid-template-rows: min-content min-content
-                card:
-                  - background-color: var(--dwains-theme-primary)
-                  - border-radius: 2.5px
-                  - box-shadow: none
-                  - width: 250px
-                  - margin-left: 10px
-                  - padding-top: 10px
-                  - padding-bottom: 10px
-                  - margin-bottom: 5px
-                name:
-                  - font-size: 15px
-                  - font-weight: bold
-                  - color: var(--dwains-theme-names)
-                  - justify-self: start
-                state:
-                  - justify-self: start
-                  - font-size: 13px
-                  - color: var(--dwains-theme-names)
-                label:
-                  - padding-top: 0px
-                  - padding-bottom: 0px
-                  - font-size: 12px
-                  - color: var(--dwains-theme-grey)
-                  - justify-self: start
-                icon:
-                  - color: var(--dwains-theme-accent)
-              name: Synology DSM Console
-              icon: mdi:nas
-              color: var(--dwains-theme-accent)
-              tap_action:
-                action: url
-                url_path: "http://192.168.1.100:5000"
-            - type: entities
-              style: |
-                ha-card {
-                  background-color: var(--dwains-theme-primary)
-                }
-                .card-header {
-                  padding: 5px 16px;
-                  font-size: 18px;
-                  font-weight: 700 !important;
-                }
-                .card-content div {
-                    margin: 0 !important;
-                }
-                #states {
-                  padding-top: 0px !important;
-                  padding-bottom: 0px !important;
-                }
-                .secondary {
-                  color: darkgray !important;
-                  margin-left: 2px !important;
-                }
-              entities:
-                - entity: sensor.synology_dsm_update
-                  name: DSM Status
-                - entity: sensor.synology_dsm_version
-                  name: DSM Version
+            - type: vertical-stack
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    <img width="125" src="https://brands.home-assistant.io/synology_dsm/logo.png"/><br/>
+                    **Synology DS918+ NAS**<br/>
+                    **Uptime:** {{ (data | fromjson)['uptime']}}<br/>
+                    **DSM Version:** {{ (data | fromjson)['version']}}<br/>
+                    {{ (data | fromjson)['status']}}
+                - !include
+                  - ../../1_Templates/button_link.yaml
+                  - name: 'Synology DSM Console'
+                    icon: 'mdi:nas'
+                    url: http://192.168.1.100:5000
+        - type: custom:dwains-flexbox-card
+          item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
+          cards:
+            - type: vertical-stack
+              item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Server Performance**
+                - type: custom:bar-card
+                  positions:
+                    name: outside
+                    value: inside
+                  height: 15px
+                  width: 75%
+                  decimal: 1
+                  entities:
+                    - entity: sensor.synology_cpu_load_total
+                      name: CPU Load
+                      icon: mdi:speedometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 10
+                        - color: rgb(206,133,0,0.60)
+                          from: 11
+                          to: 25
+                        - color: rgb(163,0,0,0.60)
+                          from: 26
+                          to: 150
+                    - entity: sensor.synology_memory_usage_real
+                      name: Memory
+                      icon: mdi:memory
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.synology_volume_used_volume_1
+                      name: HDD
+                      icon: mdi:harddisk
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                  style: |
+                    ha-card {
+                      --paper-item-icon-color: rgb(47,186,229);
+                      border-radius: 2.5px;
+                      box-shadow: none;
+                    }
+                    #states {
+                      padding-top: 0 !important;
+                    }
+                    ha-icon	 {
+                      #margin-left: -100px;
+                      margin-top: -5px;
+                      padding-right: 5px;
+                    }
+                    bar-card-iconbar {
+                      height: 20px;
+                    }
+                    bar-card-indicator	 {
+                      #margin-left: -50px;
+                      margin-top: -6px;
+                      padding-right: 5px;
+                    }
+                    bar-card-name	 {
+                      margin-top: 3px;
+                      padding-left: 5px;
+                    }
+                    bar-card-backgroundbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-currentbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-value	 {
+                      #margin-right: -105px;
+                      margin-top: 3px;
+                      padding-left: 5px;
+                        font-size: 9.5px;
+                    }
+                    bar-card-row {
+                      margin-bottom: 0px !important;
+                    }
 
-        - type: vertical-stack
-          cards:
-            - type: markdown
-              style: |
-                ha-card { box-shadow: none; }
-                ha-markdown { padding-bottom: 1px !important; }
-              content: >
-                **Synology DS918+ NAS**
-            - type: entities
-              style: |
-                ha-card { box-shadow: none; }
-              #   #states { padding-top: 0px; padding-bottom: 0px }
-              entities:
-                - type: custom:bar-card
-                  name: " "
-                  entity: sensor.synology_cpu_load_total
-                  entity_row: true
-                  animation:
-                    state: on
-                  positions:
-                    minmax: inside
-                  icon: fal:microchip
-                  severity:
-                    - color: green
-                      from: 0
-                      to: 29
-                    - color: orange
-                      from: 30
-                      to: 79
-                    - color: red
-                      from: 80
-                      to: 100
+            - type: vertical-stack
+              item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
+              cards:
+                - type: markdown
                   style: |
-                    ha-icon {
-                      color: var(--dwains-theme-accent) !important;
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Temperatures**
+                - type: custom:bar-card
+                  positions:
+                    name: outside
+                    value: inside
+                  height: 15px
+                  width: 75%
+                  entities:
+                    - entity: sensor.synology_temperature
+                      name: NAS
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.synology_temperature_sda
+                      name: Disk 1
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.synology_temperature_sdb
+                      name: Disk 2
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                  style: |
+                    ha-card {
+                      --paper-item-icon-color: rgb(47,186,229);
+                      border-radius: 2.5px;
+                      box-shadow: none;
                     }
-                - type: custom:bar-card
-                  name: " "
-                  entity: sensor.synology_memory_usage_real
-                  entity_row: true
-                  animation:
-                    state: on
-                  positions:
-                    minmax: inside
-                  icon: fal:memory
-                  severity:
-                    - color: green
-                      from: 0
-                      to: 29
-                    - color: orange
-                      from: 30
-                      to: 79
-                    - color: red
-                      from: 80
-                      to: 100
-                  style: |
-                    ha-icon {
-                      color: var(--dwains-theme-accent) !important;
+                    #states {
+                      padding-top: 0 !important;
                     }
-                - type: custom:bar-card
-                  name: " "
-                  entity: sensor.synology_volume_used_volume_1
-                  entity_row: true
-                  animation:
-                    state: on
-                  positions:
-                    minmax: inside
-                  icon: fal:hdd
-                  severity:
-                    - color: green
-                      from: 0
-                      to: 29
-                    - color: orange
-                      from: 30
-                      to: 79
-                    - color: red
-                      from: 80
-                      to: 100
-                  style: |
-                    ha-icon {
-                      color: var(--dwains-theme-accent) !important;
+                    ha-icon	 {
+                      #margin-left: -100px;
+                      margin-top: -5px;
+                      padding-right: 5px;
+                    }
+                    bar-card-iconbar {
+                      height: 20px;
+                    }
+                    bar-card-indicator	 {
+                      #margin-left: -50px;
+                      margin-top: -6px;
+                      padding-right: 5px;
+                    }
+                    bar-card-name	 {
+                      margin-top: 3px;
+                      padding-left: 5px;
+                    }
+                    bar-card-backgroundbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-currentbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-value	 {
+                      #margin-right: -105px;
+                      margin-top: 3px;
+                      padding-left: 5px;
+                      font-size: 9.5px;
+                    }
+                    bar-card-row {
+                      margin-bottom: 0px !important;
                     }
 
 - type: custom:dwains-flexbox-card

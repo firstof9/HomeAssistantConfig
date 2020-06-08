@@ -15,7 +15,7 @@
                     ha-card { box-shadow: none; }
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
-                    **vmTBSH02**<br/>
+                    **TBSH01**<br/>
                     **Uptime:** {{ (data | fromjson)['uptime']}}
         - type: custom:dwains-flexbox-card
           item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
@@ -23,6 +23,12 @@
             - type: vertical-stack
               item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
               cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Server Performance**
                 - type: custom:bar-card
                   positions:
                     name: outside
@@ -31,7 +37,7 @@
                   width: 75%
                   decimal: 1
                   entities:
-                    - entity: sensor.vmtbsh02_cpu_used
+                    - entity: sensor.tbsh01_cpu_used
                       name: CPU Load
                       icon: mdi:speedometer
                       severity:
@@ -44,7 +50,7 @@
                         - color: rgb(163,0,0,0.60)
                           from: 26
                           to: 150
-                    - entity: sensor.vmtbsh02_ram_used_percent
+                    - entity: sensor.tbsh01_ram_used_percent
                       name: Memory
                       icon: mdi:memory
                       severity:
@@ -57,7 +63,7 @@
                         - color: rgb(163,0,0,0.60)
                           from: 85
                           to: 150
-                    - entity: sensor.vmtbsh02_swap_used_percent
+                    - entity: sensor.tbsh01_swap_used_percent
                       name: Swap
                       icon: mdi:harddisk
                       severity:
@@ -70,7 +76,7 @@
                         - color: rgb(163,0,0,0.60)
                           from: 85
                           to: 150
-                    - entity: sensor.vmtbsh02_etc_hostname_used_percent
+                    - entity: sensor.tbsh01_etc_hostname_used_percent
                       name: HDD
                       icon: mdi:harddisk
                       severity:
@@ -88,6 +94,9 @@
                       --paper-item-icon-color: rgb(47,186,229);
                       border-radius: 2.5px;
                       box-shadow: none;
+                    }
+                    #states {
+                      padding-top: 0 !important;
                     }
                     ha-icon	 {
                       #margin-left: -100px;
@@ -127,11 +136,17 @@
             - type: vertical-stack
               item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
               cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Docker Containers**
                 - type: custom:config-template-card
                   variables:
-                    - states['sensor.docker_vmtbsh02_containers_total'].state
+                    - states['sensor.docker_tbsh01_containers_total'].state
                   entities:
-                    - sensor.docker_vmtbsh02_containers_total
+                    - sensor.docker_tbsh01_containers_total
                   card:
                     type: custom:bar-card
                     positions:
@@ -143,13 +158,13 @@
                     max: '${vars[0]}'
                     color: rgb(26,204,147,0.33)
                     entities:
-                      - entity: sensor.docker_vmtbsh02_containers_running
+                      - entity: sensor.docker_tbsh01_containers_running
                         name: Running
                         icon: mdi:docker
-                      - entity: sensor.docker_vmtbsh02_containers_paused
+                      - entity: sensor.docker_tbsh01_containers_paused
                         name: Paused
                         icon: mdi:docker
-                      - entity: sensor.docker_vmtbsh02_containers_stopped
+                      - entity: sensor.docker_tbsh01_containers_stopped
                         name: Stopped
                         icon: mdi:docker
                     style: |
@@ -157,6 +172,9 @@
                         --paper-item-icon-color: rgb(47,186,229);
                         border-radius: 2.5px;
                         box-shadow: none;
+                      }
+                      #states {
+                        padding-top: 0 !important;
                       }
                       ha-icon	 {
                         #margin-left: -100px;
@@ -193,6 +211,131 @@
                         margin-bottom: 0px !important;
                       }
 
+            - type: vertical-stack
+              item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
+              cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Temperatures**
+                - type: custom:bar-card
+                  positions:
+                    name: outside
+                    value: inside
+                  height: 15px
+                  width: 75%
+                  entities:
+                    - entity: sensor.tbsh01_acpitz_1_temp
+                      name: Thermal 1
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.tbsh01_acpitz_2_temp
+                      name: Thermal 2
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.tbsh01_core_0_temp
+                      name: Core 0
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.tbsh01_core_1_temp
+                      name: Core 1
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                    - entity: sensor.tbsh01_package_id_0_temp
+                      name: Package
+                      icon: mdi:thermometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                  style: |
+                    ha-card {
+                      --paper-item-icon-color: rgb(47,186,229);
+                      border-radius: 2.5px;
+                      box-shadow: none;
+                    }
+                    #states {
+                      padding-top: 0 !important;
+                    }
+                    ha-icon	 {
+                      #margin-left: -100px;
+                      margin-top: -5px;
+                      padding-right: 5px;
+                    }
+                    bar-card-iconbar {
+                      height: 20px;
+                    }
+                    bar-card-indicator	 {
+                      #margin-left: -50px;
+                      margin-top: -6px;
+                      padding-right: 5px;
+                    }
+                    bar-card-name	 {
+                      margin-top: 3px;
+                      padding-left: 5px;
+                    }
+                    bar-card-backgroundbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-currentbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-value	 {
+                      #margin-right: -105px;
+                      margin-top: 3px;
+                      padding-left: 5px;
+                      font-size: 9.5px;
+                    }
+                    bar-card-row {
+                      margin-bottom: 0px !important;
+                    }
+
 - type: custom:stack-in-card
   cards:
     - type: custom:dwains-flexbox-card
@@ -207,7 +350,9 @@
                     ha-card { box-shadow: none; }
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
+                    <center>
                     <img width="150" src="/local/systemicons/docker.svg"><br/>
+                    </center>
                     Containers: {{ (data | fromjson)['docker_containers']}}
                 - !include
                   - ../../1_Templates/button_link.yaml
@@ -219,20 +364,20 @@
           cards:
             - !include
               - partial_docker_info.yaml
-              - name: 'Chronograf'
-                image: '/local/systemicons/influxdb.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_chronograf'
-                switch: 'switch.vmtbsh02_ha_dockermon_chronograf'
-                status: "{{ (data | fromjson)['docker_chronograf_status']}}"
-                memory: "{{ (data | fromjson)['docker_chronograf_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_chronograf_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_chronograf_nettx']}}"
+              - name: 'Deconz'
+                image: '/local/systemicons/deconz.jpg'
+                status_sensor: 'sensor.status_tbsh01_docker_deconz'
+                switch: 'switch.tbsh01_ha_dockermon_deconz'
+                status: "{{ (data | fromjson)['docker_deconz_status']}}"
+                memory: "{{ (data | fromjson)['docker_deconz_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_deconz_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_deconz_nettx']}}"
             - !include
               - partial_docker_info.yaml
               - name: 'Duplicati'
                 image: '/local/systemicons/duplicati.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_duplicati'
-                switch: 'switch.vmtbsh02_ha_dockermon_duplicati'
+                status_sensor: 'sensor.status_tbsh01_docker_duplicati'
+                switch: 'switch.tbsh01_ha_dockermon_duplicati'
                 status: "{{ (data | fromjson)['docker_duplicati_status']}}"
                 memory: "{{ (data | fromjson)['docker_duplicati_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_duplicati_netrx']}}"
@@ -241,58 +386,78 @@
               - partial_docker_info.yaml
               - name: 'Glances'
                 image: '/local/systemicons/glances.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_glances'
-                switch: 'switch.vmtbsh02_ha_dockermon_glances'
+                status_sensor: 'sensor.status_tbsh01_docker_glances'
+                switch: 'switch.tbsh01_ha_dockermon_glances'
                 status: "{{ (data | fromjson)['docker_glances_status']}}"
                 memory: "{{ (data | fromjson)['docker_glances_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_glances_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_glances_nettx']}}"
             - !include
               - partial_docker_info.yaml
+              - name: 'Guacamole'
+                image: '/local/systemicons/guacamole.png'
+                status_sensor: 'sensor.status_tbsh01_docker_guacamole'
+                switch: 'switch.tbsh01_ha_dockermon_guacamole'
+                status: "{{ (data | fromjson)['docker_guacamole_status']}}"
+                memory: "{{ (data | fromjson)['docker_guacamole_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_guacamole_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_guacamole_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
               - name: 'HA Dockermon'
                 image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_vmtbsh02_docker_ha_dockermon'
-                switch: 'switch.vmtbsh02_ha_dockermon_ha_dockermon'
+                status_sensor: 'sensor.status_tbsh01_docker_ha_dockermon'
+                switch: 'switch.tbsh01_ha_dockermon_ha_dockermon'
                 status: "{{ (data | fromjson)['docker_ha_dockermon_status']}}"
                 memory: "{{ (data | fromjson)['docker_ha_dockermon_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ha_dockermon_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_ha_dockermon_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: 'InfluxDB'
-                image: '/local/systemicons/influxdb.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_influxdb'
-                switch: 'switch.vmtbsh02_ha_dockermon_influxdb'
-                status: "{{ (data | fromjson)['docker_influxdb_status']}}"
-                memory: "{{ (data | fromjson)['docker_influxdb_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_influxdb_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_influxdb_nettx']}}"
+              - name: 'Homer'
+                image: '/local/systemicons/docker.svg'
+                status_sensor: 'sensor.status_tbsh01_docker_homer'
+                switch: 'switch.tbsh01_ha_dockermon_homer'
+                status: "{{ (data | fromjson)['docker_homer_status']}}"
+                memory: "{{ (data | fromjson)['docker_homer_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_homer_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_homer_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: 'Kapacitor'
-                image: '/local/systemicons/influxdb.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_kapacitor'
-                switch: 'switch.vmtbsh02_ha_dockermon_kapacitor'
-                status: "{{ (data | fromjson)['docker_kapacitor_status']}}"
-                memory: "{{ (data | fromjson)['docker_kapacitor_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_kapacitor_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_kapacitor_nettx']}}"
+              - name: 'Maria DB'
+                image: '/local/systemicons/docker.svg'
+                status_sensor: 'sensor.status_tbsh01_docker_db'
+                switch: 'switch.tbsh01_ha_dockermon_db'
+                status: "{{ (data | fromjson)['docker_db_status']}}"
+                memory: "{{ (data | fromjson)['docker_db_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_db_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_db_nettx']}}"
             - !include
               - partial_docker_info.yaml
               - name: 'Netdata'
                 image: '/local/systemicons/netdata.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_netdata'
-                switch: 'switch.vmtbsh02_ha_dockermon_netdata'
+                status_sensor: 'sensor.status_tbsh01_docker_netdata'
+                switch: 'switch.tbsh01_ha_dockermon_netdata'
                 status: "{{ (data | fromjson)['docker_netdata_status']}}"
                 memory: "{{ (data | fromjson)['docker_netdata_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_netdata_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_netdata_nettx']}}"
             - !include
               - partial_docker_info.yaml
+              - name: 'Nginx Proxy Manager'
+                image: '/local/systemicons/nginx.png'
+                status_sensor: 'sensor.status_tbsh01_docker_nginxproxymanager'
+                switch: 'switch.tbsh01_ha_dockermon_nginxproxymanager'
+                status: "{{ (data | fromjson)['docker_nginxproxymanager_status']}}"
+                memory: "{{ (data | fromjson)['docker_nginxproxymanager_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_nginxproxymanager_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_nginxproxymanager_nettx']}}"
+            - !include
+              - partial_docker_info.yaml
               - name: 'Ouroboros'
                 image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_vmtbsh02_docker_ouroboros'
-                switch: 'switch.vmtbsh02_ha_dockermon_ouroboros'
+                status_sensor: 'sensor.status_tbsh01_docker_ouroboros'
+                switch: 'switch.tbsh01_ha_dockermon_ouroboros'
                 status: "{{ (data | fromjson)['docker_ouroboros_status']}}"
                 memory: "{{ (data | fromjson)['docker_ouroboros_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ouroboros_netrx']}}"
@@ -301,93 +466,19 @@
               - partial_docker_info.yaml
               - name: 'Portainer'
                 image: '/local/systemicons/portainer.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_portainer'
-                switch: 'switch.vmtbsh02_ha_dockermon_portainer'
+                status_sensor: 'sensor.status_tbsh01_docker_portainer'
+                switch: 'switch.tbsh01_ha_dockermon_portainer'
                 status: "{{ (data | fromjson)['docker_portainer_status']}}"
                 memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
             - !include
               - partial_docker_info.yaml
-              - name: 'Telegraf'
-                image: '/local/systemicons/influxdb.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_telegraf'
-                switch: 'switch.vmtbsh02_ha_dockermon_telegraf'
-                status: "{{ (data | fromjson)['docker_telegraf_status']}}"
-                memory: "{{ (data | fromjson)['docker_telegraf_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_telegraf_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_telegraf_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'UniFi Poller'
+              - name: 'Unifi Controller'
                 image: '/local/systemicons/ubnt.png'
-                status_sensor: 'sensor.status_vmtbsh02_docker_unifipoller'
-                switch: 'switch.vmtbsh02_ha_dockermon_unifipoller'
-                status: "{{ (data | fromjson)['docker_unifipoller_status']}}"
-                memory: "{{ (data | fromjson)['docker_unifipoller_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_unifipoller_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_unifipoller_nettx']}}"
-
-- type: custom:stack-in-card
-  mode: vertical
-  cards:
-    - type: custom:dwains-flexbox-card
-      cards:
-        - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-2'
-          cards:
-            - type: vertical-stack
-              cards:
-                - type: markdown
-                  style: |
-                    ha-card { box-shadow: none; }
-                    ha-markdown { padding-bottom: 1px !important; }
-                  content: >
-                    <img width="150" src="/local/systemicons/influxdb.png">
-                - !include
-                  - ../../1_Templates/button_link.yaml
-                  - name: 'Chronograf'
-                    icon: 'mdi:database'
-                    # url: !secret influxdb_chronograf_url
-        - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-12 col-md-10 col-lg-10'
-          cards:
-            - type: custom:dwains-flexbox-card
-              items_classes: 'col-xs-12 col-sm-6 col-md-4 col-lg-4'
-              cards:
-                - type: sensor
-                  name: Home Assistant DB Size
-                  icon: mdi:database
-                  entity: sensor.influxdb_size
-                  graph: line
-                  detail: 2
-                  hours_to_show: 78
-                  style: >
-                    ha-card {
-                      box-shadow: none;
-                      padding-right: 5px;
-                    }
-                - type: sensor
-                  name: Varken DB Size
-                  icon: mdi:database
-                  entity: sensor.influxdb_varken_size
-                  graph: line
-                  detail: 2
-                  hours_to_show: 78
-                  style: >
-                    ha-card {
-                      box-shadow: none;
-                      padding-right: 5px;
-                    }
-                - type: sensor
-                  name: Unifi Poller DB Size
-                  icon: mdi:database
-                  entity: sensor.influxdb_unifipoller_size
-                  graph: line
-                  detail: 2
-                  hours_to_show: 78
-                  style: >
-                    ha-card {
-                      box-shadow: none;
-                      padding-right: 5px;
-                    }
+                status_sensor: 'sensor.status_tbsh01_docker_unifi'
+                switch: 'switch.tbsh01_ha_dockermon_unifi'
+                status: "{{ (data | fromjson)['docker_unifi_status']}}"
+                memory: "{{ (data | fromjson)['docker_unifi_memory']}}"
+                netrx: "{{ (data | fromjson)['docker_unifi_netrx']}}"
+                nettx: "{{ (data | fromjson)['docker_unifi_nettx']}}"

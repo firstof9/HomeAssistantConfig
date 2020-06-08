@@ -11,8 +11,9 @@ styles:
     - background-color: var(--dwains-theme-primary)
     - border-radius: 2.5px
     - box-shadow: none
-    - width: 250px
+    - line-width: 1px
     - margin-left: 10px
+    - margin-right: 10px
     - padding-top: 10px
     - padding-bottom: 10px
     - margin-bottom: 5px

@@ -47,6 +47,10 @@ more_page:
     - name: Synology NAS
       icon: mdi:nas
       path: "dwains-theme/addons/more_page/synology/page.yaml"
+      data:
+        uptime: '{{ states.sensor.thecube2_uptime.state }}'
+        version: '{{ states.sensor.synology_dsm_version.state }}'
+        status: '{{ states.sensor.synology_dsm_update.state }}'
     - name: Ubiquiti UniFi
       icon: mdi:router-wireless
       path: "dwains-theme/addons/more_page/ubiquiti/unifi.yaml"

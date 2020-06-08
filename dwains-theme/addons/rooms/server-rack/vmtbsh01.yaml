@@ -207,7 +207,9 @@
                     ha-card { box-shadow: none; }
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
+                    <center>
                     <img width="150" src="/local/systemicons/docker.svg"><br/>
+                    </center>
                     Containers: {{ (data | fromjson)['docker_containers']}}
                 - !include
                   - ../../1_Templates/button_link.yaml
@@ -223,6 +225,7 @@
                 image: '/local/systemicons/duplicati.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_duplicati'
                 switch: 'switch.vmtbsh01_ha_dockermon_duplicati'
+                status: "{{ (data | fromjson)['docker_duplicati_status']}}"
                 memory: "{{ (data | fromjson)['docker_duplicati_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_duplicati_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_duplicati_nettx']}}"
@@ -232,6 +235,7 @@
                 image: '/local/systemicons/glances.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_glances'
                 switch: 'switch.vmtbsh01_ha_dockermon_glances'
+                status: "{{ (data | fromjson)['docker_glances_status']}}"
                 memory: "{{ (data | fromjson)['docker_glances_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_glances_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_glances_nettx']}}"
@@ -241,6 +245,7 @@
                 image: '/local/systemicons/grafana.svg'
                 status_sensor: 'sensor.status_vmtbsh01_docker_grafana'
                 switch: 'switch.vmtbsh01_ha_dockermon_grafana'
+                status: "{{ (data | fromjson)['docker_grafana_status']}}"
                 memory: "{{ (data | fromjson)['docker_grafana_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_grafana_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_grafana_nettx']}}"
@@ -250,6 +255,7 @@
                 image: '/local/systemicons/docker.svg'
                 status_sensor: 'sensor.status_vmtbsh01_docker_ha_dockermon'
                 switch: 'switch.vmtbsh01_ha_dockermon_ha_dockermon'
+                status: "{{ (data | fromjson)['docker_ha_dockermon_status']}}"
                 memory: "{{ (data | fromjson)['docker_ha_dockermon_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ha_dockermon_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_ha_dockermon_nettx']}}"
@@ -259,6 +265,7 @@
                 image: '/local/systemicons/jackett.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_jackett'
                 switch: 'switch.vmtbsh01_ha_dockermon_jackett'
+                status: "{{ (data | fromjson)['docker_jackett_status']}}"
                 memory: "{{ (data | fromjson)['docker_jackett_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_jackett_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_jackett_nettx']}}"
@@ -268,6 +275,7 @@
                 image: '/local/systemicons/jdownloader.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_jdownloader'
                 switch: 'switch.vmtbsh01_ha_dockermon_jdownloader'
+                status: "{{ (data | fromjson)['docker_jdownloader_status']}}"
                 memory: "{{ (data | fromjson)['docker_jdownloader_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_jdownloader_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_jdownloader_nettx']}}"
@@ -277,6 +285,7 @@
                 image: '/local/systemicons/netdata.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_netdata'
                 switch: 'switch.vmtbsh01_ha_dockermon_netdata'
+                status: "{{ (data | fromjson)['docker_netdata_status']}}"
                 memory: "{{ (data | fromjson)['docker_netdata_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_netdata_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_netdata_nettx']}}"
@@ -286,6 +295,7 @@
                 image: '/local/systemicons/nzbhydra.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_nzbhydra2'
                 switch: 'switch.vmtbsh01_ha_dockermon_nzbhydra2'
+                status: "{{ (data | fromjson)['docker_nzbhydra2_status']}}"
                 memory: "{{ (data | fromjson)['docker_nzbhydra2_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_nzbhydra2_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_nzbhydra2_nettx']}}"
@@ -295,6 +305,7 @@
                 image: '/local/systemicons/docker.svg'
                 status_sensor: 'sensor.status_vmtbsh01_docker_ouroboros'
                 switch: 'switch.vmtbsh01_ha_dockermon_ouroboros'
+                status: "{{ (data | fromjson)['docker_ouroboros_status']}}"
                 memory: "{{ (data | fromjson)['docker_ouroboros_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_ouroboros_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_ouroboros_nettx']}}"
@@ -304,6 +315,7 @@
                 image: '/local/systemicons/portainer.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_portainer'
                 switch: 'switch.vmtbsh01_ha_dockermon_portainer'
+                status: "{{ (data | fromjson)['docker_portainer_status']}}"
                 memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
@@ -313,6 +325,7 @@
                 image: '/local/systemicons/radarr.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_radarr'
                 switch: 'switch.vmtbsh01_ha_dockermon_radarr'
+                status: "{{ (data | fromjson)['docker_radarr_status']}}"
                 memory: "{{ (data | fromjson)['docker_radarr_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_radarr_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_radarr_nettx']}}"
@@ -322,6 +335,7 @@
                 image: '/local/systemicons/sonarr.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_sonarr'
                 switch: 'switch.vmtbsh01_ha_dockermon_sonarr'
+                status: "{{ (data | fromjson)['docker_sonarr_status']}}"
                 memory: "{{ (data | fromjson)['docker_sonarr_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_sonarr_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_sonarr_nettx']}}"
@@ -331,6 +345,7 @@
                 image: '/local/systemicons/tautulli.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_tautulli'
                 switch: 'switch.vmtbsh01_ha_dockermon_tautulli'
+                status: "{{ (data | fromjson)['docker_tautulli_status']}}"
                 memory: "{{ (data | fromjson)['docker_tautulli_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_tautulli_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_tautulli_nettx']}}"
@@ -340,6 +355,7 @@
                 image: '/local/systemicons/transmission.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_transmission'
                 switch: 'switch.vmtbsh01_ha_dockermon_transmission'
+                status: "{{ (data | fromjson)['docker_transmission_status']}}"
                 memory: "{{ (data | fromjson)['docker_transmission_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_transmission_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_transmission_nettx']}}"
@@ -349,6 +365,7 @@
                 image: '/local/systemicons/tvheadend.jpg'
                 status_sensor: 'sensor.status_vmtbsh01_docker_tvheadend'
                 switch: 'switch.vmtbsh01_ha_dockermon_tvheadend'
+                status: "{{ (data | fromjson)['docker_tvheadend_status']}}"
                 memory: "{{ (data | fromjson)['docker_tvheadend_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_tvheadend_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_tvheadend_nettx']}}"
@@ -358,6 +375,7 @@
                 image: '/local/systemicons/plex.png'
                 status_sensor: 'sensor.status_vmtbsh01_docker_varken'
                 switch: 'switch.vmtbsh01_ha_dockermon_varken'
+                status: "{{ (data | fromjson)['docker_varken_status']}}"
                 memory: "{{ (data | fromjson)['docker_varken_memory']}}"
                 netrx: "{{ (data | fromjson)['docker_varken_netrx']}}"
                 nettx: "{{ (data | fromjson)['docker_varken_nettx']}}"
