@@ -89,6 +89,13 @@ rooms:
         - entity: sensor.thecube2_uptime
         - entity: sensor.piserv_uptime
     addons:
+      - name: pveTBSH
+        icon: mdi:server
+        path: 'dwains-theme/addons/rooms/server-rack/pvetbsh.yaml'
+        button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
+        data:
+          entity: binary_sensor.pvetbsh_vmtbsh01_running
+          uptime: '{{states.sensor.pvetbsh_uptime.state}}'
       - name: TBSH01
         icon: mdi:server
         path: 'dwains-theme/addons/rooms/server-rack/tbsh01.yaml'

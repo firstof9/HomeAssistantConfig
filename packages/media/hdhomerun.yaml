@@ -28,7 +28,12 @@ sensor:
       - SignalStrengthPercent
       - SymbolQualityPercent
       - TargetIP
-    value_template: 'OK'
+    value_template:  >-
+      {% if value_json[0].VctName is defined %}
+        In Use
+      {% else %}
+        Not In Use
+      {% endif %}
   - platform: rest
     resource: http://192.168.1.120/status.json
     name: HDHomeRun - Tuner 1
@@ -41,7 +46,12 @@ sensor:
       - SignalStrengthPercent
       - SymbolQualityPercent
       - TargetIP
-    value_template: 'OK'
+    value_template:  >-
+      {% if value_json[0].VctName is defined %}
+        In Use
+      {% else %}
+        Not In Use
+      {% endif %}
   - platform: rest
     resource: http://192.168.1.120/status.json
     name: HDHomeRun - Tuner 2
@@ -54,7 +64,12 @@ sensor:
       - SignalStrengthPercent
       - SymbolQualityPercent
       - TargetIP
-    value_template: 'OK'
+    value_template:  >-
+      {% if value_json[0].VctName is defined %}
+        In Use
+      {% else %}
+        Not In Use
+      {% endif %}
   - platform: rest
     resource: http://192.168.1.120/status.json
     name: HDHomeRun - Tuner 3
@@ -67,4 +82,9 @@ sensor:
       - SignalStrengthPercent
       - SymbolQualityPercent
       - TargetIP
-    value_template: 'OK'
+    value_template:  >-
+      {% if value_json[0].VctName is defined %}
+        In Use
+      {% else %}
+        Not In Use
+      {% endif %}

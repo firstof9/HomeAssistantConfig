@@ -94,11 +94,11 @@
     },
     "e133678a_067db8": {
       "lastPayload": {
-        "state": 141.61,
+        "state": 141.5,
         "attributes": {
           "max": 163.9,
           "min": 112.9,
-          "avg": 141.61,
+          "avg": 141.5,
           "mindate": "05 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 05 May 2020 - Max: 05 Jan 2020"
@@ -107,11 +107,11 @@
     },
     "1423d97d_559027": {
       "lastPayload": {
-        "state": 140.53,
+        "state": 140.44,
         "attributes": {
           "max": 162.9,
           "min": 112.9,
-          "avg": 140.53,
+          "avg": 140.44,
           "mindate": "23 Apr 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 Apr 2020 - Max: 05 Jan 2020"
@@ -174,11 +174,11 @@
     },
     "98856537_cb6888": {
       "lastPayload": {
-        "state": 1.1,
+        "state": 0.8,
         "attributes": {
-          "count": 3,
-          "countstring": "3 Days",
-          "average": 0.37,
+          "count": 2,
+          "countstring": "2 Days",
+          "average": 0.4,
           "highest": 0.7,
           "sort": 2
         }
@@ -236,7 +236,7 @@
         "attributes": {
           "aep": 0,
           "ey": 0,
-          "time": "21:06 01 Jun 2020",
+          "time": "04:06 02 Jun 2020",
           "sort": 1
         }
       }
@@ -305,7 +305,7 @@
     },
     "7fd7fe72_91aff": {
       "lastPayload": {
-        "state": 4773,
+        "state": 4775,
         "attributes": {}
       }
     },
@@ -378,7 +378,7 @@
     },
     "9c628d57_1704c": {
       "lastPayload": {
-        "state": 2720.99,
+        "state": 2689.07,
         "attributes": {}
       }
     },
@@ -405,14 +405,14 @@
           "serial": "802AA8D38F48",
           "sitename": "TBSmartHome (default)",
           "type": "uap",
-          "cpu": 7.3,
-          "users": 24,
+          "cpu": 7.1,
+          "users": 25,
           "controller": "https://192.168.1.20:8443",
           "guests": 0,
-          "uptime": "8d 21hr 33min",
+          "uptime": "9d 2hr 43min",
           "lastseen": "a few seconds ago",
-          "tx_data": "9.9 GB",
-          "rx_data": "1.7 GB"
+          "tx_data": "21.9 GB",
+          "rx_data": "3.0 GB"
         }
       }
     },
@@ -422,13 +422,13 @@
         "attributes": {
           "model": "UGW3",
           "version": "4.4.50.5272448",
-          "data": "410.0 GB",
+          "data": "427.5 GB",
           "serial": "F09FC212B4F7",
           "sitename": "TBSmartHome (default)",
           "type": "ugw",
           "controller": "https://192.168.1.20:8443",
           "external_ip_address": "110.143.197.190",
-          "uptime": "8d 21hr 33min",
+          "uptime": "9d 2hr 43min",
           "lastseen": "a few seconds ago"
         }
       }
@@ -443,16 +443,16 @@
           "sitename": "TBSmartHome (default)",
           "type": "usw",
           "controller": "https://192.168.1.20:8443",
-          "uptime": "8d 21hr 34min",
-          "rx_data": "116.7 GB",
-          "tx_data": "305.3 GB",
+          "uptime": "9d 2hr 43min",
+          "rx_data": "120.6 GB",
+          "tx_data": "319.1 GB",
           "lastseen": "a few seconds ago"
         }
       }
     },
     "5cc0456e_7000bc": {
       "lastPayload": {
-        "state": "116.7",
+        "state": "120.6",
         "attributes": {
           "units": "GB"
         }
@@ -460,7 +460,7 @@
     },
     "bef3ffcb_1da08": {
       "lastPayload": {
-        "state": "305.3",
+        "state": "319.1",
         "attributes": {
           "units": "GB"
         }
@@ -468,7 +468,7 @@
     },
     "a7efd775_e1ecc8": {
       "lastPayload": {
-        "state": "9.9",
+        "state": "21.9",
         "attributes": {
           "units": "GB"
         }
@@ -476,7 +476,7 @@
     },
     "5a3372d9_4316ac": {
       "lastPayload": {
-        "state": "1.7",
+        "state": "3.0",
         "attributes": {
           "units": "GB"
         }
@@ -484,10 +484,10 @@
     },
     "c413b33a_de29b": {
       "lastPayload": {
-        "state": 251,
+        "state": 262,
         "attributes": {
-          "uptime": "0d 1hr 12min",
-          "drops": 251
+          "uptime": "0d 0hr 41min",
+          "drops": 262
         }
       }
     }

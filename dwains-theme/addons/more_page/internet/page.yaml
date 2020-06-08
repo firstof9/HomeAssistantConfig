@@ -32,7 +32,7 @@
                     - entity: sensor.speedtest_download
                       decimals: 2
                       area: 'Download'
-                      unit: 'Mbps'
+                      unit: 'Mbps' 
                   show:
                     horseshoe_style: 'lineargradient'
                   layout:

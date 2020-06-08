@@ -12,15 +12,14 @@
         - sensor.opennem_nsw1_current_price
       name: Current Price
       line_color: 'var(--dwains-theme-accent)'
-      hours_to_show: 24
-      hour24: true
-      points_per_hour: 6
-      # smoothing: true
-      animate: true
       decimals: 2
-      line_width: 3
-      lower_bound: 0
+      hours_to_show: 168
+      points_per_hour: 2
+      group_by: hour
+      aggregate_func: last
+      line_width: 1
       align_state: center
+      smoothing: true
       show:
         extrema: true
         average: true
@@ -37,14 +36,13 @@
           name: Renewables
       name: Generation Type
       line_color: 'var(--dwains-theme-accent)'
-      hours_to_show: 24
-      hour24: true
-      points_per_hour: 6
-      animate: true
-      decimals: 2
-      line_width: 3
-      lower_bound: 0
+      hours_to_show: 168
+      points_per_hour: 2
+      group_by: hour
+      aggregate_func: last
+      line_width: 1
       align_state: center
+      smoothing: true
       show:
         extrema: true
         average: true
@@ -62,13 +60,13 @@
           name: Generation
       name: Generation vs Demand
       line_color: 'var(--dwains-theme-accent)'
-      hours_to_show: 24
-      hour24: true
-      points_per_hour: 6
-      animate: true
-      decimals: 2
-      line_width: 3
+      hours_to_show: 168
+      points_per_hour: 2
+      group_by: hour
+      aggregate_func: last
+      line_width: 1
       align_state: center
+      smoothing: true
       show:
         extrema: true
         average: true
@@ -204,7 +202,7 @@
                 color: rgb(26,204,147,0.33)
 
 - type: custom:dwains-flexbox-card
-  items_classes: 'col-xs-12 col-md-6 col-lg-6 col-xl-6'
+  items_classes: 'col-xs-12 col-md-12 col-lg-12 col-xl-12'
   cards:
     - type: custom:mini-graph-card
       style: |
@@ -213,21 +211,26 @@
         }
       entities:
         - entity: sensor.amber_general_usage_price
-          name: Spot Price
-        - entity: sensor.amber_general_usage_price_next_24hr
-          name: Next 24hrs
-        - entity: sensor.amber_general_usage_price_previous_24hr
-          name: Prev 24hrs
-      name: Amber Current Price
+          name: Electricity
+        - entity: sensor.amber_solar_feed_in_tariff
+          name: Solar
+        # - entity: sensor.amber_general_usage_price_next_24hr
+        #   name: Next 24hrs
+        # - entity: sensor.amber_general_usage_price_previous_24hr
+        #   name: Prev 24hrs
+      name: Amber Prices - Spot Prices
       line_color: 'var(--dwains-theme-accent)'
-      hours_to_show: 24
-      hour24: true
-      points_per_hour: 4
-      # smoothing: true
       animate: true
       decimals: 2
-      line_width: 2
+      height: 30
+      font-size: 20
+      hours_to_show: 168
+      points_per_hour: 1
+      group_by: hour
+      aggregate_func: last
+      line_width: 1
       align_state: center
+      smoothing: true
       show:
         extrema: true
         average: true
@@ -238,22 +241,50 @@
           background-color: var(--dwains-theme-primary);
         }
       entities:
-        - entity: sensor.amber_solar_feed_in_tariff
-          name: Spot Price
-        - entity: sensor.amber_solar_feed_in_tariff_next_24hr
-          name: Next 24hrs
+        - entity: sensor.amber_general_usage_price_previous_24hr
+          name: Electricity
         - entity: sensor.amber_solar_feed_in_tariff_previous_24hr
-          name: Prev 24hrs
-      name: Amber Solar Feed-In Tariff
+          name: Solar
+      name: Amber Prices - History
       line_color: 'var(--dwains-theme-accent)'
-      hours_to_show: 24
-      hour24: true
-      points_per_hour: 4
-      # smoothing: true
       animate: true
       decimals: 2
-      line_width: 2
+      height: 30
+      font-size: 20
+      hours_to_show: 168
+      points_per_hour: 1
+      group_by: hour
+      aggregate_func: last
+      line_width: 1
       align_state: center
+      smoothing: true
+      show:
+        extrema: true
+        average: true
+        fill: fade
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.amber_general_usage_price_next_24hr
+          name: Electricity
+        - entity: sensor.amber_solar_feed_in_tariff_next_24hr
+          name: Solar
+      name: Amber Prices - Forecast
+      line_color: 'var(--dwains-theme-accent)'
+      animate: true
+      decimals: 2
+      height: 30
+      font-size: 20
+      hours_to_show: 168
+      points_per_hour: 1
+      group_by: hour
+      aggregate_func: last
+      line_width: 1
+      align_state: center
+      smoothing: true
       show:
         extrema: true
         average: true
