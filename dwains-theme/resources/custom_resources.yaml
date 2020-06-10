@@ -32,3 +32,5 @@
   type: module
 - url: /hacsfiles/sun-card/sun-card.js
   type: module
+- type: module
+  url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js

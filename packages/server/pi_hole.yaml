@@ -1,7 +1,4 @@
 ---
-pi_hole:
-  host: !secret pihole_host
-
 sensor:
   ###
   ## Pi-Hole

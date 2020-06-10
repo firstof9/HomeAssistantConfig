@@ -20,6 +20,28 @@ garbage_collection:
 sensor:
   - platform: template
     sensors:
+      binday_next:
+        friendly_name: Next Bin Day
+        entity_id: sensor.date_time
+        icon_template: mdi:truck-delivery
+        value_template: >-
+          {% set val = states.sensor.binday_waste.attributes['days'] %}
+          {% if val == 0 %}
+          {% set day = "Today" %}
+          {% elif val == 1 %}
+          {% set day = "Tomorrow" %}
+          {% else %}
+          {% set day = "In" ~ val ~ " Days" %}
+          {% endif %}
+          {% set gwval = states.sensor.binday_greenwaste.attributes['days'] %}
+          {% if gwval <= 7 %}
+            {% set bins = "Red + Green" %}
+          {% endif %}
+          {% set rval = states.sensor.binday_recycling.attributes['days'] %}
+          {% if rval <= 7 %}
+            {% set bins = "Red + Yellow" %}
+          {% endif %}
+          {{ day }} - {{bins}}
       binday_date:
         friendly_name: Next Collection Date
         entity_id: sensor.date_time

@@ -4,7 +4,7 @@
 dynamic_page:
   addon:
     name: Dashboard
-    icon: fal:tachometer-alt
+    icon: mdi:monitor-dashboard
     path: 'dwains-theme/addons/dynamic_page/dashboard.yaml'
     data:
       some_data: 'This is some data parsed.'

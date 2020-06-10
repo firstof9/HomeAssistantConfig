@@ -2,14 +2,15 @@ import voluptuous as vol
 from .config_singularity import config_singularity
 from datetime import datetime, date
 import homeassistant.helpers.config_validation as cv
-from homeassistant.const import CONF_NAME, WEEKDAYS, CONF_ENTITIES
+from homeassistant.const import CONF_NAME, WEEKDAYS, CONF_ENTITIES, ATTR_HIDDEN
 
 """Constants for garbage_collection."""
 # Base component constants
 DOMAIN = "garbage_collection"
-DOMAIN_DATA = f"{DOMAIN}_data"
-VERSION = "2.25"
-PLATFORM = "sensor"
+CALENDAR_NAME = "Garbage Collection"
+VERSION = "3.01"
+SENSOR_PLATFORM = "sensor"
+CALENDAR_PLATFORM = "calendar"
 ISSUE_URL = "https://github.com/bruxy70/Garbage-Collection/issues"
 ATTRIBUTION = "Data from this is provided by garbage_collection."
 
@@ -18,6 +19,7 @@ ATTR_DAYS = "days"
 
 # Device classes
 BINARY_SENSOR_DEVICE_CLASS = "connectivity"
+DEVICE_CLASS = "garbage_collection__schedule"
 
 # Configuration
 CONF_SENSOR = "sensor"
@@ -38,6 +40,7 @@ CONF_DATE = "date"
 CONF_EXCLUDE_DATES = "exclude_dates"
 CONF_INCLUDE_DATES = "include_dates"
 CONF_MOVE_COUNTRY_HOLIDAYS = "move_country_holidays"
+CONF_HOLIDAY_IN_WEEK_MOVE = "holiday_in_week_move"
 CONF_PROV = "prov"
 CONF_STATE = "state"
 CONF_OBSERVED = "observed"
@@ -56,6 +59,7 @@ DEFAULT_FREQUENCY = "weekly"
 DEFAULT_PERIOD = 1
 DEFAULT_FIRST_WEEK = 1
 DEFAULT_VERBOSE_STATE = False
+DEFAULT_HOLIDAY_IN_WEEK_MOVE = False
 DEFAULT_DATE_FORMAT = "%d-%b-%Y"
 DEFAULT_VERBOSE_FORMAT = "on {date}, in {days} days"
 
@@ -208,6 +212,13 @@ class configuration(config_singularity):
             "type": str,
             "validator": cv.string,
         },
+        ATTR_HIDDEN: {
+            "step": 1,
+            "method": vol.Optional,
+            "default": False,
+            "type": bool,
+            "validator": cv.boolean,
+        },
         CONF_FREQUENCY: {
             "step": 1,
             "method": vol.Required,
@@ -356,6 +367,13 @@ class configuration(config_singularity):
             "method": vol.Optional,
             "type": vol.In(COUNTRY_CODES),
         },
+        CONF_HOLIDAY_IN_WEEK_MOVE: {
+            "step": 4,
+            "method": vol.Optional,
+            "default": DEFAULT_HOLIDAY_IN_WEEK_MOVE,
+            "type": bool,
+            "validator": cv.boolean,
+        },
         CONF_PROV: {
             "step": 4,
             "valid_for": lambda f: f in EXCEPT_ANNUAL_GROUP,
@@ -391,9 +409,9 @@ extra_options = {
     }
 }
 
-CONFIGURATION = configuration()
+config_definition = configuration()
 
-SENSOR_SCHEMA = vol.Schema(CONFIGURATION.compile_schema())
+SENSOR_SCHEMA = vol.Schema(config_definition.compile_schema())
 
 CONFIG_SCHEMA = vol.Schema(
     {

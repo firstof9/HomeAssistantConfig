@@ -15,3 +15,4 @@ global:
   outside_humidity: sensor.netatmo_brisbane_street_outdoor_humidity # Configure a sensor here!
   # alarm: alarm_control_panel.alarm_system #Alarm panel entity
   inside_temperature:  sensor.netatmo_brisbane_street_indoor_temperature #Can be climate. or sensor. entity
+  favorites_homepage: 'true'

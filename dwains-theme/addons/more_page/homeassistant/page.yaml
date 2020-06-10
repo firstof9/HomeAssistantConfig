@@ -358,12 +358,12 @@
               columns:
                 - { field: name, title: "Name", style: [text-align: left] }
                 - {
-                    field: installed version,
+                    field: installed_version,
                     title: "Installed",
                     style: [text-align: center],
                   }
                 - {
-                    field: available version,
+                    field: available_version,
                     title: "Latest",
                     style: [text-align: center],
                   }
