@@ -3,7 +3,6 @@ sensor:
   ###
   ## Pi-Hole
   ###
-  - platform: pi_hole
 
   - platform: rest
     name: Pi-Hole Version

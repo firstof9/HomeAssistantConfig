@@ -39,11 +39,11 @@
     },
     "1777533_24f10ad": {
       "lastPayload": {
-        "state": 30.706,
+        "state": 30.784,
         "attributes": {
           "max": 46.9,
           "min": 8.4,
-          "avg": 30.706,
+          "avg": 30.784,
           "mindate": "23 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 May 2020 - Max: 05 Jan 2020"
@@ -73,11 +73,11 @@
     },
     "e663f7e9_a5b388": {
       "lastPayload": {
-        "state": 25.741,
+        "state": 25.797,
         "attributes": {
           "max": 41.3,
           "min": 9.5,
-          "avg": 25.741,
+          "avg": 25.797,
           "mindate": "23 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 May 2020 - Max: 05 Jan 2020"
@@ -94,11 +94,11 @@
     },
     "e133678a_067db8": {
       "lastPayload": {
-        "state": 141.32,
+        "state": 141.25,
         "attributes": {
           "max": 163.9,
           "min": 112.9,
-          "avg": 141.32,
+          "avg": 141.25,
           "mindate": "05 May 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 05 May 2020 - Max: 05 Jan 2020"
@@ -107,11 +107,11 @@
     },
     "1423d97d_559027": {
       "lastPayload": {
-        "state": 140.3,
+        "state": 140.23,
         "attributes": {
           "max": 162.9,
           "min": 112.9,
-          "avg": 140.3,
+          "avg": 140.23,
           "mindate": "23 Apr 2020",
           "maxdate": "05 Jan 2020",
           "datestring": "Min: 23 Apr 2020 - Max: 05 Jan 2020"
@@ -162,12 +162,12 @@
     },
     "ce42590b_835aa8": {
       "lastPayload": {
-        "state": 0.2,
+        "state": 0,
         "attributes": {
-          "count": 1,
-          "countstring": "1 Days",
-          "average": 0.2,
-          "highest": 0.2,
+          "count": 0,
+          "countstring": "No Rain",
+          "average": 0,
+          "highest": 0,
           "sort": "1"
         }
       }
@@ -405,14 +405,14 @@
           "serial": "802AA8D38F48",
           "sitename": "TBSmartHome (default)",
           "type": "uap",
-          "cpu": 8.2,
+          "cpu": 6.7,
           "users": 26,
           "controller": "https://192.168.1.20:8443",
           "guests": 0,
-          "uptime": "11d 14hr 53min",
+          "uptime": "12d 1hr 0min",
           "lastseen": "a few seconds ago",
-          "tx_data": "93.0 GB",
-          "rx_data": "10.3 GB"
+          "tx_data": "110.8 GB",
+          "rx_data": "12.2 GB"
         }
       }
     },
@@ -422,13 +422,13 @@
         "attributes": {
           "model": "UGW3",
           "version": "4.4.50.5272448",
-          "data": "540.4 GB",
+          "data": "572.5 GB",
           "serial": "F09FC212B4F7",
           "sitename": "TBSmartHome (default)",
           "type": "ugw",
           "controller": "https://192.168.1.20:8443",
           "external_ip_address": "110.143.197.190",
-          "uptime": "11d 14hr 53min",
+          "uptime": "12d 1hr 0min",
           "lastseen": "a few seconds ago"
         }
       }
@@ -443,16 +443,16 @@
           "sitename": "TBSmartHome (default)",
           "type": "usw",
           "controller": "https://192.168.1.20:8443",
-          "uptime": "11d 14hr 53min",
-          "rx_data": "151.3 GB",
-          "tx_data": "405.1 GB",
+          "uptime": "12d 1hr 0min",
+          "rx_data": "156.7 GB",
+          "tx_data": "432.7 GB",
           "lastseen": "a few seconds ago"
         }
       }
     },
     "5cc0456e_7000bc": {
       "lastPayload": {
-        "state": "151.3",
+        "state": "156.7",
         "attributes": {
           "units": "GB"
         }
@@ -460,7 +460,7 @@
     },
     "bef3ffcb_1da08": {
       "lastPayload": {
-        "state": "405.1",
+        "state": "432.7",
         "attributes": {
           "units": "GB"
         }
@@ -468,7 +468,7 @@
     },
     "a7efd775_e1ecc8": {
       "lastPayload": {
-        "state": "93.0",
+        "state": "110.8",
         "attributes": {
           "units": "GB"
         }
@@ -476,7 +476,7 @@
     },
     "5a3372d9_4316ac": {
       "lastPayload": {
-        "state": "10.3",
+        "state": "12.2",
         "attributes": {
           "units": "GB"
         }
@@ -484,10 +484,10 @@
     },
     "c413b33a_de29b": {
       "lastPayload": {
-        "state": 344,
+        "state": 352,
         "attributes": {
-          "uptime": "0d 0hr 14min",
-          "drops": 344
+          "uptime": "0d 2hr 3min",
+          "drops": 352
         }
       }
     }
