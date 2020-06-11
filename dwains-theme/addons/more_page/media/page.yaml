@@ -35,7 +35,7 @@
                 - !include
                   - ../../1_Templates/button_state.yaml
                   - name: "Tracked Shows"
-                    sensor: "sensor.sonarr_series"
+                    sensor: "sensor.sonarr_shows"
                 - !include
                   - ../../1_Templates/button_state.yaml
                   - name: "Queued Episodes"
