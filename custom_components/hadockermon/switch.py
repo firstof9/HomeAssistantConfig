@@ -7,44 +7,48 @@ https://github.com/custom-components/switch.hadockermon/
 
 import logging
 
-import voluptuous as vol
-
-from homeassistant.components.switch import (DOMAIN, PLATFORM_SCHEMA,
-                                             SwitchDevice)
-from homeassistant.const import (CONF_HOST, CONF_PORT, CONF_NAME,
-                                 CONF_USERNAME, CONF_PASSWORD,
-                                 CONF_SSL, CONF_VERIFY_SSL)
 import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
+from homeassistant.components.switch import DOMAIN, PLATFORM_SCHEMA, SwitchEntity
+from homeassistant.const import (
+    CONF_HOST,
+    CONF_NAME,
+    CONF_PASSWORD,
+    CONF_PORT,
+    CONF_SSL,
+    CONF_USERNAME,
+    CONF_VERIFY_SSL,
+)
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-__version__ = '3.1.2'
+__version__ = "3.1.2"
 
 _LOGGER = logging.getLogger(__name__)
 
-DEFAULT_NAME = 'HA Dockermon'
-CONTAINTER_NAME = '{} {}'
+DEFAULT_NAME = "HA Dockermon"
+CONTAINTER_NAME = "{} {}"
 
-CONF_CONTAINERS = 'containers'
+CONF_CONTAINERS = "containers"
 
-ATTR_CONTAINER = 'container'
-ATTR_STATUS = 'status'
-ATTR_IMAGE = 'image'
+ATTR_CONTAINER = "container"
+ATTR_STATUS = "status"
+ATTR_IMAGE = "image"
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Required(CONF_HOST): cv.string,
-    vol.Required(CONF_PORT, default=8126): cv.port,
-    vol.Optional(CONF_NAME): cv.string,
-    vol.Optional(CONF_USERNAME): cv.string,
-    vol.Optional(CONF_PASSWORD): cv.string,
-    vol.Optional(CONF_SSL, default=False): cv.boolean,
-    vol.Optional(CONF_VERIFY_SSL, default=False): cv.boolean,
-    vol.Optional(CONF_CONTAINERS, default=None):
-        vol.All(cv.ensure_list, [cv.string]),
-})
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
+    {
+        vol.Required(CONF_HOST): cv.string,
+        vol.Required(CONF_PORT, default=8126): cv.port,
+        vol.Optional(CONF_NAME): cv.string,
+        vol.Optional(CONF_USERNAME): cv.string,
+        vol.Optional(CONF_PASSWORD): cv.string,
+        vol.Optional(CONF_SSL, default=False): cv.boolean,
+        vol.Optional(CONF_VERIFY_SSL, default=False): cv.boolean,
+        vol.Optional(CONF_CONTAINERS, default=None): vol.All(cv.ensure_list, [cv.string]),
+    }
+)
 
 
-async def async_setup_platform(hass, config, async_add_entities,
-                               discovery_info=None):
+async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
     """Set up the device."""
     from pydockermon.api import API
 
@@ -60,7 +64,7 @@ async def async_setup_platform(hass, config, async_add_entities,
     api = API(hass.loop, session, host, port, username, password, ssl)
     devices = []
     await api.list_containers()
-    for container in api.all_containers['data']:
+    for container in api.all_containers["data"]:
         if not containers or container in containers:
             if not container.startswith("addon_"):
                 devices.append(HADockermonSwitch(api, device_name, container, host))
@@ -71,25 +75,24 @@ async def async_setup_platform(hass, config, async_add_entities,
         _LOGGER.info("Restarting %s", container)
         await api.container_restart(container)
 
-    hass.services.async_register(DOMAIN, 'hadockermon_restart',
-                                 restart_container)
+    hass.services.async_register(DOMAIN, "hadockermon_restart", restart_container)
 
     async_add_entities(devices, True)
 
 
-class HADockermonSwitch(SwitchDevice):
+class HADockermonSwitch(SwitchEntity):
     """Representation of a HA Dockermon switch."""
 
     def __init__(self, api, device_name, container, host):
         """Initialize a HA Dockermon switch."""
         self.api = api
         self.container = container
-        
+
         if device_name:
             self.device_name = CONTAINTER_NAME.format(device_name, container)
         else:
             self.device_name = CONTAINTER_NAME.format(DEFAULT_NAME, container)
-        
+
         self._state = None
         self._host = host
         self._status = None
@@ -107,15 +110,15 @@ class HADockermonSwitch(SwitchDevice):
         """Update the current switch status."""
         state = await self.api.container_state(self.container)
         try:
-            self._state = state['data']['state']
+            self._state = state["data"]["state"]
         except (TypeError, KeyError):
             _LOGGER.debug("Could not fetch state for %s", self.container)
         try:
-            self._status = state['data']['status']
+            self._status = state["data"]["status"]
         except (TypeError, KeyError):
             _LOGGER.debug("Could not fetch status for %s", self.container)
         try:
-            self._image = state['data']['image']
+            self._image = state["data"]["image"]
         except (TypeError, KeyError):
             _LOGGER.debug("Could not fetch image for %s", self.container)
 
@@ -127,13 +130,13 @@ class HADockermonSwitch(SwitchDevice):
     @property
     def is_on(self):
         """Return true if switch is on."""
-        state = True if self._state == 'running' else False
+        state = True if self._state == "running" else False
         return state
 
     @property
     def icon(self):
         """Set the device icon."""
-        return 'mdi:docker'
+        return "mdi:docker"
 
     @property
     def device_state_attributes(self):

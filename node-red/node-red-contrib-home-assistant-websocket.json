@@ -405,11 +405,11 @@
           "serial": "802AA8D38F48",
           "sitename": "TBSmartHome (default)",
           "type": "uap",
-          "cpu": 13,
+          "cpu": 10,
           "users": 25,
           "controller": "https://192.168.1.20:8443",
           "guests": 0,
-          "uptime": "12d 1hr 49min",
+          "uptime": "12d 1hr 51min",
           "lastseen": "a few seconds ago",
           "tx_data": "112.4 GB",
           "rx_data": "12.4 GB"
@@ -422,13 +422,13 @@
         "attributes": {
           "model": "UGW3",
           "version": "4.4.50.5272448",
-          "data": "574.5 GB",
+          "data": "574.6 GB",
           "serial": "F09FC212B4F7",
           "sitename": "TBSmartHome (default)",
           "type": "ugw",
           "controller": "https://192.168.1.20:8443",
           "external_ip_address": "110.143.197.190",
-          "uptime": "12d 1hr 49min",
+          "uptime": "12d 1hr 51min",
           "lastseen": "a few seconds ago"
         }
       }
@@ -443,9 +443,9 @@
           "sitename": "TBSmartHome (default)",
           "type": "usw",
           "controller": "https://192.168.1.20:8443",
-          "uptime": "12d 1hr 49min",
+          "uptime": "12d 1hr 51min",
           "rx_data": "157.3 GB",
-          "tx_data": "434.1 GB",
+          "tx_data": "434.2 GB",
           "lastseen": "a few seconds ago"
         }
       }
@@ -460,7 +460,7 @@
     },
     "bef3ffcb_1da08": {
       "lastPayload": {
-        "state": "434.1",
+        "state": "434.2",
         "attributes": {
           "units": "GB"
         }
@@ -486,7 +486,7 @@
       "lastPayload": {
         "state": 354,
         "attributes": {
-          "uptime": "0d 0hr 2min",
+          "uptime": "0d 0hr 4min",
           "drops": 354
         }
       }
