@@ -18,7 +18,7 @@ docker_monitor:
   hosts:
     - url: tcp://192.168.1.61:2375
       name: docker_vmTBSH01
-      event: false
+      event: true
       containers:
         # duplicati:
         #   <<: *settings
@@ -46,8 +46,8 @@ docker_monitor:
         #   <<: *settings
         transmission:
           <<: *settings
-        # tvheadend:
-        #   <<: *settings
+        tvheadend:
+          <<: *settings
     - url: tcp://192.168.1.62:2375
       name: docker_vmTBSH02
       event: false
@@ -96,6 +96,6 @@ docker_monitor:
       #     <<: *settings
       #   unifi:
       #     <<: *settings
-    - url: unix://var/run/docker.sock
-      name: docker_vmTBSH03
+    - url: tcp://192.168.1.64:2375
+      name: docker_TBSH02
       event: false

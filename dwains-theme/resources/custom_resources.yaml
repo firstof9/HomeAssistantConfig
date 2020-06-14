@@ -34,3 +34,5 @@
   type: module
 - type: module
   url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+- url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+  type: module

@@ -1,5 +1,5 @@
 ---
-name: Home Assistant
+name: Home Assistant Check
 
 # yamllint disable-line rule:truthy
 on:

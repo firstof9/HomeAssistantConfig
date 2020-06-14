@@ -1,5 +1,4 @@
 # dwains_theme
-# Custom button for room addon: sonos
 
 type: custom:button-card
 entity: {{ (data | fromjson)['entity'] }}
@@ -9,6 +8,7 @@ icon: {{ icon|default('fas:puzzle-piece') }}
 tap_action:
   action: navigate
   navigation_path: {{ navigation_path }}
+show_label: true
 label: >
   [[[
     if(entity){

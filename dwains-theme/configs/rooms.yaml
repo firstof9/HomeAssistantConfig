@@ -85,8 +85,6 @@ rooms:
     # device: group.serverrack_device
     page_entities:
       entities:
-        - entity: sensor.pvetbsh_uptime
-        - entity: sensor.thecube2_uptime
         - entity: sensor.piserv_uptime
     addons:
       - name: pveTBSH
@@ -94,14 +92,14 @@ rooms:
         path: 'dwains-theme/addons/rooms/server-rack/pvetbsh.yaml'
         button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
         data:
-          entity: binary_sensor.pvetbsh_vmtbsh01_running
+          entity: sensor.pvetbsh_uptime
           uptime: '{{states.sensor.pvetbsh_uptime.state}}'
       - name: TBSH01
         icon: mdi:server
         path: 'dwains-theme/addons/rooms/server-rack/tbsh01.yaml'
         button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
         data:
-          entity: binary_sensor.pvetbsh_vmtbsh01_running
+          entity: sensor.tbsh01_uptime
           uptime: '{{states.sensor.tbsh01_uptime.state}}'
           docker_db_status: '{{states.binary_sensor.tbsh01_ha_dockermon_db.attributes.status}}'
           docker_db_memory: '{{states.binary_sensor.tbsh01_ha_dockermon_db.attributes.memory}}'
@@ -151,12 +149,59 @@ rooms:
           docker_unifi_memory: '{{states.binary_sensor.tbsh01_ha_dockermon_unifi.attributes.memory}}'
           docker_unifi_netrx: '{{states.binary_sensor.tbsh01_ha_dockermon_unifi.attributes.network_rx_total}}'
           docker_unifi_nettx: '{{states.binary_sensor.tbsh01_ha_dockermon_unifi.attributes.network_tx_total}}'
+      - name: TBSH02
+        icon: mdi:server
+        path: 'dwains-theme/addons/rooms/server-rack/tbsh02.yaml'
+        button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
+        data:
+          entity: sensor.tbsh02_uptime
+          uptime: '{{states.sensor.tbsh02_uptime.state}}'
+          docker_adsb2influxdb_status: '{{states.binary_sensor.tbsh02_ha_dockermon_adsb2influxdb.attributes.status}}'
+          docker_adsb2influxdb_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_adsb2influxdb.attributes.memory}}'
+          docker_adsb2influxdb_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_adsb2influxdb.attributes.network_rx_total}}'
+          docker_adsb2influxdb_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_adsb2influxdb.attributes.network_tx_total}}'
+          docker_adsbx_status: '{{states.binary_sensor.tbsh02_ha_dockermon_adsbx.attributes.status}}'
+          docker_adsbx_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_adsbx.attributes.memory}}'
+          docker_adsbx_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_adsbx.attributes.network_rx_total}}'
+          docker_adsbx_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_adsbx.attributes.network_tx_total}}'
+          docker_fr24_status: '{{states.binary_sensor.tbsh02_ha_dockermon_fr24.attributes.status}}'
+          docker_fr24_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_fr24.attributes.memory}}'
+          docker_fr24_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_fr24.attributes.network_rx_total}}'
+          docker_fr24_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_fr24.attributes.network_tx_total}}'
+          docker_glances_status: '{{states.binary_sensor.tbsh02_ha_dockermon_glances.attributes.status}}'
+          docker_glances_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_glances.attributes.memory}}'
+          docker_glances_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_glances.attributes.network_rx_total}}'
+          docker_glances_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_glances.attributes.network_tx_total}}'
+          docker_graphs1090_status: '{{states.binary_sensor.tbsh02_ha_dockermon_graphs1090.attributes.status}}'
+          docker_graphs1090_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_graphs1090.attributes.memory}}'
+          docker_graphs1090_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_graphs1090.attributes.network_rx_total}}'
+          docker_graphs1090_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_graphs1090.attributes.network_tx_total}}'
+          docker_ha_dockermon_status: '{{states.binary_sensor.tbsh02_ha_dockermon_ha_dockermon.attributes.status}}'
+          docker_ha_dockermon_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_ha_dockermon.attributes.memory}}'
+          docker_ha_dockermon_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_ha_dockermon.attributes.network_rx_total}}'
+          docker_ha_dockermon_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_ha_dockermon.attributes.network_tx_total}}'
+          docker_ouroboros_status: '{{states.binary_sensor.tbsh02_ha_dockermon_ouroboros.attributes.status}}'
+          docker_ouroboros_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_ouroboros.attributes.memory}}'
+          docker_ouroboros_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_ouroboros.attributes.network_rx_total}}'
+          docker_ouroboros_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_ouroboros.attributes.network_tx_total}}'
+          docker_piaware_status: '{{states.binary_sensor.tbsh02_ha_dockermon_piaware.attributes.status}}'
+          docker_piaware_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_piaware.attributes.memory}}'
+          docker_piaware_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_piaware.attributes.network_rx_total}}'
+          docker_piaware_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_piaware.attributes.network_tx_total}}'
+          docker_readsb_status: '{{states.binary_sensor.tbsh02_ha_dockermon_readsb.attributes.status}}'
+          docker_readsb_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_readsb.attributes.memory}}'
+          docker_readsb_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_readsb.attributes.network_rx_total}}'
+          docker_readsb_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_readsb.attributes.network_tx_total}}'
+          docker_tar1090_status: '{{states.binary_sensor.tbsh02_ha_dockermon_tar1090.attributes.status}}'
+          docker_tar1090_memory: '{{states.binary_sensor.tbsh02_ha_dockermon_tar1090.attributes.memory}}'
+          docker_tar1090_netrx: '{{states.binary_sensor.tbsh02_ha_dockermon_tar1090.attributes.network_rx_total}}'
+          docker_tar1090_nettx: '{{states.binary_sensor.tbsh02_ha_dockermon_tar1090.attributes.network_tx_total}}'
       - name: vmTBSH01
         icon: mdi:server
         path: 'dwains-theme/addons/rooms/server-rack/vmtbsh01.yaml'
         button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
         data:
-          entity: binary_sensor.pvetbsh_vmtbsh01_running
+          entity: sensor.vmtbsh01_uptime
           uptime: '{{states.sensor.vmtbsh01_uptime.state}}'
           docker_duplicati_status: '{{states.binary_sensor.vmtbsh01_ha_dockermon_duplicati.attributes.status}}'
           docker_duplicati_memory: '{{states.binary_sensor.vmtbsh01_ha_dockermon_duplicati.attributes.memory}}'
@@ -231,7 +276,7 @@ rooms:
         path: 'dwains-theme/addons/rooms/server-rack/vmtbsh02.yaml'
         button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
         data:
-          entity: binary_sensor.pvetbsh_vmtbsh02_running
+          entity: sensor.vmtbsh02_uptime
           uptime: '{{states.sensor.vmtbsh02_uptime.state}}'
           docker_chronograf_status: '{{states.binary_sensor.vmtbsh02_ha_dockermon_chronograf.attributes.status}}'
           docker_chronograf_memory: '{{states.binary_sensor.vmtbsh02_ha_dockermon_chronograf.attributes.memory}}'
@@ -282,7 +327,7 @@ rooms:
         path: 'dwains-theme/addons/rooms/server-rack/vmtbsh03.yaml'
         button_path: 'dwains-theme/addons/rooms/server-rack/button.yaml'
         data:
-          entity: binary_sensor.pvetbsh_vmtbsh03_running
+          entity: sensor.vmtbsh03_uptime
           os: '{{states.sensor.hassos_installed_version.state}}'
           uptime: '{{states.sensor.vmtbsh03_uptime.state}}'
           docker_addon_15ef4d2f_esphome_status: '{{states.binary_sensor.vmtbsh03_ha_dockermon_addon_15ef4d2f_esphome.attributes.status}}'
@@ -382,7 +427,7 @@ rooms:
         path: 'dwains-theme/addons/more_page/synology/page.yaml'
         button_path: 'dwains-theme/addons/rooms/hello-room/button.yaml'
         data:
-          entity: binary_sensor.networkstatus_nas_thecube2
+          entity: sensor.thecube2_uptime
       - name: Ubiquiti UniFi
         icon: mdi:router-wireless
         path: 'dwains-theme/addons/more_page/ubiquiti/unifi.yaml'

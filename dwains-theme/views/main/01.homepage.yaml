@@ -57,10 +57,18 @@
                       template: header_alarm
                       entity: {{ _d_t_config.global["alarm"] }}
                       tap_action:
-                        #action: more-info
-                        !include 
-                          - ../popups/alarm.yaml
-                          - entity: {{ _d_t_config.global["alarm"] }}
+                        haptic: heavy
+                        action: call-service
+                        service: browser_mod.popup
+                        service_data:
+                          title: '[[[ return entity.attributes.friendly_name ]]]'
+                          style:
+                            background: var(--dwains-theme-primary)
+                          card:
+                            type: alarm-panel
+                            entity: {{ _d_t_config.global["alarm"] }}
+                          deviceID:
+                            - this
                     {% endif %}
                     - type: horizontal-stack
                       item_classes: 'col-xs-12 d-none d-sm-block'
@@ -72,10 +80,18 @@
                           template: header_alarm_large
                           entity: {{ _d_t_config.global["alarm"] }}
                           tap_action:
-                            #action: more-info
-                            !include 
-                              - ../popups/alarm.yaml
-                              - entity: {{ _d_t_config.global["alarm"] }}
+                            haptic: heavy
+                            action: call-service
+                            service: browser_mod.popup
+                            service_data:
+                              title: '[[[ return entity.attributes.friendly_name ]]]'
+                              style:
+                                background: var(--dwains-theme-primary)
+                              card:
+                                type: alarm-panel
+                                entity: {{ _d_t_config.global["alarm"] }}
+                              deviceID:
+                                - this
                         {% endif %}
                     - type: custom:dwains-notification-card
                       item_classes: 'col-xs-12'
@@ -215,11 +231,11 @@
                     state:
                       {% if favorite['icon_off'] %}
                       - value: 'off'
-                        icon: '{{ favorite['icon_off'] }}'
+                        icon: "{{ favorite['icon_off'] }}"
                       {% endif %}
                       {% if favorite['icon_on'] %}
                       - value: 'on'
-                        icon: '{{ favorite['icon_on'] }}'
+                        icon: "{{ favorite['icon_on'] }}"
                       {% endif %}
                   {% endfor %}
           {% endif %}
@@ -312,7 +328,7 @@
                         {% else %}
                         label: '&nbsp;'
                         {% endif %}
-                        icon: '{{ room["icon"]|default('mdi:square-outline') }}'
+                        icon: "{{ room["icon"]|default('mdi:square-outline') }}"
                         tap_action: 
                           action: navigate
                           navigation_path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_")  }}
