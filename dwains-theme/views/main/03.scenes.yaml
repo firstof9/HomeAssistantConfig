@@ -30,11 +30,11 @@
               - type: custom:button-card
                 template: scene
                 entity: {{ scene["entity"] }}   
-                icon: '{{ scene["icon"]|default('mdi:play-circle') }}'
+                icon: "{{ scene["icon"]|default('mdi:play-circle') }}"
                 {% if scene["entity"].split('.')[0] == 'scene' %}
                 # its a scene entity
                 tap_action: 
-                  haptic: light
+                  haptic: heavy
                   action: call-service
                   service: scene.turn_on
                   service_data:
@@ -42,23 +42,22 @@
                 styles:
                   {% if scene["background"] %}
                   img_cell:
-                    - background: '{{ scene["background"] }}'
+                    - background: "{{ scene["background"] }}"
                   {% endif %}
                   {% if scene["icon_color"] %}
                   icon:
-                    - color: '{{ scene["icon_color"] }}'
+                    - color: "{{ scene["icon_color"] }}"
                   {% else %}
                   icon:
-                    - color: 'var(--dwains-theme-header-text)'
+                    - color: "var(--dwains-theme-header-text)"
                   {% endif %}
                 {% elif scene["entity"].split('.')[0] == 'input_select' %}
                 # its a input_select entity
                 show_state: true
                 tap_action:
-                  haptic: light
                   action: more-info
                 double_tap_action:
-                  haptic: light
+                  haptic: heavy
                   action: call-service
                   service: input_select.select_next
                   service_data:
@@ -66,11 +65,11 @@
                 styles:
                   {% if scene["background"] %}
                   img_cell:
-                    - background: '{{ scene["background"] }}'
+                    - background: "{{ scene["background"] }}"
                   {% endif %}
                   {% if scene["icon_color"] %}
                   icon:
-                    - color: '{{ scene["icon_color"] }}'
+                    - color: "{{ scene["icon_color"] }}"
                   {% else %}
                   icon:
                     - color: 'var(--dwains-theme-header-text)'
@@ -81,16 +80,16 @@
                 # its something else then a scene entity
                 show_state: true
                 tap_action:
-                  haptic: light
+                  haptic: heavy
                   action: toggle
                 styles:
                   {% if scene["background"] %}
                   img_cell:
-                    - background: '{{ scene["background"] }}'
+                    - background: "{{ scene["background"] }}"
                   {% endif %}
                   {% if scene["icon_color"] %}
                   icon:
-                    - color: '{{ scene["icon_color"] }}'
+                    - color: "{{ scene["icon_color"] }}"
                   {% else %}
                   icon:
                     - color: 'var(--dwains-theme-header-text)'

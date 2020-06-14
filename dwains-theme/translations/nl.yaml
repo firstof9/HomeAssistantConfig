@@ -9,7 +9,6 @@ nl:
   house_information:
     title: 'Huis informatie'
     favorites: 'Favorieten'
-    house_calendar: 'Huis kalender'
     activity: 'Activiteit (deuren, ramen, beweging)'
 
   motion:
@@ -103,3 +102,6 @@ nl:
 
   lock:
     title_plural: 'Sloten'
+
+  alarm:
+    title: 'Alarm'

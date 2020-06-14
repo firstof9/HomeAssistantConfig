@@ -16,6 +16,8 @@ more_page_house_information_favorites:
     card:
       - background-color: var(--dwains-theme-primary)
       - border-radius: 5px
+      #- border-radius: 0
+      #- box-shadow: none     
     name: 
       - font-size: 15px
       - font-weight: bold

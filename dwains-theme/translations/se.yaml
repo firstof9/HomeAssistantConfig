@@ -10,7 +10,6 @@ se:
   house_information:
     title: 'Hus Info'
     favorites: 'Favoriter'
-    house_calendar: 'Huskalender'
     activity: 'Aktivitet (Dörrar, Fönster, Rörelse)'
 
   motion:
@@ -102,3 +101,6 @@ se:
 
   lock:
     title_plural: 'Lås'
+
+  alarm:
+    title: 'Alarm'

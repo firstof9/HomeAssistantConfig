@@ -9,7 +9,6 @@ it:
   house_information:
     title: 'Informazioni Casa'
     favorites: 'Favoriti'
-    house_calendar: 'Calendario Casa'
     activity: 'Attività (porte, finestre, movimento)'
   
   motion:
@@ -103,3 +102,6 @@ it:
 
   lock:
     title_plural: 'Locks'
+
+  alarm:
+    title: 'Alarm'
