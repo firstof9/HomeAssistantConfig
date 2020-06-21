@@ -34,7 +34,7 @@ sensor:
           {% set day = "In " ~ val ~ " Days" %}
           {% endif %}
           {% set gwval = states.sensor.binday_greenwaste.attributes['days'] %}
-          {% if gwval <= 7 %}
+          {% if gwval <= 6 %}
             {% set bins = "Red + Green" %}
           {% else %}
             {% set bins = "Red + Yellow" %}

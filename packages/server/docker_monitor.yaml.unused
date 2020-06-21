@@ -96,6 +96,3 @@ docker_monitor:
       #     <<: *settings
       #   unifi:
       #     <<: *settings
-    - url: tcp://192.168.1.64:2375
-      name: docker_TBSH02
-      event: false

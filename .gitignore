@@ -11,6 +11,7 @@ notebooks
 tts
 custom_components_dev
 .androidkeys
+temp
 
 # Ignore File Extensions
 *.conf

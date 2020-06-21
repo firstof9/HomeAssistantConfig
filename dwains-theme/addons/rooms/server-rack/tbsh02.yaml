@@ -141,12 +141,95 @@
                     ha-card { box-shadow: none; }
                     ha-markdown { padding-bottom: 1px !important; }
                   content: >
+                    **Docker Performance**
+                - type: custom:bar-card
+                  positions:
+                    name: outside
+                    value: inside
+                  height: 15px
+                  width: 75%
+                  decimal: 1
+                  entities:
+                    - entity: sensor.tbsh02_monitordocker_cpu
+                      name: CPU
+                      icon: mdi:speedometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 10
+                        - color: rgb(206,133,0,0.60)
+                          from: 11
+                          to: 25
+                        - color: rgb(163,0,0,0.60)
+                          from: 26
+                          to: 150
+                    - entity: sensor.tbsh02_monitordocker_memory_percent
+                      name: Memory
+                      icon: mdi:memory
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                  style: |
+                    ha-card {
+                      --paper-item-icon-color: rgb(47,186,229);
+                      border-radius: 2.5px;
+                      box-shadow: none;
+                    }
+                    #states {
+                      padding-top: 0 !important;
+                    }
+                    ha-icon	 {
+                      #margin-left: -100px;
+                      margin-top: -5px;
+                      padding-right: 5px;
+                    }
+                    bar-card-iconbar {
+                      height: 20px;
+                    }
+                    bar-card-indicator	 {
+                      #margin-left: -50px;
+                      margin-top: -6px;
+                      padding-right: 5px;
+                    }
+                    bar-card-name	 {
+                      margin-top: 3px;
+                      padding-left: 5px;
+                    }
+                    bar-card-backgroundbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-currentbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-value	 {
+                      #margin-right: -105px;
+                      margin-top: 3px;
+                      padding-left: 5px;
+                        font-size: 9.5px;
+                    }
+                    bar-card-row {
+                      margin-bottom: 0px !important;
+                    }
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
                     **Docker Containers**
                 - type: custom:config-template-card
                   variables:
-                    - states['sensor.docker_tbsh02_containers_total'].state
+                    - states['sensor.tbsh02_monitordocker_containers_total'].state
                   entities:
-                    - sensor.docker_tbsh02_containers_total
+                    - sensor.tbsh02_monitordocker_containers_total
                   card:
                     type: custom:bar-card
                     positions:
@@ -158,14 +241,17 @@
                     max: '${vars[0]}'
                     color: rgb(26,204,147,0.33)
                     entities:
-                      - entity: sensor.docker_tbsh02_containers_running
+                      - entity: sensor.tbsh02_monitordocker_containers_running
                         name: Running
                         icon: mdi:docker
-                      - entity: sensor.docker_tbsh02_containers_paused
+                      - entity: sensor.tbsh02_monitordocker_containers_paused
                         name: Paused
                         icon: mdi:docker
-                      - entity: sensor.docker_tbsh02_containers_stopped
+                      - entity: sensor.tbsh02_monitordocker_containers_stopped
                         name: Stopped
+                        icon: mdi:docker
+                      - entity: sensor.tbsh02_monitordocker_images
+                        name: Images
                         icon: mdi:docker
                     style: |
                       ha-card {
@@ -289,7 +375,7 @@
     - type: custom:dwains-flexbox-card
       cards:
         - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-2'
+          item_classes: 'col-xs-12 col-sm-3 col-md-1 col-lg-1'
           cards:
             - type: vertical-stack
               cards:
@@ -301,112 +387,69 @@
                     <center>
                     <img width="150" src="/local/systemicons/docker.svg"><br/>
                     </center>
-                    Containers: {{ (data | fromjson)['docker_containers']}}
-                - !include
-                  - ../../1_Templates/button_link.yaml
-                  - name: 'Portainer'
-                    icon: 'mdi:docker'
-                    # url: !secret portainer_url
         - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
+          item_classes: 'col-xs-12 col-sm-9 col-md-11 col-lg-11'
           cards:
-            - !include
-              - partial_docker_info.yaml
-              - name: 'ADSB to InfluxDB'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_adsb2influxdb'
-                switch: 'switch.tbsh02_ha_dockermon_adsb2influxdb'
-                status: "{{ (data | fromjson)['docker_adsb2influxdb_status']}}"
-                memory: "{{ (data | fromjson)['docker_adsb2influxdb_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_adsb2influxdb_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_adsb2influxdb_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'ADSBX'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_adsbx'
-                switch: 'switch.tbsh02_ha_dockermon_adsbx'
-                status: "{{ (data | fromjson)['docker_adsbx_status']}}"
-                memory: "{{ (data | fromjson)['docker_adsbx_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_adsbx_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_adsbx_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'FR24'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_fr24'
-                switch: 'switch.tbsh02_ha_dockermon_fr24'
-                status: "{{ (data | fromjson)['docker_fr24_status']}}"
-                memory: "{{ (data | fromjson)['docker_fr24_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_fr24_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_fr24_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Glances'
-                image: '/local/systemicons/glances.png'
-                status_sensor: 'sensor.status_tbsh02_docker_glances'
-                switch: 'switch.tbsh02_ha_dockermon_glances'
-                status: "{{ (data | fromjson)['docker_glances_status']}}"
-                memory: "{{ (data | fromjson)['docker_glances_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_glances_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_glances_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Graphs1090'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_graphs1090'
-                switch: 'switch.tbsh02_ha_dockermon_graphs1090'
-                status: "{{ (data | fromjson)['docker_graphs1090_status']}}"
-                memory: "{{ (data | fromjson)['docker_graphs1090_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_graphs1090_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_graphs1090_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'HA Dockermon'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_ha_dockermon'
-                switch: 'switch.tbsh02_ha_dockermon_ha_dockermon'
-                status: "{{ (data | fromjson)['docker_ha_dockermon_status']}}"
-                memory: "{{ (data | fromjson)['docker_ha_dockermon_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_ha_dockermon_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_ha_dockermon_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Ouroboros'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_ouroboros'
-                switch: 'switch.tbsh02_ha_dockermon_ouroboros'
-                status: "{{ (data | fromjson)['docker_ouroboros_status']}}"
-                memory: "{{ (data | fromjson)['docker_ouroboros_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_ouroboros_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_ouroboros_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'PiAware'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_piaware'
-                switch: 'switch.tbsh02_ha_dockermon_piaware'
-                status: "{{ (data | fromjson)['docker_piaware_status']}}"
-                memory: "{{ (data | fromjson)['docker_piaware_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_piaware_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_piaware_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'readsb'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_readsb'
-                switch: 'switch.tbsh02_ha_dockermon_readsb'
-                status: "{{ (data | fromjson)['docker_readsb_status']}}"
-                memory: "{{ (data | fromjson)['docker_readsb_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_readsb_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_readsb_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'tar1090'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_tbsh02_docker_tar1090'
-                switch: 'switch.tbsh02_ha_dockermon_tar1090'
-                status: "{{ (data | fromjson)['docker_tar1090_status']}}"
-                memory: "{{ (data | fromjson)['docker_tar1090_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_tar1090_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_tar1090_nettx']}}"
+            - type: custom:dwains-flexbox-card
+              padding: true
+              items_classes: "col-xs-12 col-sm-6 col-md-3 col-lg-3"
+              cards:
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_adsb2influxdb
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_adsbx
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_flightairmap
+
+                - type: custom:docker-card
+                  # name:
+                  # logo: 
+                  entitypart: tbsh02_monitordocker_flightairmap_db
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_fr24
+
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/glances.png
+                  entitypart: tbsh02_monitordocker_glances
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_graphs1090
+
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/homeassistant.png
+                  entitypart: tbsh02_monitordocker_ha_dockermon
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_ouroboros
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_piaware
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_tar1090
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_vrs

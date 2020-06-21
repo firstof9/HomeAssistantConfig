@@ -127,11 +127,100 @@
             - type: vertical-stack
               item_classes: 'col-xs-12 col-sm-12 col-md-3 col-lg-4'
               cards:
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Docker Performance**
+                - type: custom:bar-card
+                  positions:
+                    name: outside
+                    value: inside
+                  height: 15px
+                  width: 75%
+                  decimal: 1
+                  entities:
+                    - entity: sensor.vmtbsh01_monitordocker_cpu
+                      name: CPU
+                      icon: mdi:speedometer
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 10
+                        - color: rgb(206,133,0,0.60)
+                          from: 11
+                          to: 25
+                        - color: rgb(163,0,0,0.60)
+                          from: 26
+                          to: 150
+                    - entity: sensor.vmtbsh01_monitordocker_memory_percent
+                      name: Memory
+                      icon: mdi:memory
+                      severity:
+                        - color: rgb(26,204,147,0.33)
+                          from: 0
+                          to: 69.9
+                        - color: rgb(206,133,0,0.60)
+                          from: 70
+                          to: 85
+                        - color: rgb(163,0,0,0.60)
+                          from: 85
+                          to: 150
+                  style: |
+                    ha-card {
+                      --paper-item-icon-color: rgb(47,186,229);
+                      border-radius: 2.5px;
+                      box-shadow: none;
+                    }
+                    #states {
+                      padding-top: 0 !important;
+                    }
+                    ha-icon	 {
+                      #margin-left: -100px;
+                      margin-top: -5px;
+                      padding-right: 5px;
+                    }
+                    bar-card-iconbar {
+                      height: 20px;
+                    }
+                    bar-card-indicator	 {
+                      #margin-left: -50px;
+                      margin-top: -6px;
+                      padding-right: 5px;
+                    }
+                    bar-card-name	 {
+                      margin-top: 3px;
+                      padding-left: 5px;
+                    }
+                    bar-card-backgroundbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-currentbar	 {
+                      margin-top: 0px;
+                      border-radius: 2.5px;
+                    }
+                    bar-card-value	 {
+                      #margin-right: -105px;
+                      margin-top: 3px;
+                      padding-left: 5px;
+                        font-size: 9.5px;
+                    }
+                    bar-card-row {
+                      margin-bottom: 0px !important;
+                    }
+                - type: markdown
+                  style: |
+                    ha-card { box-shadow: none; }
+                    ha-markdown { padding-bottom: 1px !important; }
+                  content: >
+                    **Docker Containers**
                 - type: custom:config-template-card
                   variables:
-                    - states['sensor.docker_vmtbsh01_containers_total'].state
+                    - states['sensor.vmtbsh01_monitordocker_containers_total'].state
                   entities:
-                    - sensor.docker_vmtbsh01_containers_total
+                    - sensor.vmtbsh01_monitordocker_containers_total
                   card:
                     type: custom:bar-card
                     positions:
@@ -143,14 +232,17 @@
                     max: '${vars[0]}'
                     color: rgb(26,204,147,0.33)
                     entities:
-                      - entity: sensor.docker_vmtbsh01_containers_running
+                      - entity: sensor.vmtbsh01_monitordocker_containers_running
                         name: Running
                         icon: mdi:docker
-                      - entity: sensor.docker_vmtbsh01_containers_paused
+                      - entity: sensor.vmtbsh01_monitordocker_containers_paused
                         name: Paused
                         icon: mdi:docker
-                      - entity: sensor.docker_vmtbsh01_containers_stopped
+                      - entity: sensor.vmtbsh01_monitordocker_containers_stopped
                         name: Stopped
+                        icon: mdi:docker
+                      - entity: sensor.vmtbsh01_monitordocker_images
+                        name: Images
                         icon: mdi:docker
                     style: |
                       ha-card {
@@ -198,7 +290,7 @@
     - type: custom:dwains-flexbox-card
       cards:
         - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-3 col-md-2 col-lg-2'
+          item_classes: 'col-xs-12 col-sm-3 col-md-1 col-lg-1'
           cards:
             - type: vertical-stack
               cards:
@@ -210,172 +302,78 @@
                     <center>
                     <img width="150" src="/local/systemicons/docker.svg"><br/>
                     </center>
-                    Containers: {{ (data | fromjson)['docker_containers']}}
-                - !include
-                  - ../../1_Templates/button_link.yaml
-                  - name: 'Portainer'
-                    icon: 'mdi:docker'
-                    # url: !secret portainer_url
         - type: custom:dwains-flexbox-card
-          item_classes: 'col-xs-12 col-sm-9 col-md-10 col-lg-10'
+          item_classes: 'col-xs-12 col-sm-9 col-md-11 col-lg-11'
           cards:
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Duplicati'
-                image: '/local/systemicons/duplicati.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_duplicati'
-                switch: 'switch.vmtbsh01_ha_dockermon_duplicati'
-                status: "{{ (data | fromjson)['docker_duplicati_status']}}"
-                memory: "{{ (data | fromjson)['docker_duplicati_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_duplicati_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_duplicati_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Glances'
-                image: '/local/systemicons/glances.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_glances'
-                switch: 'switch.vmtbsh01_ha_dockermon_glances'
-                status: "{{ (data | fromjson)['docker_glances_status']}}"
-                memory: "{{ (data | fromjson)['docker_glances_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_glances_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_glances_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Grafana'
-                image: '/local/systemicons/grafana.svg'
-                status_sensor: 'sensor.status_vmtbsh01_docker_grafana'
-                switch: 'switch.vmtbsh01_ha_dockermon_grafana'
-                status: "{{ (data | fromjson)['docker_grafana_status']}}"
-                memory: "{{ (data | fromjson)['docker_grafana_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_grafana_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_grafana_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'HA Dockermon'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_vmtbsh01_docker_ha_dockermon'
-                switch: 'switch.vmtbsh01_ha_dockermon_ha_dockermon'
-                status: "{{ (data | fromjson)['docker_ha_dockermon_status']}}"
-                memory: "{{ (data | fromjson)['docker_ha_dockermon_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_ha_dockermon_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_ha_dockermon_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Jackett'
-                image: '/local/systemicons/jackett.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_jackett'
-                switch: 'switch.vmtbsh01_ha_dockermon_jackett'
-                status: "{{ (data | fromjson)['docker_jackett_status']}}"
-                memory: "{{ (data | fromjson)['docker_jackett_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_jackett_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_jackett_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'jDownloader'
-                image: '/local/systemicons/jdownloader.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_jdownloader'
-                switch: 'switch.vmtbsh01_ha_dockermon_jdownloader'
-                status: "{{ (data | fromjson)['docker_jdownloader_status']}}"
-                memory: "{{ (data | fromjson)['docker_jdownloader_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_jdownloader_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_jdownloader_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Netdata'
-                image: '/local/systemicons/netdata.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_netdata'
-                switch: 'switch.vmtbsh01_ha_dockermon_netdata'
-                status: "{{ (data | fromjson)['docker_netdata_status']}}"
-                memory: "{{ (data | fromjson)['docker_netdata_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_netdata_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_netdata_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'NZB Hydra 2'
-                image: '/local/systemicons/nzbhydra.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_nzbhydra2'
-                switch: 'switch.vmtbsh01_ha_dockermon_nzbhydra2'
-                status: "{{ (data | fromjson)['docker_nzbhydra2_status']}}"
-                memory: "{{ (data | fromjson)['docker_nzbhydra2_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_nzbhydra2_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_nzbhydra2_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Ouroboros'
-                image: '/local/systemicons/docker.svg'
-                status_sensor: 'sensor.status_vmtbsh01_docker_ouroboros'
-                switch: 'switch.vmtbsh01_ha_dockermon_ouroboros'
-                status: "{{ (data | fromjson)['docker_ouroboros_status']}}"
-                memory: "{{ (data | fromjson)['docker_ouroboros_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_ouroboros_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_ouroboros_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Portainer'
-                image: '/local/systemicons/portainer.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_portainer'
-                switch: 'switch.vmtbsh01_ha_dockermon_portainer'
-                status: "{{ (data | fromjson)['docker_portainer_status']}}"
-                memory: "{{ (data | fromjson)['docker_portainer_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_portainer_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_portainer_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Radarr'
-                image: '/local/systemicons/radarr.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_radarr'
-                switch: 'switch.vmtbsh01_ha_dockermon_radarr'
-                status: "{{ (data | fromjson)['docker_radarr_status']}}"
-                memory: "{{ (data | fromjson)['docker_radarr_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_radarr_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_radarr_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Sonarr'
-                image: '/local/systemicons/sonarr.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_sonarr'
-                switch: 'switch.vmtbsh01_ha_dockermon_sonarr'
-                status: "{{ (data | fromjson)['docker_sonarr_status']}}"
-                memory: "{{ (data | fromjson)['docker_sonarr_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_sonarr_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_sonarr_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Tautulli'
-                image: '/local/systemicons/tautulli.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_tautulli'
-                switch: 'switch.vmtbsh01_ha_dockermon_tautulli'
-                status: "{{ (data | fromjson)['docker_tautulli_status']}}"
-                memory: "{{ (data | fromjson)['docker_tautulli_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_tautulli_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_tautulli_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Transmission'
-                image: '/local/systemicons/transmission.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_transmission'
-                switch: 'switch.vmtbsh01_ha_dockermon_transmission'
-                status: "{{ (data | fromjson)['docker_transmission_status']}}"
-                memory: "{{ (data | fromjson)['docker_transmission_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_transmission_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_transmission_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Tvheadend'
-                image: '/local/systemicons/tvheadend.jpg'
-                status_sensor: 'sensor.status_vmtbsh01_docker_tvheadend'
-                switch: 'switch.vmtbsh01_ha_dockermon_tvheadend'
-                status: "{{ (data | fromjson)['docker_tvheadend_status']}}"
-                memory: "{{ (data | fromjson)['docker_tvheadend_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_tvheadend_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_tvheadend_nettx']}}"
-            - !include
-              - partial_docker_info.yaml
-              - name: 'Varken'
-                image: '/local/systemicons/plex.png'
-                status_sensor: 'sensor.status_vmtbsh01_docker_varken'
-                switch: 'switch.vmtbsh01_ha_dockermon_varken'
-                status: "{{ (data | fromjson)['docker_varken_status']}}"
-                memory: "{{ (data | fromjson)['docker_varken_memory']}}"
-                netrx: "{{ (data | fromjson)['docker_varken_netrx']}}"
-                nettx: "{{ (data | fromjson)['docker_varken_nettx']}}"
+            - type: custom:dwains-flexbox-card
+              padding: true
+              items_classes: "col-xs-12 col-sm-6 col-md-3 col-lg-3"
+              cards:
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/duplicati.png
+                  entitypart: vmtbsh01_monitordocker_duplicati
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/glances.png
+                  entitypart: vmtbsh01_monitordocker_glances
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/grafana.svg
+                  entitypart: vmtbsh01_monitordocker_grafana
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/homeassistant.png
+                  entitypart: vmtbsh01_monitordocker_ha_dockermon
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/jackett.png
+                  entitypart: vmtbsh01_monitordocker_jackett
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/jdownloader.png
+                  entitypart: vmtbsh01_monitordocker_jdownloader
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/netdata.png
+                  entitypart: vmtbsh01_monitordocker_netdata
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/nzbhydra.png
+                  entitypart: vmtbsh01_monitordocker_nzbhydra2
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: vmtbsh01_monitordocker_ouroboros
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/portainer.png
+                  entitypart: vmtbsh01_monitordocker_portainer
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/radarr.png
+                  entitypart: vmtbsh01_monitordocker_radarr
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/sabnzbd.png
+                  entitypart: vmtbsh01_monitordocker_sabnzbd
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/sonarr.png
+                  entitypart: vmtbsh01_monitordocker_sonarr
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/tautulli.png
+                  entitypart: vmtbsh01_monitordocker_tautulli
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/transmission.png
+                  entitypart: vmtbsh01_monitordocker_transmission
+                - type: custom:docker-card
+                  # name:
+                  logo: /local/systemicons/tvheadend.jpg
+                  entitypart: vmtbsh01_monitordocker_tvheadend
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: vmtbsh01_monitordocker_varken
