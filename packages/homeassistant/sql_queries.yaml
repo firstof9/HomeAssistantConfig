@@ -14,7 +14,7 @@ sensor:
     scan_interval: 120
     queries:
       - name: HA DB Size
-        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="homeassistant" GROUP BY table_schema;'
+        query: 'SELECT table_schema "database", Round(Sum(data_length + index_length) / 1024 / 1024, 1) "value" FROM information_schema.tables WHERE table_schema="ha" GROUP BY table_schema;'
         column: 'value'
         unit_of_measurement: Mb
       - name: HA DB Events

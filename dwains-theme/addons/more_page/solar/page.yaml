@@ -1,0 +1,80 @@
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-md-12 col-lg-12 col-xl-12'
+  cards:
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.solar_sungrow_house_load
+          name: House Load
+        - entity: sensor.solar_sungrow_pv_power
+          name: Solar
+        - entity: sensor.solar_sungrow_grid_power
+          name: Grid
+      name: Power
+      line_color: 'var(--dwains-theme-accent)'
+      animate: true
+      decimals: 2
+      height: 30
+      font-size: 20
+      hours_to_show: 24
+      points_per_hour: 30
+      # group_by: hour
+      # aggregate_func: last
+      line_width: 1
+      align_state: center
+      smoothing: true
+      show:
+        extrema: true
+        average: true
+        fill: fade
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.solar_sungrow_daily_grid_energy
+      name: Daily Grid Energy
+      line_color: 'var(--dwains-theme-accent)'
+      animate: true
+      decimals: 2
+      height: 30
+      font-size: 20
+      hours_to_show: 24
+      points_per_hour: 30
+      # group_by: hour
+      # aggregate_func: last
+      line_width: 1
+      align_state: center
+      smoothing: true
+      show:
+        extrema: true
+        average: true
+        fill: fade
+    - type: custom:mini-graph-card
+      style: |
+        ha-card {
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.solar_sungrow_daily_yield
+      name: Daily Solar Yield
+      line_color: 'var(--dwains-theme-accent)'
+      animate: true
+      decimals: 2
+      height: 30
+      font-size: 20
+      hours_to_show: 24
+      points_per_hour: 30
+      # group_by: hour
+      # aggregate_func: last
+      line_width: 1
+      align_state: center
+      smoothing: true
+      show:
+        extrema: true
+        average: true
+        fill: fade

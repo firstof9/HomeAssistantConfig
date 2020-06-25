@@ -38,7 +38,6 @@
               name: Run State
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: run_state
                   unit: ' '
@@ -46,7 +45,6 @@
               name: Pre State
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: pre_state
                   unit: ' '
@@ -54,7 +52,6 @@
               name: Error Message
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: error_message
                   unit: ' '
@@ -84,7 +81,6 @@
               name: Current Course
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: current_course
                   unit: ' '
@@ -92,7 +88,6 @@
               name: Spin Option
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: spin_option_state
                   unit: ' '
@@ -100,7 +95,6 @@
               name: Water Temperature
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: watertemp_option_state
                   unit: ' '
@@ -108,7 +102,6 @@
               name: Time to Complete
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: remain_time
                   unit: ' '
@@ -116,7 +109,6 @@
               name: Initial Time to Complete
               type: custom:multiple-entity-row
               show_state: false
-              secondary_info: last-changed
               entities:
                 - attribute: initial_time
                   unit: ' '

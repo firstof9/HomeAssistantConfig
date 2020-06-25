@@ -55,6 +55,13 @@ rooms:
     temperature: sensor.zha_laundry_temperature
     motion: binary_sensor.zha_laundry_motion
     door: binary_sensor.zha_laundry_door
+    addons:
+      - name: LG ThinQ Washing Machine
+        icon: mdi:washing-machine
+        path: 'dwains-theme/addons/rooms/laundry/lgthinq/page.yaml'
+        button_path: 'dwains-theme/addons/rooms/laundry/lgthinq/button.yaml'
+        data:
+          entity: sensor.washer
     page_entities:
       entities:
         - entity: sensor.washer

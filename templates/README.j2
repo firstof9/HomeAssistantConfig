@@ -10,6 +10,7 @@ It's very much a work-in-progress, but feel free to steal ideas or code to use f
 
 _Please :star: this repo if you find it useful_
 
+[![HA Version](https://img.shields.io/badge/Home%20Assistant-{{states.sensor.current_version.state}}-brightgreen)](https://github.com/home-assistant/home-assistant/releases/{{states.sensor.current_version.state}})
 ![Hits](http://hits.dwyl.io/bacco007/HomeAssistantConfig.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/bacco007/HomeAssistantConfig?style=flat-square) ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/bacco007/HomeAssistantConfig?style=flat-square)
 ![Licence](https://img.shields.io/badge/license-Unlicense-blue.svg?style=flat-square)
@@ -21,16 +22,22 @@ _Please :star: this repo if you find it useful_
 
 ## Table of Contents
 
-- [TBSmartHome - Home Assistant Configuration](#tbsmarthome---home-assistant-configuration)
+- [🏠TBSmartHome - Home Assistant Configuration](#tbsmarthome---home-assistant-configuration)
   - [Table of Contents](#table-of-contents)
+  - [TL;DR](#tldr)
   - [Ecosystem](#ecosystem)
     - [Hardware](#hardware)
     - [Zigbee](#zigbee)
   - [Stats](#stats)
   - [Integrations Used](#integrations-used)
     - [Custom Components Used](#custom-components-used)
+      - [HACS - Integrations](#hacs---integrations)
+      - [HACS - Lovelace Cards](#hacs---lovelace-cards)
+      - [HACS - Themes](#hacs---themes)
   - [Screenshots](#screenshots)
-  - [Hass.io Addons](#hassio-addons)
+  - [HA Supervisor](#ha-supervisor)
+    - [Addon Repositories](#addon-repositories)
+    - [Addons](#addons)
   - [Licence](#licence)
   - [Other Good HA Resources/Configs](#other-good-ha-resourcesconfigs)
 
@@ -105,11 +112,11 @@ Here is a list of all the integrations I use, including any Custom Components (w
 <details>
 <summary>Expand Integrations List</summary>
 {% set a = states.sensor.hass_main_config.attributes.components %}
-{% for integration in a|sort %}
-- [{{integration}}](https://www.home-assistant.io/components/{{integration}}){% endfor -%}
+| Name |
+| --- |
+{%- for integration in a|sort %}
+| [{{integration}}](https://www.home-assistant.io/components/{{integration}}) | {%- endfor %}
 </details>
-
-{% if custom_components %}
 
 ### Custom Components Used
 
@@ -117,10 +124,30 @@ Here is a list of all the integrations I use, including any Custom Components (w
 <summary>Expand Custom Components List</summary>
 {% for integration in custom_components|sort(attribute='name') %}
 - [{{integration.name}}]({{integration.documentation}}){% endfor -%}
-{% endif %}
 </details>
 
 <p align="right"><a href="#top" title="Back to top">Top</a></p>
+
+#### HACS - Integrations
+
+| Name | Description |
+| --- | ---|
+{%- for component in hacs_components | selectattr('category', 'equalto', 'integration') | sort(attribute='name') %}
+| [{{component.name}}]({{component.documentation}}) | {{component.description}} | {%- endfor %}
+
+#### HACS - Lovelace Cards
+
+| Name | Description |
+| --- | ---|
+{%- for component in hacs_components | selectattr('category', 'equalto', 'plugin') | sort(attribute='name') %}
+| [{{component.name}}]({{component.documentation}}) | {{component.description}} | {%- endfor %}
+
+#### HACS - Themes
+
+| Name | Description |
+| --- | ---|
+{%- for component in hacs_components | selectattr('category', 'equalto', 'theme') | sort(attribute='name') %}
+| [{{component.name}}]({{component.documentation}}) | {{component.description}} | {%- endfor %}
 
 ---
 
@@ -139,24 +166,29 @@ Here is a list of all the integrations I use, including any Custom Components (w
 
 ---
 
-## Hass.io Addons
+## HA Supervisor
+
+### Addon Repositories
+
+{% for repository in states.sensor.addons.attributes.addons_repositories | sort -%}
+- {{ repository }}
+{% endfor %}
+
+### Addons
 
 Here are the addons I use inside Hass.io, some of the other things I run can be done inside Hass.io, but I've elected not to do so.
 
-- ADB - Android Debug Bridge
-- AirSonos
-- AppDaemon 4
-- ESPHome
-- Glances (for my HA Instance)
-- JupyterLab Lite
-- MariaDB
-- Mosquitto Broker (MQTT)
-- Node-RED
-- Portainer
-- SSH & Web Terminal
-- Samba Share
-- Visual Studio Code
-- Xbox One Smartglass
+
+{%- set addon_docs =
+	{
+		"core_samba": "https://github.com/home-assistant/hassio-addons/tree/master/samba",
+		"core_mariadb": "https://github.com/home-assistant/hassio-addons/tree/master/mariadb"
+	}
+-%}
+
+{% for addon in states.sensor.addons.attributes.addons | sort(attribute='name') -%}
+- [{{ addon.name }}]({{addon_docs[addon.slug]}})
+{% endfor %}
 
 <p align="right"><a href="#top" title="Back to top">Top</a></p>
 

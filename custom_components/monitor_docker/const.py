@@ -23,10 +23,10 @@ DOCKER_INFO_CONTAINER_RUNNING = "containers_running"
 DOCKER_INFO_CONTAINER_PAUSED = "containers_paused"
 DOCKER_INFO_CONTAINER_STOPPED = "containers_stopped"
 DOCKER_INFO_CONTAINER_TOTAL = "containers_total"
+DOCKER_INFO_IMAGES = "images"
 DOCKER_STATS_CPU_PERCENTAGE = "containers_cpu_percentage"
 DOCKER_STATS_MEMORY = "containers_memory"
 DOCKER_STATS_MEMORY_PERCENTAGE = "containers_memory_percentage"
-DOCKER_INFO_IMAGES = "images"
 
 CONTAINER_INFO_STATE = "state"
 CONTAINER_INFO_STATUS = "status"
@@ -62,9 +62,19 @@ CONTAINER_MONITOR_LIST = {
     CONTAINER_STATS_MEMORY: ["Memory", "MB", "mdi:memory", None],
     CONTAINER_STATS_MEMORY_PERCENTAGE: ["Memory (percent)", "%", "mdi:memory", None],
     CONTAINER_STATS_NETWORK_SPEED_UP: ["Network speed Up", "kB/s", "mdi:upload", None],
-    CONTAINER_STATS_NETWORK_SPEED_DOWN: ["Network speed Down", "kB/s", "mdi:download", None,],
+    CONTAINER_STATS_NETWORK_SPEED_DOWN: [
+        "Network speed Down",
+        "kB/s",
+        "mdi:download",
+        None,
+    ],
     CONTAINER_STATS_NETWORK_TOTAL_UP: ["Network total Up", "MB", "mdi:upload", None],
-    CONTAINER_STATS_NETWORK_TOTAL_DOWN: ["Network total Down", "MB", "mdi:download", None,],
+    CONTAINER_STATS_NETWORK_TOTAL_DOWN: [
+        "Network total Down",
+        "MB",
+        "mdi:download",
+        None,
+    ],
 }
 
 CONTAINER_MONITOR_NETWORK_LIST = [
@@ -74,7 +84,9 @@ CONTAINER_MONITOR_NETWORK_LIST = [
     CONTAINER_STATS_NETWORK_TOTAL_DOWN,
 ]
 
-MONITORED_CONDITIONS_LIST = list(DOCKER_MONITOR_LIST.keys()) + list(CONTAINER_MONITOR_LIST.keys())
+MONITORED_CONDITIONS_LIST = list(DOCKER_MONITOR_LIST.keys()) + list(
+    CONTAINER_MONITOR_LIST.keys()
+)
 
 ATTR_MEMORY_LIMIT = "Memory_limit"
 ATTR_ONLINE_CPUS = "Online_CPUs"

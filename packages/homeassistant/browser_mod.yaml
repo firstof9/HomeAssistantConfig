@@ -6,3 +6,5 @@ browser_mod:
       name: TB - iPhone11
     dd62101b_b1af9899:
       name: TB - MacBookPro
+  disable:
+    - all
