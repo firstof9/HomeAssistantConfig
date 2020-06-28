@@ -43,15 +43,17 @@ monitor_docker:
     url: tcp://192.168.1.64:2375
     rename:
       adsb2influxdb: 'ADS-B to InfluxDB'
-      adsbx: 'ADS-B Exchange'
+      adsbx: 'ADS-B Exchange Feeder'
       flightairmap: 'Flight Air Map'
       flightairmap_db: 'Flight Air Map DB'
-      fr24: 'flightradar24'
+      fr24: 'flightradar24 Feeder'
       glances: 'Glances'
       graphs1090: 'graphs1090'
       ha-dockermon: 'HA Dockermon'
       ouroboros: 'Ouroboros'
-      piaware: 'PiAware'
+      piaware2influx: 'PiAware to InfluxDB'
+      piaware: 'PiAware Feeder'
+      rbfeeder: 'RadarBox Feeder'
       tar1090: 'tar1090'
       vrs: 'Virtual Radar Server'
     monitored_conditions:

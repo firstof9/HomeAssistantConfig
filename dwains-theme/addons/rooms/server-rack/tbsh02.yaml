@@ -442,7 +442,17 @@
                 - type: custom:docker-card
                   # name:
                   # logo:
+                  entitypart: tbsh02_monitordocker_piaware2influx
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
                   entitypart: tbsh02_monitordocker_piaware
+
+                - type: custom:docker-card
+                  # name:
+                  # logo:
+                  entitypart: tbsh02_monitordocker_rbfeeder
 
                 - type: custom:docker-card
                   # name:

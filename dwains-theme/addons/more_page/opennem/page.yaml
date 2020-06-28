@@ -214,10 +214,6 @@
           name: Electricity
         - entity: sensor.amber_solar_feed_in_tariff
           name: Solar
-        # - entity: sensor.amber_general_usage_price_next_24hr
-        #   name: Next 24hrs
-        # - entity: sensor.amber_general_usage_price_previous_24hr
-        #   name: Prev 24hrs
       name: Amber Prices - Spot Prices
       line_color: 'var(--dwains-theme-accent)'
       animate: true
@@ -354,3 +350,33 @@
           name: Average - Next 24hrs (Actual)
         - entity: sensor.amber_solar_feed_in_tariff_previous_24hr
           name: Average - Previous 24hrs (Forecast)
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6 col-xl-6'
+  cards:
+    - type: entities
+      title: Amber Electric
+      style: |
+        ha-card {
+          padding-bottom: 10px;
+          background-color: var(--dwains-theme-primary)
+        }
+        .card-header {
+          padding: 5px 16px;
+          font-size: 18px;
+          font-weight: 700 !important;
+        }
+        .card-content div {
+            margin: 0 !important;
+        }
+        #states {
+          padding-top: 0px !important;
+          padding-bottom: 0px !important;
+        }
+        .secondary {
+          color: darkgray !important;
+          margin-left: 2px !important;
+        }
+      entities:
+        - entity: sensor.amber_currentprice_e1
+        - entity: sensor.amber_currentprice_e2
+        - entity: sensor.amber_currentprice_b1

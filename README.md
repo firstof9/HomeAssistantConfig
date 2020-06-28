@@ -72,11 +72,11 @@ I'm running a combination of Xiaomi Aqara and Samsung SmartThings sensors and a 
 
 ## Stats
 
-_Stats as at 19:19, Thursday, June 25th 2020_
+_Stats as at 04:59, Sunday, June 28th 2020_
 
 | HA Version                               | No. Integrations                                        | No. Entities | No. Sensors | No. Automations |
 | ---------------------------------------- | ------------------------------------------------------- | ------------ | ----------- | --------------- |
-| 0.111.4 | 264     | 2164         | 1759 | 26 |
+| 0.111.4 | 264     | 2183         | 1770 | 26 |
 
 Type | Qty
 -- | --
@@ -85,19 +85,19 @@ Alert | 0
 Automation | 26
 Binary Sensor | 71
 Camera | 3
-Device Tracker | 159
+Device Tracker | 161
 Group | 7
 Input Boolean | 0
 Input Datetime | 0
 Input Text | 0
-Light | 7
-Media Player | 21
+Light | 8
+Media Player | 22
 Person | 1
 Scene | 0
 Script | 1
-Sensor | 1759
+Sensor | 1770
 Sun | 1
-Switch | 77
+Switch | 78
 Weather | 3
 Zone | 2
 
@@ -447,6 +447,7 @@ Here is a list of all the integrations I use, including any Custom Components (w
 | [Google Fit](https://github.com/vmanuel/hacs-google-fit) | ♥️ HACS Google Fit integration for Home Assistant |
 | [Ha Sun2](https://github.com/pnbruckner/ha-sun2) | Home Assistant Sun2 Sensor |
 | [HACS](https://github.com/hacs/integration) | HACS gives you a powerful UI to handle downloads of all your custom needs. |
+| [Hass Amber Electric](https://github.com/lewisbenge/hass-amber-electric) | Home Assistant Component to pull the latest energy prices from Amber Electric |
 | [Hass Atv Beta](https://github.com/postlund/hass-atv-beta) | Beta version of new Apple TV integration in Home Assistant supporting tvOS 13 |
 | [Hass Favicon](https://github.com/thomasloven/hass-favicon) | 🔹 Change the favicon of your Home Assistant instance |
 | [Hass Lovelace Gen](https://github.com/thomasloven/hass-lovelace_gen) | 🔹 Improve the lovelace yaml parser for Home Assistant |

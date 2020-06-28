@@ -176,43 +176,49 @@
       entities:
         - entity: sensor.waternsw_chaffey_dam_storage
       name: Chaffey Dam
-      height: 50
       line_color: 'var(--dwains-theme-accent)'
       line_width: 2
-      font_size: 70
+      height: 30
+      font-size: 10
       hours_to_show: 168
       points_per_hour: 1
+      group_by: hour
+      aggregate_func: last
       align_state: center
       show:
-        #extrema: true
+        extrema: true
         fill: fade
     - type: custom:mini-graph-card
       entities:
         - entity: sensor.waternsw_keepit_dam_storage
       name: Keepit Dam
-      height: 50
       line_color: 'var(--dwains-theme-accent)'
       line_width: 2
-      font_size: 70
+      height: 30
+      font-size: 10
       hours_to_show: 168
       points_per_hour: 1
+      group_by: hour
+      aggregate_func: last
       align_state: center
       show:
-        #extrema: true
+        extrema: true
         fill: fade
     - type: custom:mini-graph-card
       entities:
         - sensor.waternsw_split_rock_dam_storage
       name: Split Rock Dam
-      height: 50
       line_color: 'var(--dwains-theme-accent)'
       line_width: 2
-      font_size: 70
+      height: 30
+      font-size: 10
       hours_to_show: 168
       points_per_hour: 1
+      group_by: hour
+      aggregate_func: last
       align_state: center
       show:
-        # extrema: true
+        extrema: true
         fill: fade
 
 - type: custom:dwains-flexbox-card

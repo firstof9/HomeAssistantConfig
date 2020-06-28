@@ -1,6 +1,13 @@
 ---
 substitutions:
   name: switchmonusb_01
+  device_icon: mdi:power-socket-au
+  device_restore: ALWAYS_ON
+    
+  # Higher value gives lower watt readout
+  current_res: "0.00225"
+  # Lower value gives lower voltage readout
+  voltage_div: "805"
 
 esphome:
   name: ${name}
@@ -21,6 +28,7 @@ web_server:
   port: 80
 
 api:
+  reboot_timeout: 15min
   password: !secret api_password
 
 ota:
@@ -29,30 +37,33 @@ ota:
 binary_sensor:
   - platform: gpio
     pin:
-      number: GPIO3
+      number: 03
       mode: INPUT_PULLUP
       inverted: true
-    name: ${name}_Power_Button
+    name: "${name}_button"
     on_press:
       - switch.toggle: relay
 
   - platform: status
-    name: ${name} Status
+    name: "${name}_status"
 
 switch:
   - platform: gpio
     id: led
-    name: ${name}_LED_Green
     pin:
       number: GPIO13
       inverted: true
 
   - platform: gpio
-    name: ${name}_Relay
+    name: "${name}_plug"
     pin: GPIO14
     id: relay
-    icon: mdi:toggle-switch
-    restore_mode: ALWAYS_ON
+    icon: ${device_icon}
+    restore_mode: ${device_restore}
+    on_turn_on:
+      - switch.turn_on: led
+    on_turn_off:
+      - switch.turn_off: led
 
 time:
   - platform: homeassistant
@@ -63,32 +74,61 @@ sensor:
     sel_pin:
       number: GPIO12
       inverted: true
-    cf_pin: GPIO4
-    cf1_pin: GPIO5
+    cf_pin: GPIO04
+    cf1_pin: GPIO05
     current:
-      name: ${name}_Current
+      name: "${name}_current"
       unit_of_measurement: A
     voltage:
-      name: ${name}_Voltage
+      name: "${name}_voltage"
       unit_of_measurement: V
     power:
       id: ${name}_wattage
-      name: ${name}_Wattage
+      name: "${name}_wattage"
       unit_of_measurement: W
-    ### HIGHER VALUE GIVES LOWER WATTAGE
-    current_resistor: 0.00215
-    ### LOWER VALUE GIVES LOWER VOLTAGE
-    voltage_divider: 799
+    current_resistor: ${current_res}
+    voltage_divider: ${voltage_div}
     change_mode_every: 8
-    update_interval: 60s
+    update_interval: 15s
+
   - platform: total_daily_energy
-    name: ${name}_Daily_Energy
+    name: "${name}_daily_energy"
     power_id: ${name}_wattage
     filters:
       - multiply: 0.001
     unit_of_measurement: kWh
-  - platform: uptime
-    name: ${name}_Uptime
+
   - platform: wifi_signal
-    name: ${name}_WiFi_Signal
-    update_interval: 60s
+    name: "${name}_rssi"
+    update_interval: 5min
+
+  - platform: uptime
+    id: uptime_sec
+    name: "${name}_uptime"
+    update_interval: 5min
+
+text_sensor:
+  - platform: template
+    name: "${name}_upformat"
+    lambda: |-
+      uint32_t dur = id(uptime_sec).state;
+      int dys = 0;
+      int hrs = 0;
+      int mnts = 0;
+      if (dur > 86399) {
+        dys = trunc(dur / 86400);
+        dur = dur - (dys * 86400);
+      }
+      if (dur > 3599) {
+        hrs = trunc(dur / 3600);
+        dur = dur - (hrs * 3600);
+      }
+      if (dur > 59) {
+        mnts = trunc(dur / 60);
+        dur = dur - (mnts * 60);
+      }
+      char buffer[17];
+      sprintf(buffer, "%ud %02uh %02um %02us", dys, hrs, mnts, dur);
+      return {buffer};
+    icon: mdi:clock-start
+    update_interval: 5min

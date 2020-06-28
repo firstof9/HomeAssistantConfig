@@ -4,6 +4,7 @@ import aiodocker
 import asyncio
 import concurrent
 import logging
+import os
 
 from datetime import datetime, timezone
 from dateutil import parser, relativedelta
@@ -27,10 +28,11 @@ from .const import (
     ATTR_VERSION_OS,
     ATTR_VERSION_OS_TYPE,
     COMPONENTS,
+    CONF_CERTPATH,
     CONTAINER,
     CONTAINER_STATS_CPU_PERCENTAGE,
     CONTAINER_INFO_IMAGE,
-    CONTAINER_INFO_NETWORKMODE,
+    CONTAINER_INFO_NETWORK_AVAILABLE,
     CONTAINER_STATS_MEMORY,
     CONTAINER_STATS_MEMORY_PERCENTAGE,
     CONTAINER_STATS_NETWORK_SPEED_UP,
@@ -94,9 +96,44 @@ class DockerAPI:
                 and url.find("unix:///") == -1
             ):
                 url = url.replace("unix://", "unix:///")
+
+            # Do some debugging logging for TCP/TLS
+            if url is not None:
+                _LOGGER.debug("Docker URL is '%s'", url)
+
+                # Check for TLS if it is not unix
+                if url.find("tcp:") == 0 or url.find("http:") == 0:
+                    tlsverify = os.environ.get("DOCKER_TLS_VERIFY", None)
+                    certpath = os.environ.get("DOCKER_CERT_PATH", None)
+                    if tlsverify is None:
+                        _LOGGER.debug(
+                            "Docker environment 'DOCKER_TLS_VERIFY' is NOT set"
+                        )
+                    else:
+                        _LOGGER.debug(
+                            "Docker environment set 'DOCKER_TLS_VERIFY=%s'", tlsverify
+                        )
+
+                    if certpath is None:
+                        _LOGGER.debug(
+                            "Docker environment 'DOCKER_CERT_PATH' is NOT set"
+                        )
+                    else:
+                        _LOGGER.debug(
+                            "Docker environment set 'DOCKER_CERT_PATH=%s'", certpath
+                        )
+
+                    if self._config[CONF_CERTPATH]:
+                        _LOGGER.debug(
+                            "Docker CertPath set '%s', setting environment variables DOCKER_TLS_VERIFY/DOCKER_CERT_PATH",
+                            self._config[CONF_CERTPATH],
+                        )
+                        os.environ["DOCKER_TLS_VERIFY"] = "1"
+                        os.environ["DOCKER_CERT_PATH"] = self._config[CONF_CERTPATH]
+
             self._api = aiodocker.Docker(url=url)
         except Exception as err:
-            _LOGGER.error("Can not connect to Docker API (%s)", str(err))
+            _LOGGER.error("Can not connect to Docker API (%s)", str(err), exc_info=True)
             return
 
         version = self._loop.run_until_complete(self._api.version())
@@ -428,6 +465,7 @@ class DockerContainerAPI:
         self._subscribers = []
         self._cpu_old = {}
         self._network_old = {}
+        self._network_error = 0
 
         self._info = {}
         self._stats = {}
@@ -518,8 +556,8 @@ class DockerContainerAPI:
 
         self._info[CONTAINER_INFO_STATE] = raw["State"]["Status"]
         self._info[CONTAINER_INFO_IMAGE] = raw["Config"]["Image"]
-        self._info[CONTAINER_INFO_NETWORKMODE] = (
-            True if raw["HostConfig"]["NetworkMode"] == "host" else False
+        self._info[CONTAINER_INFO_NETWORK_AVAILABLE] = (
+            False if raw["HostConfig"]["NetworkMode"] in ["host", "none"] else True
         )
 
         # We only do a calculation of startedAt, because we use it twice
@@ -657,7 +695,7 @@ class DockerContainerAPI:
 
         # Gather network information, doesn't work in network=host mode
         network_stats = {}
-        if not self._info[CONTAINER_INFO_NETWORKMODE]:
+        if self._info[CONTAINER_INFO_NETWORK_AVAILABLE]:
             try:
                 network_new = {}
                 network_stats["total_tx"] = 0
@@ -699,6 +737,15 @@ class DockerContainerAPI:
                     _LOGGER.error("%s: Raw 'networks' %s", raw["networks"], self._name)
                 else:
                     _LOGGER.error("%s: No 'networks' found in raw packet", self._name)
+
+                # Check how many times we got a network error, after 5 times it won't happen
+                # anymore, thus we disable error reporting
+                self._network_error += 1
+                if self._network_error > 5:
+                    _LOGGER.error(
+                        "%s: Too many errors on 'networks' stats, disabling monitoring"
+                    )
+                    self._info[CONTAINER_INFO_NETWORK_AVAILABLE] = False
 
         # All information collected
         stats["cpu"] = cpu_stats
